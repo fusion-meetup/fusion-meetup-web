@@ -1,29 +1,15 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 
-import { Socials } from "../components/socials";
+import { Layout } from "../components/organisms/Layout";
 
 const Home: NextPage = () => (
-  <div>
-    <Head>
-      <title>Fusion Meetup - Quarterly tech meetup help in Birmingham city centre</title>
-      <meta
-        name="description"
-        content="Quarterly tech meetup help in Birmingham city centre"
-      />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
+  <Layout>
     <main>
-      <h1>Welcome to Fusion Meetup</h1>
+      <h1 className="text-3xl font-bold pb-2">Welcome to Fusion Meetup</h1>
 
       <p>Bla bla bla</p>
     </main>
-
-    <footer>
-      <Socials />
-    </footer>
-  </div>
+  </Layout>
 );
 
 export default Home;

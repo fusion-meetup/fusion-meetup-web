@@ -1,7 +1,9 @@
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import "../styles/globals.css";
 
-export default MyApp
+const FusionMeetupWeb = ({ Component, pageProps }: AppProps) => (
+  <Component {...pageProps} />
+);
+
+export default FusionMeetupWeb;
