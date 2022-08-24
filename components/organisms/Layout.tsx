@@ -1,14 +1,14 @@
 import Head from "next/head";
-import { FC, ReactNode } from "react";
 
+import { Header } from "../molecules/Header";
 import { Footer } from "./Footer";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
   title?: string;
 }
 
-export const Layout: FC<LayoutProps> = ({ children, title }) => {
+export const Layout: React.FC<LayoutProps> = ({ children, title }) => {
   return (
     <>
       <Head>
@@ -24,7 +24,9 @@ export const Layout: FC<LayoutProps> = ({ children, title }) => {
       </Head>
 
       <div className="bg-slate-100">
-        <div className="container mx-auto p-4">{children}</div>
+        <Header />
+
+        {children}
 
         <Footer />
       </div>
