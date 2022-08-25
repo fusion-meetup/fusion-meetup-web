@@ -42,7 +42,7 @@ export const HeroColourBar: React.FC<HeroColourBar> = ({
       style={{ ...position, animationDelay: `${animationOffset * 600}ms` }}
     >
       <div
-        className="w-[52vw] h-[12vw] blur-lg opacity-60"
+        className="w-[52vw] h-[12vw] blur opacity-20"
         style={{
           background: color,
           transform: `rotate(${angle}deg)`,

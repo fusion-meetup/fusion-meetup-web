@@ -31,6 +31,8 @@ export const FusionLogoParallax = () => {
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
     >
+      {/* TODO: Pull these out to a component to avoid repetition */}
+      {/* TODO: Animate-in (staggered) components of the logo (fade and translate?) */}
       <animated.div
         className="absolute top-0 w-full h-full"
         style={{ transform: props.xy.to(translate2) }}

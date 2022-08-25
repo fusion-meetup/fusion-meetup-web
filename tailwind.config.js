@@ -55,12 +55,12 @@ module.exports = {
       },
       keyframes: {
         chillin: {
-          "0%, 100%": { transform: "translateY(0) rotate(0) scale(1)" },
-          "50%": { transform: "translateY(-12vw) rotate(-10deg) scale(1.2)" },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8vw)" },
         },
       },
       animation: {
-        chillin: "chillin 8s cubic-bezier(.5,0,.5,1) infinite",
+        chillin: "chillin 10s cubic-bezier(.5,0,.5,1) infinite",
       },
     },
   },
