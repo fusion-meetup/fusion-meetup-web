@@ -1,4 +1,4 @@
-import { FusionLogo } from "../atoms/FusionLogo";
+import { FusionLogoParallax } from "../molecules/FusionLogoParallax";
 
 const colourBars = [
   { color: "#FF40B4", angle: -56, position: { top: "55%", left: "-5%" } },
@@ -17,7 +17,7 @@ export const Hero = () => {
       <div className="absolute w-full bottom-[-1px] h-[2px] bg-slate-100"></div>
 
       <div className="absolute left-1/2 translate-x-[-52.5%] w-96 md:w-[46vw] xl:w-[36rem] mx-auto p-16 pt-20 z-15">
-        <FusionLogo />
+        <FusionLogoParallax />
       </div>
     </div>
   );
