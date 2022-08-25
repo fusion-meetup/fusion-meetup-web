@@ -4,7 +4,7 @@ import { Socials } from "../molecules/Socials";
 
 export const Footer: FC = () => {
   return (
-    <footer className="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+    <footer className="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mt-auto">
       <div className="container mx-auto p-4 grid grid-cols-2 gap-4">
         <div>© Fusion</div>
 

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Head from "next/head";
 
 import { Header } from "../molecules/Header";
@@ -6,9 +7,10 @@ import { Footer } from "./Footer";
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
+  withHero?: boolean;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+export const Layout: React.FC<LayoutProps> = ({ children, title, withHero }) => {
   return (
     <>
       <Head>
@@ -24,10 +26,10 @@ export const Layout: React.FC<LayoutProps> = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="bg-slate-100 dark:bg-slate-900 dark:text-white">
+      <div className="bg-slate-100 dark:bg-slate-900 dark:text-white min-h-screen flex flex-col">
         <Header />
 
-        {children}
+        <main className={clsx({ "pt-12": !withHero })}>{children}</main>
 
         <Footer />
       </div>
