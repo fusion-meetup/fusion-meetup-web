@@ -3,6 +3,7 @@ import { useSpring, animated, to } from "react-spring";
 import { FusionLogo } from "../atoms/FusionLogo";
 
 // TODO: Fix mouse scope on either side
+// TODO: Make this use acceletometer instead of mouse position on mobile
 
 export const FusionLogoParallax = () => {
   const calc = (x: number, y: number) =>
