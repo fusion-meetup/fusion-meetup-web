@@ -14,7 +14,7 @@ const Home: NextPage = () => (
 
         <p className="pb-2">real good tech meetup</p>
 
-        <div className="flex flex-row gap-4 pb-12">
+        <div className="flex flex-row gap-4 flex-wrap pb-12 py-2">
           <Button>Blue button</Button>
           <Button color="pink">Pink button</Button>
           <Button color="yellow">Yellow button</Button>
