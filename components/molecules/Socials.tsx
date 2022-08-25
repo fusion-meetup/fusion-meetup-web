@@ -27,14 +27,14 @@ const socialLinks: SocialLinkItem[] = [
 
 export const Socials: FC = () => {
   return (
-    <div className="flex flex-row gap-4 text-xl">
+    <div className="flex flex-row gap-6 text-2xl">
       {socialLinks.map(({ href, icon }) => (
         <a
           key={href}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-800 hover:text-slate-600"
+          className="transition-opacity opacity-75 hover:opacity-100"
         >
           {icon}
         </a>

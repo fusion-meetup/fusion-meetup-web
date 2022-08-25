@@ -1,26 +1,30 @@
-import React from "react";
+import { ColorScheme } from "../../hooks/usePrefersColorScheme";
 
 export type LogoComponent = keyof typeof fusionLogoPaths;
 
 interface FusionLogoProps {
-  className?: string;
   logoComponents?: LogoComponent[];
+  colorScheme?: ColorScheme;
+  className?: string;
 }
 
 export const FusionLogo: React.FC<FusionLogoProps> = ({
   logoComponents,
+  colorScheme,
   ...props
 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1260" {...props}>
     {logoComponents
-      ? logoComponents.map((path) => fusionLogoPaths[path])
-      : Object.values(fusionLogoPaths)}
+      ? logoComponents.map((path) =>
+          fusionLogoPaths[path](colorScheme === "dark")
+        )
+      : Object.values(fusionLogoPaths).map((x) => x(colorScheme === "dark"))}
   </svg>
 );
 
 // SVG paths
 
-const barBlueBehind = (
+const barBlueBehind = (_: boolean) => (
   <path
     key="barBlueBehind"
     fill="#54c8e8"
@@ -28,18 +32,18 @@ const barBlueBehind = (
   />
 );
 
-const rectangleFrame = (
+const rectangleFrame = (dark: boolean) => (
   <path
     key="rectangleFrame"
     fill="none"
-    stroke="#000"
+    stroke={dark ? "#fff" : "#000"}
     strokeWidth={37}
     d="M723.026 424.998h1218.01v419.88H723.026z"
     transform="matrix(1 0 0 .99784 -573.095 -83.989)"
   />
 );
 
-const barPink = (
+const barPink = (_: boolean) => (
   <path
     key="barPink"
     fill="#ff40b4"
@@ -47,7 +51,7 @@ const barPink = (
   />
 );
 
-const barBlueInfront = (
+const barBlueInfront = (_: boolean) => (
   <path
     key="barBlueInfront"
     fill="#54c8e8"
@@ -55,7 +59,7 @@ const barBlueInfront = (
   />
 );
 
-const barYellow = (
+const barYellow = (_: boolean) => (
   <path
     key="barYellow"
     fill="#ffcd02"
@@ -63,10 +67,11 @@ const barYellow = (
   />
 );
 
-const fusionText = (
+const fusionText = (dark: boolean) => (
   <path
     key="fusionText"
     d="M603.66 481.481v203.551h-53.152v-28.347h-1.181c-13.911 22.573-34.647 33.859-62.207 33.859-28.085 0-47.902-7.743-59.451-23.229-9.974-12.862-14.961-33.072-14.961-60.633V481.481h55.907v114.965c0 33.335 11.943 50.002 35.828 50.002 15.224 0 26.248-4.593 33.073-13.78 6.824-9.187 10.236-24.017 10.236-44.49V481.481h55.908Zm9.056 137.407h53.151c.263 11.549 4.725 20.342 13.387 26.379 7.612 5.249 17.454 7.874 29.528 7.874 9.712 0 17.849-1.837 24.411-5.512 8.137-4.725 12.205-11.549 12.205-20.473 0-7.875-5.512-14.174-16.536-18.899-7.874-3.412-23.492-7.611-46.852-12.599-19.949-4.199-34.779-9.711-44.49-16.536-13.387-8.924-20.08-21.523-20.08-37.796 0-43.572 29.529-65.357 88.586-65.357 56.171 0 86.093 21.654 89.768 64.963h-53.152c-1.312-18.374-14.043-27.56-38.19-27.56-20.736 0-31.104 6.299-31.104 18.898 0 8.662 6.562 15.355 19.686 20.08 1.575.525 16.142 3.937 43.702 10.236 20.211 4.725 35.041 10.499 44.49 17.324 13.387 9.449 20.08 22.704 20.08 39.765 0 24.673-9.712 43.178-29.135 55.514-16.011 10.237-37.272 15.355-63.782 15.355-26.511 0-48.034-5.249-64.57-15.749-19.686-12.336-30.054-30.972-31.103-55.907Zm269.302-35.435c0-32.547 9.58-58.598 28.741-78.153 19.161-19.554 44.621-29.331 76.381-29.331 32.02 0 57.61 9.777 76.77 29.331 19.17 19.555 28.75 45.606 28.75 78.153 0 32.285-9.58 58.205-28.75 77.759-19.16 19.555-44.75 29.332-76.77 29.332-31.76 0-57.22-9.777-76.381-29.332-19.161-19.554-28.741-45.474-28.741-77.759ZM219.613 685.032V403.918h197.646v51.971H281.427v64.963h117.721v48.034H281.427v116.146h-61.814Zm592.323 0V481.481h55.908v203.551h-55.908Zm293.324 0V481.481h53.15v28.347h1.18c13.91-22.573 34.65-33.859 62.21-33.859 28.08 0 47.9 7.611 59.45 22.835 9.97 13.124 14.96 33.466 14.96 61.026v125.202h-55.91V570.067c0-33.335-11.94-50.002-35.83-50.002-15.22 0-26.25 4.593-33.07 13.78s-10.24 24.017-10.24 44.49v106.697h-55.9ZM937.925 583.453c0 18.636 3.544 33.466 10.631 44.49 8.399 13.649 21.261 20.473 38.584 20.473 33.07 0 49.61-21.654 49.61-64.963 0-43.571-16.54-65.357-49.61-65.357-32.81 0-49.215 21.786-49.215 65.357Zm-70.081-179.535v46.065h-55.908v-46.065h55.908Z"
+    fill={dark ? "#fff" : "#000"}
   />
 );
 

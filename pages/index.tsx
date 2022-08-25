@@ -10,11 +10,15 @@ const Home: NextPage = () => (
       <Hero />
 
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold py-2">Welcome to Fusion Meetup</h1>
+        <h1 className="text-3xl font-bold py-4">Welcome to Fusion Meetup</h1>
 
         <p className="pb-2">real good tech meetup</p>
 
-        <Button>Get tickets</Button>
+        <div className="flex flex-row gap-4 pb-12">
+          <Button>Blue button</Button>
+          <Button color="pink">Pink button</Button>
+          <Button color="yellow">Yellow button</Button>
+        </div>
       </div>
     </main>
   </Layout>

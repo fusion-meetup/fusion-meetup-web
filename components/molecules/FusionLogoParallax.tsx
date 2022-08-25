@@ -2,17 +2,22 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
+import usePrefersColorScheme from "../../hooks/usePrefersColorScheme";
+import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";
 import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
 // TODO: Fix mouse scope on either side
 // TODO: Make this use acceletometer instead of mouse position on mobile
 
 export const FusionLogoParallax = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const prefersColorScheme = usePrefersColorScheme();
+
   const [rendered, setRendered] = useState(false);
 
-  const [props, set] = useSpring(() => ({
+  const [springProps, setMouse] = useSpring(() => ({
     xy: [0, 0],
-    config: { mass: 3, tension: 400, friction: 40 },
+    config: { mass: 2, tension: 400, friction: 90 },
   }));
 
   useEffect(() => {
@@ -29,17 +34,25 @@ export const FusionLogoParallax = () => {
     classNameRendered?: string
   ) => (
     <animated.div
-      className={clsx("absolute top-0 w-full h-full transition-all")}
-      style={{ transform: props.xy.to(translateFn) }}
+      className={clsx("absolute top-0 w-full h-full")}
+      style={{
+        transform: prefersReducedMotion
+          ? undefined
+          : springProps.xy.to(translateFn),
+      }}
     >
       <div
         className={clsx(
+          "transition-all",
           className,
           !rendered && classNameInit,
           rendered && classNameRendered
         )}
       >
-        <FusionLogo logoComponents={logoComponents} />
+        <FusionLogo
+          logoComponents={logoComponents}
+          colorScheme={prefersColorScheme}
+        />
       </div>
     </animated.div>
   );
@@ -47,8 +60,10 @@ export const FusionLogoParallax = () => {
   return (
     <div
       className="relative"
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calcXy(x, y) })}
-      onMouseLeave={() => set({ xy: [0, 0] })}
+      onMouseMove={({ clientX: x, clientY: y }) =>
+        setMouse({ xy: calcXy(x, y) })
+      }
+      onMouseLeave={() => setMouse({ xy: [0, 0] })}
     >
       {animatedLogoComponent(
         ["barBlueBehind"],
@@ -98,7 +113,7 @@ export const FusionLogoParallax = () => {
 
 const calcXy = (x: number, y: number) =>
   typeof window !== "undefined"
-    ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 100]
+    ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 180]
     : [x, y];
 
 const translateZ = (z: number) => (x: number, y: number) =>
