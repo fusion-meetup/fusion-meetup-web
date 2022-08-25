@@ -13,8 +13,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, title }) => {
     <>
       <Head>
         <title>
-          Fusion Meetup -{" "}
-          {title || "A quarterly tech meetup held in Birmingham city centre"}
+          {`Fusion Meetup - ${
+            title || "A quarterly tech meetup held in Birmingham city centre"
+          }`}
         </title>
         <meta
           name="description"
