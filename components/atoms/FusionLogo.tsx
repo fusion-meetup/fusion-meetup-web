@@ -1,17 +1,19 @@
 import React from "react";
 
+export type LogoComponent = keyof typeof fusionLogoPaths;
+
 interface FusionLogoProps {
   className?: string;
-  includePaths?: (keyof typeof fusionLogoPaths)[];
+  logoComponents?: LogoComponent[];
 }
 
 export const FusionLogo: React.FC<FusionLogoProps> = ({
-  includePaths,
+  logoComponents,
   ...props
 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1260" {...props}>
-    {includePaths
-      ? includePaths.map((path) => fusionLogoPaths[path])
+    {logoComponents
+      ? logoComponents.map((path) => fusionLogoPaths[path])
       : Object.values(fusionLogoPaths)}
   </svg>
 );

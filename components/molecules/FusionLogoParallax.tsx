@@ -1,72 +1,105 @@
-import { useSpring, animated, to } from "react-spring";
+import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { useSpring, animated } from "react-spring";
 
-import { FusionLogo } from "../atoms/FusionLogo";
+import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
 // TODO: Fix mouse scope on either side
 // TODO: Make this use acceletometer instead of mouse position on mobile
 
 export const FusionLogoParallax = () => {
-  const calc = (x: number, y: number) =>
-    typeof window !== "undefined"
-      ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 100]
-      : [x, y];
-
-  const translate1 = (x: number, y: number) =>
-    `translate3d(${x / 30}px,${y / 30}px,0)`;
-  const translate2 = (x: number, y: number) =>
-    `translate3d(${x / 24}px,${y / 24}px,0)`;
-  const translate3 = (x: number, y: number) =>
-    `translate3d(${x / 20}px,${y / 20}px,0)`;
-  const translate4 = (x: number, y: number) =>
-    `translate3d(${x / 14}px,${y / 14}px,0)`;
+  const [rendered, setRendered] = useState(false);
 
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 3, tension: 400, friction: 40 },
   }));
 
+  useEffect(() => {
+    setTimeout(() => {
+      setRendered(true);
+    }, 0);
+  }, []);
+
+  const animatedLogoComponent = (
+    logoComponents: LogoComponent[],
+    translateFn: (x: number, y: number) => string,
+    className?: string,
+    classNameInit?: string,
+    classNameRendered?: string
+  ) => (
+    <animated.div
+      className={clsx("absolute top-0 w-full h-full transition-all")}
+      style={{ transform: props.xy.to(translateFn) }}
+    >
+      <div
+        className={clsx(
+          className,
+          !rendered && classNameInit,
+          rendered && classNameRendered
+        )}
+      >
+        <FusionLogo logoComponents={logoComponents} />
+      </div>
+    </animated.div>
+  );
+
   return (
     <div
       className="relative"
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calcXy(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
     >
-      {/* TODO: Pull these out to a component to avoid repetition */}
-      {/* TODO: Animate-in (staggered) components of the logo (fade and translate?) */}
-      <animated.div
-        className="absolute top-0 w-full h-full"
-        style={{ transform: props.xy.to(translate2) }}
-      >
-        <FusionLogo includePaths={["barBlueBehind"]} />
-      </animated.div>
+      {animatedLogoComponent(
+        ["barBlueBehind"],
+        translateZ(24),
+        "duration-1000 delay-100",
+        "-translate-y-12 -translate-x-4",
+        "translate-y-0 translate-x-0"
+      )}
 
-      <animated.div
-        className="absolute top-0 w-full h-full"
-        style={{ transform: props.xy.to(translate1) }}
-      >
-        <FusionLogo includePaths={["rectangleFrame"]} />
-      </animated.div>
+      {animatedLogoComponent(["rectangleFrame"], translateZ(30))}
 
-      <animated.div
-        className="absolute top-0 w-full h-full"
-        style={{ transform: props.xy.to(translate2) }}
-      >
-        <FusionLogo includePaths={["barBlueInfront"]} />
-      </animated.div>
+      {/* TODO: Extend path - sometimes(?) doesn't cover rectangle frame while animating in */}
+      {animatedLogoComponent(
+        ["barBlueInfront"],
+        translateZ(24),
+        "duration-1000 delay-100",
+        "-translate-y-12 -translate-x-4",
+        "translate-y-0 translate-x-0"
+      )}
 
-      <animated.div
-        className="absolute top-0 w-full h-full"
-        style={{ transform: props.xy.to(translate3) }}
-      >
-        <FusionLogo includePaths={["barPink", "barYellow"]} />
-      </animated.div>
+      {animatedLogoComponent(
+        ["barPink"],
+        translateZ(20),
+        "duration-1000",
+        "translate-y-12 -translate-x-8",
+        "translate-y-0 translate-x-0"
+      )}
 
-      <animated.div
-        className="absolute top-0 w-full h-full"
-        style={{ transform: props.xy.to(translate4) }}
-      >
-        <FusionLogo includePaths={["fusionText"]} />
-      </animated.div>
+      {animatedLogoComponent(
+        ["barYellow"],
+        translateZ(20),
+        "duration-1000 delay-200",
+        "translate-y-12 -translate-x-4",
+        "translate-y-0 translate-x-0"
+      )}
+
+      {animatedLogoComponent(
+        ["fusionText"],
+        translateZ(14),
+        "duration-1000 delay-500 origin-[50%_45%]",
+        "opacity-0",
+        "opacity-100"
+      )}
     </div>
   );
 };
+
+const calcXy = (x: number, y: number) =>
+  typeof window !== "undefined"
+    ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 100]
+    : [x, y];
+
+const translateZ = (z: number) => (x: number, y: number) =>
+  `translate3d(${x / z}px, ${y / z}px, 0)`;
