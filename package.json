@@ -1,6 +1,8 @@
 {
   "name": "fusion-meetup-web",
+  "description": "Fusion Technology Meetup Website",
   "version": "0.1.0",
+  "author": "James Vickery <dev@jmsv.me>",
   "private": true,
   "scripts": {
     "dev": "next dev",

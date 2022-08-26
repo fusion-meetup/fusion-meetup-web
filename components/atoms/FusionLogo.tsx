@@ -1,4 +1,4 @@
-import { ColorScheme } from "../../hooks/usePrefersColorScheme";
+import { ColorScheme } from "../../lib/hooks/usePrefersColorScheme";
 
 export type LogoComponent = keyof typeof fusionLogoPaths;
 

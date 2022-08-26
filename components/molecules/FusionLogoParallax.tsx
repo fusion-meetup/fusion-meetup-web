@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-import usePrefersColorScheme from "../../hooks/usePrefersColorScheme";
-import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";
+import usePrefersColorScheme from "../../lib/hooks/usePrefersColorScheme";
+import usePrefersReducedMotion from "../../lib/hooks/usePrefersReducedMotion";
 import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
 // TODO: Fix mouse scope on either side
