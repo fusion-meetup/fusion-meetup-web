@@ -1,14 +1,12 @@
-import { FC } from "react";
 import Image from "next/image";
 
+import { Socials } from "../molecules/Socials";
 import fusionHeart from "../../public/fusion-heart.png";
 
-import { Socials } from "../molecules/Socials";
-
-export const Footer: FC = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mt-auto">
-      <div className="container mx-auto p-4 grid grid-cols-2 gap-4">
+      <div className="container mx-auto p-4 py-6 flex flex-row flex-wrap gap-x-4 gap-y-6">
         <div className="flex flex-row flex-wrap items-center gap-1">
           Made with
           <Image
@@ -21,7 +19,7 @@ export const Footer: FC = () => {
           by Fusion in Birmingham
         </div>
 
-        <div className="flex flex-row items-center justify-end">
+        <div className="ml-auto flex flex-row items-center justify-end">
           <Socials />
         </div>
       </div>
