@@ -1,8 +1,13 @@
 name: Sanity Studio Deploy
 on:
   push:
+    branches:
+      - main
     paths:
       - sanity-studio/**
+defaults:
+  run:
+    working-directory: sanity-studio
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,4 +21,4 @@ jobs:
           yarn
       - name: Deploy Sanity
         run: |
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" yarn sanity deploy
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" yarn deploy
