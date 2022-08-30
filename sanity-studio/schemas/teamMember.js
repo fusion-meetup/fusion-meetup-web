@@ -5,10 +5,7 @@ export default {
   preview: {
     select: {
       title: "name",
-    },
-    prepare(selection) {
-      const { title } = selection;
-      return { title };
+      media: "image",
     },
   },
   fields: [
