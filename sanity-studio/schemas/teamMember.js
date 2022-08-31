@@ -1,10 +1,11 @@
 export default {
   name: "teamMember",
-  type: "object",
+  type: "document",
   title: "Team Member",
   preview: {
     select: {
       title: "name",
+      subtitle: "twitter",
       media: "image",
     },
   },

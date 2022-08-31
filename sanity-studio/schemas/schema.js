@@ -7,17 +7,9 @@ import content from "./content";
 import blogCategory from "./blogCategory";
 import blogPost from "./blogPost";
 
-import teamMembers from "./teamMembers";
 import teamMember from "./teamMember";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([
-    img,
-    content,
-    blogCategory,
-    blogPost,
-    teamMembers,
-    teamMember,
-  ]),
+  types: schemaTypes.concat([img, content, blogCategory, blogPost, teamMember]),
 });
