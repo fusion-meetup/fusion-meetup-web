@@ -15,12 +15,14 @@ interface SanityContentProps {
 
 export const SanityContent: React.FC<SanityContentProps> = ({ value }) => (
   <div className="flex flex-col gap-4">
-    {value.map((item) => {
+    {value.map((item, i) => {
       if (item._type === "block") {
         return (
           <PortableText
+            key={`${item._type}-${i}`}
             value={item}
             components={{
+              // TODO: Style blockquote
               block: {
                 h1: ({ children }) => <Heading level={2}>{children}</Heading>,
                 h2: ({ children }) => <Heading level={3}>{children}</Heading>,
@@ -34,8 +36,15 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => (
       } else {
         const image = sanityImageUrlBuilder.image(item).url() as string;
 
-        // eslint-disable-next-line @next/next/no-img-element
-        return <img src={image} alt={item.alt || "Image"} loading="lazy" />;
+        return (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={`${item._type}-${i}`}
+            src={image}
+            alt={item.alt || "Image"}
+            loading="lazy"
+          />
+        );
       }
     })}
   </div>
