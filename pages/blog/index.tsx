@@ -23,10 +23,12 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogPosts }) => (
           <a
             key={post.key}
             href={`/blog/post/${post.slug}`}
-            className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6"
+            className="group bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-md p-6 transition-all border-2 border-transparent hover:border-pink-600 dark:hover:border-pink-400"
           >
             <div className="flex flex-col gap-2">
-              <h2 className="text-2xl font-bold">{post.title}</h2>
+              <h2 className="text-2xl font-bold transition-all group-hover:text-pink-600 dark:group-hover:text-pink-400">
+                {post.title}
+              </h2>
               <p>{dayjs(post.publishedAt).format("Do MMMM, YYYY")}</p>
             </div>
           </a>

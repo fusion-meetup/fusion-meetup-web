@@ -7,6 +7,7 @@ export const cms = sanityClient({
   projectId: "6io4al7p",
   dataset: "production",
   useCdn: true,
+  apiVersion: "2022-09-01",
 });
 
 export const sanityImageUrlBuilder = imageUrlBuilder(cms);

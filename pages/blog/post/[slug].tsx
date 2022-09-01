@@ -16,7 +16,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
 
   return (
     <Layout>
-      <div className="container mx-auto p-4">
+      <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4">
         <div className="py-6">
           <Heading level={1}>{blogPost.title}</Heading>
         </div>
@@ -33,7 +33,11 @@ export const getStaticProps: GetStaticProps<BlogPostPageProps> = async (
   context
 ) => {
   const sanityBlogPost: SanityBlogPost = await cms.fetch(
-    `*[_type == "blogPost" && slug.current == $slug][0]{ ..., author->, 'slug': slug.current }`,
+    `*[_type == "blogPost" && slug.current == $slug][0]{
+      ...,
+      author->,
+      'slug': slug.current,
+    }`,
     { slug: context.params?.slug }
   );
 

@@ -10,7 +10,7 @@ import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 // TODO: Make this use accelerometer instead of mouse position on mobile
 // TODO: Handle JavaScript being disabled (fallback to static logo)
 
-export const FusionLogoParallax = () => {
+const FusionLogoParallax = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const prefersColorScheme = usePrefersColorScheme();
 
@@ -74,7 +74,7 @@ export const FusionLogoParallax = () => {
         "translate-y-0 translate-x-0"
       )}
 
-      {animatedLogoComponent(["rectangleFrame"], translateZ(30))}
+      {animatedLogoComponent(["rectangleFrame"], translateZ(80))}
 
       {/* TODO: Extend path - sometimes(?) doesn't cover rectangle frame while animating in */}
       {animatedLogoComponent(
@@ -114,8 +114,10 @@ export const FusionLogoParallax = () => {
 
 const calcXy = (x: number, y: number) =>
   typeof window !== "undefined"
-    ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 180]
+    ? [x - window.innerWidth / 2, y - window.innerHeight / 2 + 140]
     : [x, y];
 
 const translateZ = (z: number) => (x: number, y: number) =>
   `translate3d(${x / z}px, ${y / z}px, 0)`;
+
+export default FusionLogoParallax;
