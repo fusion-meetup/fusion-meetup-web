@@ -14,7 +14,7 @@ interface SanityContentProps {
 }
 
 export const SanityContent: React.FC<SanityContentProps> = ({ value }) => (
-  <>
+  <div className="flex flex-col gap-4">
     {value.map((item) => {
       if (item._type === "block") {
         return (
@@ -38,5 +38,5 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => (
         return <img src={image} alt={item.alt || "Image"} loading="lazy" />;
       }
     })}
-  </>
+  </div>
 );

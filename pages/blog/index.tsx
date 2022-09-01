@@ -1,12 +1,11 @@
 import type { GetStaticProps, NextPage } from "next";
 import dayjs from "dayjs";
 
-import { BlogPost, SanityBlogPost } from "../types/cms/Blog";
-import { cms } from "../lib/cms";
-import { mapSanityBlogPost } from "../lib/cms/mappers";
-import { Layout } from "../components/organisms/Layout";
-import { Heading } from "../components/atoms/Heading";
-import { SanityContent } from "../components/atoms/SanityContent";
+import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
+import { cms } from "../../lib/cms";
+import { mapSanityBlogPost } from "../../lib/cms/mappers";
+import { Layout } from "../../components/organisms/Layout";
+import { Heading } from "../../components/atoms/Heading";
 
 interface BlogPageProps {
   blogPosts: BlogPost[];
@@ -29,7 +28,6 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogPosts }) => (
             <div className="flex flex-col gap-2">
               <h2 className="text-2xl font-bold">{post.title}</h2>
               <p>{dayjs(post.publishedAt).format("Do MMMM, YYYY")}</p>
-              {/* <SanityContent value={post.body} /> */}
             </div>
           </a>
         ))}
@@ -39,8 +37,9 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogPosts }) => (
 );
 
 export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+  // TODO: Sort newest first
   const blogPostsSanity: SanityBlogPost[] = await cms.fetch(
-    `*[_type == "blogPost"]{ ..., author->, 'slug': slug.current}`
+    `*[_type == "blogPost"]{ ..., author->, 'slug': slug.current }`
   );
 
   const blogPosts = blogPostsSanity.map(mapSanityBlogPost);
