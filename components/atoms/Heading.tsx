@@ -12,14 +12,14 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
 }) => {
   const className = clsx(
-    "font-bold",
+    "font-bold break-words",
     {
-      "text-5xl": level === 1,
-      "text-4xl": level === 2,
-      "text-3xl": level === 3,
-      "text-2xl": level === 4,
-      "text-xl": level === 5,
-      "text-lg": level === 5,
+      "text-4xl md:text-5xl": level === 1,
+      "text-3xl md:text-4xl": level === 2,
+      "text-2xl md:text-3xl": level === 3,
+      "text-xl md:text-2xl": level === 4,
+      "text-lg md:text-xl": level === 5,
+      "text-md md:text-lg": level === 5,
     },
     classNameProp
   );
