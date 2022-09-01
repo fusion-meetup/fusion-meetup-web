@@ -16,15 +16,18 @@ const mapSanityImg = (img: SanityImg | undefined): SanityImgMapped | null => {
   };
 };
 
-export const mapSanityTeamMember = (sanityTeamMember: SanityTeamMember): TeamMember => ({
-  key: sanityTeamMember._key,
-  name: sanityTeamMember.name,
-  twitter: sanityTeamMember.twitter || null,
-  image: mapSanityImg(sanityTeamMember.image),
+export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
+  key: x._id,
+  name: x.name,
+  twitter: x.twitter || null,
+  image: mapSanityImg(x.image),
 });
 
-export const mapSanityBlogPost = (sanityTeamMember: SanityBlogPost): BlogPost => ({
-  key: sanityTeamMember._id,
-  title: sanityTeamMember.title,
-  publishedAt: sanityTeamMember.publishedAt,
+export const mapSanityBlogPost = (x: SanityBlogPost): BlogPost => ({
+  key: x._id,
+  slug: x.slug,
+  title: x.title,
+  publishedAt: x.publishedAt,
+  author: x.author ? mapSanityTeamMember(x.author) : null,
+  body: x.body || [],
 });

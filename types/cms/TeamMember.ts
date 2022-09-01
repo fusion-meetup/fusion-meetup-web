@@ -1,15 +1,6 @@
-import {
-  SanityDocumentBase,
-  SanityImg,
-  SanityImgMapped,
-  SanityObjectBase,
-} from "./Sanity";
+import { SanityDocumentBase, SanityImg, SanityImgMapped } from "./Sanity";
 
-export interface SanityTeamMembers extends SanityDocumentBase {
-  teamMembers: SanityTeamMember[];
-}
-
-export interface SanityTeamMember extends SanityObjectBase {
+export interface SanityTeamMember extends SanityDocumentBase {
   name: string;
   twitter?: string;
   image?: SanityImg;
