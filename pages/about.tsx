@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 
-import { SanityTeamMembers, TeamMember } from "../types/cms/TeamMember";
+import { SanityTeamMember, TeamMember } from "../types/cms/TeamMember";
 import { cms } from "../lib/cms";
 import { mapSanityTeamMember } from "../lib/cms/mappers";
 import { Layout } from "../components/organisms/Layout";
@@ -22,11 +22,11 @@ const AboutPage: NextPage<AboutPageProps> = ({ team }) => (
 );
 
 export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
-  const teamMembersDocument: SanityTeamMembers = await cms.fetch(
-    `*[_type == "teamMembers"][0]`
+  const sanityTeamMembers: SanityTeamMember[] = await cms.fetch(
+    `*[_type == "teamMember"]`
   );
 
-  const team = teamMembersDocument.teamMembers.map(mapSanityTeamMember);
+  const team = sanityTeamMembers.map(mapSanityTeamMember);
 
   return {
     props: {
