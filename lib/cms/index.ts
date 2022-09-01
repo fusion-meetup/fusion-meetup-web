@@ -9,7 +9,12 @@ export const cms = sanityClient({
   useCdn: true,
 });
 
-const builder = imageUrlBuilder(cms);
+export const sanityImageUrlBuilder = imageUrlBuilder(cms);
 
-export const getSanityImgSrc = (source: SanityImg) =>
-  builder.image(source).width(source.width).height(source.height).url();
+export const getSanityImgSrc = (source: SanityImg) => {
+  return sanityImageUrlBuilder
+    .image(source)
+    .width(source.width)
+    .height(source.height)
+    .url();
+};
