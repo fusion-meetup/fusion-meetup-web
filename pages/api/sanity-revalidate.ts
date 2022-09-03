@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 type Data = {
   message: string;
   reqBody?: any;
-  headers?: any
+  query?: any
 };
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   if (!isValidRequest(req, secret)) {
-    return res.status(401).json({ message: "Invalid signature 1", headers: req.headers });
+    return res.status(401).json({ message: "Invalid signature 1", query: req.query, reqBody: req.body });
   }
 
   console.log("req.body :", req.body);
