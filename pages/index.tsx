@@ -14,14 +14,22 @@ const Home: NextPage = () => (
         Fusion Meetup
       </Heading>
 
-      <p className="pb-2">
-        A quarterly tech meetup held in Birmingham city centre
-      </p>
+      <p className="pb-2">A quarterly tech meetup held in Birmingham city centre</p>
 
-      <div className="flex flex-row gap-4 flex-wrap pb-12 py-2">
-        <Button>Blue button</Button>
-        <Button color="pink">Pink button</Button>
-        <Button color="yellow">Yellow button</Button>
+      <div className="py-16">
+        <Heading level={3} className="pb-4 text-center">
+          Temporary Links
+        </Heading>
+
+        <div className="flex flex-row gap-4 flex-wrap pb-12 py-2 justify-center">
+          <Button href="/blog">Blog</Button>
+          <Button href="/events" color="pink">
+            Events
+          </Button>
+          <Button href="/about" color="yellow">
+            About
+          </Button>
+        </div>
       </div>
     </div>
   </Layout>
