@@ -1,8 +1,9 @@
 import { cms } from ".";
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
+import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
 import { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 
-import { mapSanityBlogPost, mapSanityTeamMember } from "./mappers";
+import { mapSanityBlogPost, mapSanityFusionEvent, mapSanityTeamMember } from "./mappers";
 
 export const getTeamMembers = async (): Promise<TeamMember[]> => {
   const sanityTeamMembers: SanityTeamMember[] = await cms.fetch(
@@ -38,4 +39,28 @@ export const getBlogPostsSlugs = async (): Promise<string[]> => {
   return await cms.fetch(
     `*[_type == "blogPost" && defined(slug.current)][].slug.current`
   );
+};
+
+export const getFusionEvents = async (): Promise<FusionEvent[]> => {
+  const eventsSanity: SanityFusionEvent[] = await cms.fetch(
+    `*[_type == "event"]
+    { ..., 'slug': slug.current }
+    | order(date desc)`
+  );
+  return eventsSanity.map(mapSanityFusionEvent);
+};
+
+export const getFusionEventBySlug = async (
+  slug: string | undefined
+): Promise<FusionEvent> => {
+  const eventSanity: SanityFusionEvent = await cms.fetch(
+    `*[_type == "event" && slug.current == $slug][0]
+    { ..., 'slug': slug.current }`,
+    { slug }
+  );
+  return mapSanityFusionEvent(eventSanity);
+};
+
+export const getFusionEventsSlugs = async (): Promise<string[]> => {
+  return await cms.fetch(`*[_type == "event" && defined(slug.current)][].slug.current`);
 };

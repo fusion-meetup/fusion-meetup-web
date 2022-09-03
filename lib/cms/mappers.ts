@@ -1,6 +1,7 @@
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
 import type { SanityImg, SanityImgMapped } from "../../types/cms/Sanity";
 import type { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
+import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
 import { getSanityImgSrc } from ".";
 
 // TODO: Replace with next-sanity-image
@@ -31,3 +32,23 @@ export const mapSanityBlogPost = (x: SanityBlogPost): BlogPost => ({
   author: x.author ? mapSanityTeamMember(x.author) : null,
   body: x.body || [],
 });
+
+export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({
+  key: x._id,
+  eventType: x.eventType,
+  eventTypeDisplay: eventTypeDisplayMap[x.eventType] || "Unknown event type",
+  date: x.date,
+  slug: x.slug,
+  eventbriteLink: x.eventbriteLink || null,
+  meetupLink: x.meetupLink || null,
+  topContent: x.topContent || null,
+  talks: x.talks || [],
+  food: x.food || null,
+  sponsors: x.sponsors || [],
+  bottomContent: x.bottomContent || null,
+});
+
+const eventTypeDisplayMap: Record<string, string> = {
+  meetup: "Meetup",
+  conference: "Conference",
+};
