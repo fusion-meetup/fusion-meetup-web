@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   // TODO: Use @sanity/webhook functions to verify the request
   // Tried this but couldn't get it to work, so for now just comparing a secret header as-below
-  if (secret === webhookSecretHeader) {
+  if (secret !== webhookSecretHeader) {
     res.status(401).json({ message: "Invalid signature" });
     return;
   }
