@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   const reqBody = req.body;
-  const cmsType = reqBody.type;
+  const cmsType = reqBody._type;
 
   try {
     switch (cmsType) {
