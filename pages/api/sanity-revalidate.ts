@@ -12,7 +12,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(401).json({ message: "Must be a POST request" });
   }
 
-  if (!secret || !isValidRequest(req, secret)) {
+  if (!secret) {
+    return res.status(401).json({ message: "Missing SANITY_WEBHOOK_SECRET" });
+  }
+
+  if (!isValidRequest(req, secret)) {
     return res.status(401).json({ message: "Invalid signature" });
   }
 
