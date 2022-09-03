@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-import usePrefersColorScheme from "../../lib/hooks/usePrefersColorScheme";
 import usePrefersReducedMotion from "../../lib/hooks/usePrefersReducedMotion";
 import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
@@ -12,7 +11,6 @@ import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
 const FusionLogoParallax = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const prefersColorScheme = usePrefersColorScheme();
 
   const [rendered, setRendered] = useState(false);
 
@@ -35,11 +33,9 @@ const FusionLogoParallax = () => {
     classNameRendered?: string
   ) => (
     <animated.div
-      className={clsx("absolute top-0 w-full h-full")}
+      className="absolute top-0 w-full h-full"
       style={{
-        transform: prefersReducedMotion
-          ? undefined
-          : springProps.xy.to(translateFn),
+        transform: prefersReducedMotion ? undefined : springProps.xy.to(translateFn),
       }}
     >
       <div
@@ -50,10 +46,7 @@ const FusionLogoParallax = () => {
           rendered && classNameRendered
         )}
       >
-        <FusionLogo
-          logoComponents={logoComponents}
-          colorScheme={prefersColorScheme}
-        />
+        <FusionLogo logoComponents={logoComponents} />
       </div>
     </animated.div>
   );
@@ -61,9 +54,7 @@ const FusionLogoParallax = () => {
   return (
     <div
       className="relative"
-      onMouseMove={({ clientX: x, clientY: y }) =>
-        setMouse({ xy: calcXy(x, y) })
-      }
+      onMouseMove={({ clientX: x, clientY: y }) => setMouse({ xy: calcXy(x, y) })}
       onMouseLeave={() => setMouse({ xy: [0, 0] })}
     >
       {animatedLogoComponent(
