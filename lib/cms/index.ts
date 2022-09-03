@@ -6,7 +6,7 @@ import type { SanityImg } from "../../types/cms/Sanity";
 export const cms = sanityClient({
   projectId: "6io4al7p",
   dataset: "production",
-  useCdn: true,
+  useCdn: false,
   apiVersion: "2021-03-25",
 });
 
