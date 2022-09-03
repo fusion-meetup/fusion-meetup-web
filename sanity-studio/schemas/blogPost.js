@@ -11,6 +11,7 @@ export default {
     {
       name: "slug",
       title: "Slug",
+      description: "This will be used for the URL",
       type: "slug",
       options: {
         source: "title",
