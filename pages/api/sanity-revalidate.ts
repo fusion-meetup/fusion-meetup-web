@@ -1,5 +1,5 @@
-import { isValidRequest, assertValidRequest } from "@sanity/webhook";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 
 type Data = {
   message: string;
@@ -18,15 +18,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(401).json({ message: "Missing SANITY_WEBHOOK_SECRET" });
   }
 
-  if (!isValidRequest(req, secret)) {
+  const signature = req.headers[SIGNATURE_HEADER_NAME] as string | undefined;
+  const body = await readBody(req);
+
+  if (!signature) {
     return res
       .status(401)
-      .json({ message: "Invalid signature 1", headers: req.headers, reqBody: req.body });
+      .json({ message: `Missing Sanity signature header (${SIGNATURE_HEADER_NAME})` });
   }
 
-  console.log("req.body :", req.body);
+  if (!isValidSignature(body, signature, secret)) {
+    res.status(401).json({ message: "Invalid signature" });
+    return;
+  }
 
-  const reqBody = req.body;
+  const reqBody = JSON.parse(body);
   const cmsType = reqBody.type;
 
   try {
@@ -48,4 +54,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   } catch (err) {
     return res.status(500).send({ message: "Error revalidating", reqBody });
   }
+}
+
+async function readBody(readable: any) {
+  const chunks = [];
+  for await (const chunk of readable) {
+    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks).toString("utf8");
 }
