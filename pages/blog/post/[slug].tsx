@@ -1,11 +1,10 @@
 import type { GetStaticProps, NextPage } from "next";
 
-import { BlogPost, SanityBlogPost } from "../../../types/cms/Blog";
-import { cms } from "../../../lib/cms";
-import { mapSanityBlogPost } from "../../../lib/cms/mappers";
+import { BlogPost } from "../../../types/cms/Blog";
 import { Layout } from "../../../components/organisms/Layout";
 import { Heading } from "../../../components/atoms/Heading";
 import { SanityContent } from "../../../components/atoms/SanityContent";
+import { getBlogPostBySlug, getBlogPostsSlugs } from "../../../lib/cms/queries";
 
 interface BlogPostPageProps {
   blogPost?: BlogPost;
@@ -29,32 +28,21 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<BlogPostPageProps> = async (
-  context
-) => {
-  const sanityBlogPost: SanityBlogPost = await cms.fetch(
-    `*[_type == "blogPost" && slug.current == $slug][0]{
-      ...,
-      author->,
-      'slug': slug.current,
-    }`,
-    { slug: context.params?.slug }
-  );
+export const getStaticProps: GetStaticProps<BlogPostPageProps> = async (context) => {
+  const blogPost = await getBlogPostBySlug(context.params?.slug as string | undefined);
 
   return {
     props: {
-      blogPost: mapSanityBlogPost(sanityBlogPost),
+      blogPost,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const paths: string[] = await cms.fetch(
-    `*[_type == "blogPost" && defined(slug.current)][].slug.current`
-  );
+  const slugs = await getBlogPostsSlugs();
 
   return {
-    paths: paths.map((slug) => ({ params: { slug } })),
+    paths: slugs.map((slug) => ({ params: { slug } })),
     fallback: true,
   };
 };
