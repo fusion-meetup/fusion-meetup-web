@@ -23,7 +23,7 @@ const AboutPage: NextPage<AboutPageProps> = ({ team }) => (
 
 export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
   const sanityTeamMembers: SanityTeamMember[] = await cms.fetch(
-    `*[_type == "teamMember"]`
+    `*[_type == "teamMember"] | order(order asc)`
   );
 
   const team = sanityTeamMembers.map(mapSanityTeamMember);

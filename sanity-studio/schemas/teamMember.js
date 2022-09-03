@@ -58,5 +58,11 @@ export default {
       title: "Twitch URL",
       description: "(optional)",
     },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
   ],
 };
