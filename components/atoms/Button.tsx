@@ -8,7 +8,9 @@ interface ButtonProps {
   targetBlank?: boolean;
   className?: string;
   onClick?: () => void;
-  children: React.ReactNode;
+  typeSubmit?: boolean;
+  value?: string;
+  children?: React.ReactNode;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -18,12 +20,14 @@ export const Button: React.FC<ButtonProps> = ({
   targetBlank,
   className: classNameProp,
   onClick,
+  typeSubmit,
+  value,
   children,
 }) => {
   color = color === undefined || color === "default" ? "blue" : color;
 
   const className = clsx(
-    "box-content margin-0 leading-normal items-center block w-fit",
+    "box-content margin-0 leading-normal items-center block w-fit cursor-pointer",
     "flex flex-row justify-center gap-2",
     {
       "bg-blue-600 hover:bg-blue-700 outline-blue-600/50 text-white": color === "blue",
@@ -42,6 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
     className,
     onClick,
     children,
+    value,
   };
 
   if (href) {
@@ -55,6 +60,10 @@ export const Button: React.FC<ButtonProps> = ({
         <a {...commonProps} {...(targetBlank ? targetBlankProps : {})} />
       </Link>
     );
+  }
+
+  if (typeSubmit) {
+    return <input {...commonProps} type="submit" />;
   }
 
   return <button {...commonProps} />;
