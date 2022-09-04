@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { FC } from "react";
 
 import type { TeamMember } from "../../types/cms/TeamMember";
+import { Heading } from "../atoms/Heading";
 
 interface MeetTheTeamProps {
   team: TeamMember[];
@@ -10,7 +11,9 @@ interface MeetTheTeamProps {
 export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
   return (
     <div>
-      <h1 className="text-xl md:text-2xl font-bold py-2">Meet the team</h1>
+      <Heading level={3} className="py-4 pb-8">
+        Meet the team
+      </Heading>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 gap-y-10 py-4">
         {team.map((teamMember) => {
@@ -32,7 +35,7 @@ export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
                 )}
               </div>
 
-              <h2 className="font-bold text-white">{teamMember.name}</h2>
+              <h2 className="font-bold">{teamMember.name}</h2>
             </div>
           );
         })}
