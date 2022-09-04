@@ -17,7 +17,7 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
   if (!value) return null;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 sanity-content">
       {value.map((item, i) => {
         if (item._type === "block") {
           return (

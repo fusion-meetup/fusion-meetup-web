@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap");
+
+@layer base {
+  .sanity-content a {
+    @apply underline underline-offset-4 text-blue-700 dark:text-blue-400;
+  }
+}
