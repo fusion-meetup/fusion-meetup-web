@@ -38,6 +38,17 @@ export default {
       },
     },
     {
+      name: "location",
+      title: "Location",
+      type: "location",
+    },
+    {
+      name: "food",
+      title: "Food",
+      description: "Where the food is from",
+      type: "string",
+    },
+    {
       name: "eventbriteLink",
       title: "Eventbrite Link",
       type: "url",
@@ -57,11 +68,6 @@ export default {
       title: "Talks",
       type: "array",
       of: [{ type: "talk" }],
-    },
-    {
-      name: "food",
-      title: "Food",
-      type: "content",
     },
     {
       name: "sponsors",

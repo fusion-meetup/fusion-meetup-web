@@ -13,6 +13,7 @@ import event from "./event";
 import talk from "./talk";
 import speaker from "./speaker";
 import sponsor from "./sponsor";
+import location from "./location";
 
 export default createSchema({
   name: "default",
@@ -26,5 +27,6 @@ export default createSchema({
     talk,
     speaker,
     sponsor,
+    location,
   ]),
 });

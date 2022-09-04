@@ -15,7 +15,12 @@ export default {
     },
     {
       name: "logo",
-      title: "Logo",
+      title: "Logo for Light Background",
+      type: "image",
+    },
+    {
+      name: "logoDark",
+      title: "Logo for Dark Background",
       type: "image",
     },
     {

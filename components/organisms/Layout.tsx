@@ -8,9 +8,15 @@ interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   withHero?: boolean;
+  className?: string;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, title, withHero }) => {
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  title,
+  withHero,
+  className,
+}) => {
   return (
     <>
       <Head>
@@ -29,7 +35,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, withHero }) => 
       <div className="bg-slate-100 dark:bg-slate-900 dark:text-white min-h-screen flex flex-col">
         <Header />
 
-        <main className={clsx({ "pt-12": !withHero })}>{children}</main>
+        <main className={clsx(className, "pb-8", { "pt-12": !withHero })}>
+          {children}
+        </main>
 
         <Footer />
       </div>

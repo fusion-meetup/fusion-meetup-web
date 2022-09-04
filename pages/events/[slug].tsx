@@ -1,11 +1,13 @@
 import type { GetStaticProps, NextPage } from "next";
+import clsx from "clsx";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
-import { Layout } from "../../components/organisms/Layout";
-import { Heading } from "../../components/atoms/Heading";
-import { SanityContent } from "../../components/atoms/SanityContent";
 import { getFusionEventBySlug, getFusionEventsSlugs } from "../../lib/cms/queries";
-import dayjs from "dayjs";
+import { Layout } from "../../components/organisms/Layout";
+import { SanityContent } from "../../components/atoms/SanityContent";
+import { EventTalks } from "../../components/molecules/events/EventTalks";
+import { EventSponsors } from "../../components/molecules/events/EventSponsors";
+import { EventOverview } from "../../components/molecules/events/EventOverview";
 
 interface EventPageProps {
   event: FusionEvent;
@@ -14,17 +16,24 @@ interface EventPageProps {
 // TODO: Create a Code of Conduct page and link to it
 
 const EventPage: NextPage<EventPageProps> = ({ event }) => {
-  return (
-    <Layout>
-      <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4">
-        <div className="py-6">
-          <Heading level={0}>Fusion {event.eventTypeDisplay}</Heading>
-          <Heading level={3}>{dayjs(event.date).format("Do MMMM, YYYY")}</Heading>
-        </div>
+  const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
 
-        <div className="pt-4 pb-16">
-          <SanityContent value={event.topContent} />
-        </div>
+  return (
+    <Layout className="px-4">
+      <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
+        <EventOverview event={event} />
+      </div>
+
+      <div className={clsx(narrowContainerClassName, "pt-2 pb-8")}>
+        <SanityContent value={event.topContent} />
+      </div>
+
+      <div className="container mx-auto py-4">
+        <EventTalks talks={event.talks} />
+      </div>
+
+      <div className={clsx(narrowContainerClassName, "py-8")}>
+        <EventSponsors sponsors={event.sponsors} />
       </div>
     </Layout>
   );

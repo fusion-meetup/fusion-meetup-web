@@ -39,11 +39,12 @@ export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({
   eventTypeDisplay: eventTypeDisplayMap[x.eventType] || "Unknown event type",
   date: x.date,
   slug: x.slug,
+  location: x.location || {},
+  food: x.food || null,
   eventbriteLink: x.eventbriteLink || null,
   meetupLink: x.meetupLink || null,
   topContent: x.topContent || null,
   talks: x.talks || [],
-  food: x.food || null,
   sponsors: x.sponsors || [],
   bottomContent: x.bottomContent || null,
 });

@@ -6,11 +6,12 @@ export interface SanityFusionEvent extends SanityDocumentBase {
   eventType: EventType;
   date: string;
   slug: string;
+  location: SanityLocation;
+  food: string;
   eventbriteLink: string;
   meetupLink: string;
   topContent: any;
   talks: SanityTalk[];
-  food: any;
   sponsors: SanitySponsor[];
   bottomContent: any;
 }
@@ -21,13 +22,19 @@ export interface FusionEvent {
   eventTypeDisplay: string;
   date: string;
   slug: string;
+  location: SanityLocation;
+  food: string | null;
   eventbriteLink: string | null;
   meetupLink: string | null;
   topContent: any | null;
   talks: SanityTalk[];
-  food: any;
   sponsors: SanitySponsor[];
   bottomContent: any | null;
+}
+
+export interface SanityLocation extends SanityObjectBase {
+  address: string;
+  googleMapsLink: string;
 }
 
 export interface SanityTalk extends SanityObjectBase {
@@ -50,6 +57,7 @@ export interface SanitySponsor extends SanityObjectBase {
   link?: string;
   // TODO: Image type
   logo: any;
+  logoDark: any;
   level: SponsorLevel;
   content: any;
 }
