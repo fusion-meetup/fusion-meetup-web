@@ -13,6 +13,7 @@ import { Input } from "../components/atoms/Input";
 import { Select } from "../components/atoms/Select";
 import { Button } from "../components/atoms/Button";
 import { Alert } from "../components/atoms/Alert";
+import { FormFieldLabel } from "../components/atoms/FormFieldLabel";
 import fusionHeart from "../public/fusion-heart.png";
 import fusionContactIcon from "../public/fusion-contact-icon.png";
 
@@ -55,7 +56,7 @@ const ContactPage: NextPage<ContactPageProps> = () => {
 
   return (
     <Layout>
-      <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4 pt-10">
+      <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4 pt-8">
         <Image
           src={fusionContactIcon}
           alt="Fusion Contact Icon"
@@ -81,33 +82,45 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         {submitSuccess !== true ? (
           <form
             onSubmit={handleSubmit(contactFormSubmit)}
-            className="flex flex-col gap-8 py-6"
+            className="flex flex-col gap-6 py-4"
           >
-            <Input
-              {...register("name")}
-              placeholder="Arthur Dent"
-              disabled={sendingFormResult}
-            />
+            <div>
+              <FormFieldLabel htmlFor="name">Name</FormFieldLabel>
+              <Input
+                {...register("name")}
+                placeholder="Arthur Dent"
+                disabled={sendingFormResult}
+              />
+            </div>
 
-            <Input
-              {...register("email")}
-              type="email"
-              placeholder="arthur@dent.io"
-              disabled={sendingFormResult}
-            />
+            <div>
+              <FormFieldLabel htmlFor="email">Email</FormFieldLabel>
+              <Input
+                {...register("email")}
+                type="email"
+                placeholder="arthur@dent.io"
+                disabled={sendingFormResult}
+              />
+            </div>
 
-            <Select
-              {...register("type")}
-              options={contactOptions}
-              disabled={sendingFormResult}
-            />
+            <div>
+              <FormFieldLabel htmlFor="type">Subject</FormFieldLabel>
+              <Select
+                {...register("type")}
+                options={contactOptions}
+                disabled={sendingFormResult}
+              />
+            </div>
 
-            <Input
-              multiLine
-              {...register("message")}
-              placeholder="Message"
-              disabled={sendingFormResult}
-            />
+            <div>
+              <FormFieldLabel htmlFor="type">Message</FormFieldLabel>
+              <Input
+                multiLine
+                {...register("message")}
+                placeholder="Hi Fusion team!"
+                disabled={sendingFormResult}
+              />
+            </div>
 
             {submitSuccess === false ? (
               <Alert type="error">

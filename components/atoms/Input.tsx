@@ -16,6 +16,7 @@ export const Input = forwardRef<any, InputProps>(
       "focus:outline-none focus:ring focus:ring-blue focus:border-transparent",
       "bg-white dark:bg-slate-800 dark:border-slate-700 dark:text-white",
       "disabled:opacity-50 disabled:cursor-not-allowed",
+      "focus:placeholder-transparent placeholder:opacity-75",
       multiLine ? "h-40" : "h-12"
     );
 
