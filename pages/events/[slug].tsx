@@ -10,12 +10,14 @@ import { EventSponsors } from "../../components/molecules/events/EventSponsors";
 import { EventOverview } from "../../components/molecules/events/EventOverview";
 
 interface EventPageProps {
-  event: FusionEvent;
+  event: FusionEvent | undefined;
 }
 
 // TODO: Create a Code of Conduct page and link to it
 
 const EventPage: NextPage<EventPageProps> = ({ event }) => {
+  if (!event) return null;
+
   const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
 
   return (
