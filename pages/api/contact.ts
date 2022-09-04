@@ -5,14 +5,17 @@ import { sendContactForm } from "../../lib/contact/discord";
 
 type RequestData = ContactFormValues;
 
-type Data = {
+type ApiContactResponse = {
   success: boolean;
   message: string;
 };
 
 const webhookSecret = process.env.DISCORD_WEBHOOK_SECRET as string | undefined;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<ApiContactResponse>
+) {
   if (req.method !== "POST") {
     return res.status(401).json({ success: false, message: "Method not allowed" });
   }
