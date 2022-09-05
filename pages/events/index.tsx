@@ -1,13 +1,14 @@
 import type { GetStaticProps, NextPage } from "next";
 import dayjs from "dayjs";
 
-import { FusionEvent } from "../../types/cms/FusionEvent";
+import { EventsUpcomingAndPast } from "../../types/cms/FusionEvent";
+import { getFusionEvents } from "../../lib/cms/queries";
 import { Layout } from "../../components/organisms/Layout";
 import { Heading } from "../../components/atoms/Heading";
-import { getFusionEvents } from "../../lib/cms/queries";
+import { EventCard } from "../../components/molecules/events/EventCard";
 
 interface EventsPageProps {
-  events: FusionEvent[];
+  events: EventsUpcomingAndPast;
 }
 
 const EventsPage: NextPage<EventsPageProps> = ({ events }) => (
@@ -17,22 +18,29 @@ const EventsPage: NextPage<EventsPageProps> = ({ events }) => (
         Fusion Events
       </Heading>
 
-      <div className="flex flex-col gap-4 py-4">
-        {events.map((event) => (
-          <a
-            key={event.key}
-            href={`/events/${event.slug}`}
-            className="group bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-md p-6 border-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
-          >
-            <div className="flex flex-col gap-2">
-              <h2 className="text-2xl font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                {event.eventTypeDisplay}
-              </h2>
-              <p>{dayjs(event.date).format("Do MMMM, YYYY")}</p>
-            </div>
-          </a>
-        ))}
-      </div>
+      {events.upcoming.length ? (
+        <div className="flex flex-col gap-4 py-4">
+          <Heading level={3} className="py-4">
+            {events.upcoming.length === 1 ? "Next Event" : "Upcoming Events"}
+          </Heading>
+
+          {events.upcoming.map((event) => (
+            <EventCard key={event.key} event={event} />
+          ))}
+        </div>
+      ) : null}
+
+      {events.past.length ? (
+        <div className="flex flex-col gap-4 py-4">
+          <Heading level={3} className="py-4">
+            Past Events
+          </Heading>
+
+          {events.past.map((event) => (
+            <EventCard key={event.key} event={event} />
+          ))}
+        </div>
+      ) : null}
     </div>
   </Layout>
 );

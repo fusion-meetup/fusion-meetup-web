@@ -1,6 +1,10 @@
 import { cms } from ".";
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
-import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
+import {
+  EventsUpcomingAndPast,
+  FusionEvent,
+  SanityFusionEvent,
+} from "../../types/cms/FusionEvent";
 import { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 
 import { mapSanityBlogPost, mapSanityFusionEvent, mapSanityTeamMember } from "./mappers";
@@ -41,13 +45,25 @@ export const getBlogPostsSlugs = async (): Promise<string[]> => {
   );
 };
 
-export const getFusionEvents = async (): Promise<FusionEvent[]> => {
+export const getFusionEvents = async (): Promise<EventsUpcomingAndPast> => {
   const eventsSanity: SanityFusionEvent[] = await cms.fetch(
     `*[_type == "event"]
     { ..., 'slug': slug.current }
     | order(date desc)`
   );
-  return eventsSanity.map(mapSanityFusionEvent);
+  const events = eventsSanity.map(mapSanityFusionEvent);
+
+  return events.reduce(
+    (acc, event) => {
+      if (new Date(event.date) < new Date()) {
+        acc.past.push(event);
+      } else {
+        acc.upcoming.push(event);
+      }
+      return acc;
+    },
+    { upcoming: [], past: [] } as EventsUpcomingAndPast
+  );
 };
 
 export const getFusionEventBySlug = async (

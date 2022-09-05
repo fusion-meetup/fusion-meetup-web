@@ -32,6 +32,11 @@ export interface FusionEvent {
   bottomContent: any | null;
 }
 
+export interface EventsUpcomingAndPast {
+  upcoming: FusionEvent[];
+  past: FusionEvent[];
+}
+
 export interface SanityLocation extends SanityObjectBase {
   address: string;
   googleMapsLink: string;
@@ -45,6 +50,7 @@ export interface SanityTalk extends SanityObjectBase {
 
 export interface SanitySpeaker extends SanityObjectBase {
   name: string;
+  pronouns: string;
   // TODO: Image type
   photo: any;
   bio: any;
