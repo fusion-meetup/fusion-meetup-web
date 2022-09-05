@@ -9,6 +9,12 @@ export default {
       type: "string",
     },
     {
+      name: "pronouns",
+      title: "Pronouns",
+      description: "Optional",
+      type: "string",
+    },
+    {
       name: "photo",
       title: "Photo",
       type: "image",

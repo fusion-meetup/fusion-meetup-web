@@ -21,8 +21,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
-      subtitle: "speaker.name",
+      title: "speaker.name",
+      subtitle: "title",
       media: "speaker.photo",
     },
   },
