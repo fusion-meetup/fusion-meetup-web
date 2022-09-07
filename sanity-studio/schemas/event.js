@@ -54,11 +54,6 @@ export default {
       type: "url",
     },
     {
-      name: "meetupLink",
-      title: "Meetup Link",
-      type: "url",
-    },
-    {
       name: "topContent",
       title: "Content (Top)",
       type: "content",

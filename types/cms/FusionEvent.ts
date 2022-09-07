@@ -9,7 +9,6 @@ export interface SanityFusionEvent extends SanityDocumentBase {
   location: SanityLocation;
   food: string;
   eventbriteLink: string;
-  meetupLink: string;
   topContent: any;
   talks: SanityTalk[];
   sponsors: SanitySponsor[];
@@ -25,7 +24,6 @@ export interface FusionEvent {
   location: SanityLocation;
   food: string | null;
   eventbriteLink: string | null;
-  meetupLink: string | null;
   topContent: any | null;
   talks: SanityTalk[];
   sponsors: SanitySponsor[];

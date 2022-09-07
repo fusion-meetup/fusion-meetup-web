@@ -57,35 +57,15 @@ export const EventOverview: React.FC<EventOverviewProps> = ({ event }) => {
             </div>
           ))}
 
-          <div className="flex flex-col pt-4 gap-2">
-            <div className="opacity-75 font-semibold">
-              Find this {event.eventTypeDisplay.toLowerCase()} event on:
-            </div>
-
-            <div className="flex flex-row gap-3 items-center">
-              <Button
-                href={event.eventbriteLink || undefined}
-                targetBlank
-                color={null}
-                className="bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white"
-              >
-                <SiEventbrite /> Eventbrite
-              </Button>
-
-              <div className="opacity-75">and</div>
-
-              <Button
-                href={event.meetupLink || undefined}
-                targetBlank
-                color={null}
-                className={clsx(
-                  "border-2 text-[#ff1154] border-[#ff1154] hover:bg-[#ff115418] outline-[#ff115480]",
-                  "text-[#ff5b89] border-[#ff5b89] hover:bg-[#ff5b891A] outline-[#ff5b8980]"
-                )}
-              >
-                <SiMeetup className="scale-[1.35]" /> Meetup
-              </Button>
-            </div>
+          <div className="pt-2">
+            <Button
+              href={event.eventbriteLink || undefined}
+              targetBlank
+              color={null}
+              className="bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white"
+            >
+              <SiEventbrite /> Eventbrite
+            </Button>
           </div>
         </div>
       </div>

@@ -42,7 +42,6 @@ export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({
   location: x.location || {},
   food: x.food || null,
   eventbriteLink: x.eventbriteLink || null,
-  meetupLink: x.meetupLink || null,
   topContent: x.topContent || null,
   talks: x.talks || [],
   sponsors: x.sponsors || [],
