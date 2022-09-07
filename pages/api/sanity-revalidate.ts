@@ -35,6 +35,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       case "teamMember":
         await res.revalidate(`/about`);
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
+      case "event":
+        await res.revalidate(`/events`);
+        await res.revalidate(`/events/${reqBody.slug?.current}`);
+        return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "blogPost":
         await res.revalidate(`/blog`);
         await res.revalidate(`/blog/post/${reqBody.slug?.current}`);
