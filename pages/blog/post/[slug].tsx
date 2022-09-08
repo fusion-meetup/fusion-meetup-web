@@ -14,7 +14,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
   if (!blogPost) return null;
 
   return (
-    <Layout>
+    <Layout title={`${blogPost.title} – Blog`}>
       <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4">
         <div className="py-6">
           <Heading level={1}>{blogPost.title}</Heading>

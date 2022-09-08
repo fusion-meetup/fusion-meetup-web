@@ -55,7 +55,7 @@ const ContactPage: NextPage<ContactPageProps> = () => {
   }, [router.isReady, setValue, router.query.t]);
 
   return (
-    <Layout>
+    <Layout title="Contact the Fusion Team">
       <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4 pt-8">
         <Image
           src={fusionContactIcon}

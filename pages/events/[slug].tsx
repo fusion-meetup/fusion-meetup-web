@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import clsx from "clsx";
+import dayjs from "dayjs";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { getFusionEventBySlug, getFusionEventsSlugs } from "../../lib/cms/queries";
@@ -21,7 +22,11 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
   const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
 
   return (
-    <Layout className="px-4" fancyBackground="colours">
+    <Layout
+      title={dayjs(event.date).format("Do MMMM YYYY")}
+      className="px-4"
+      fancyBackground="colours"
+    >
       <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
         <EventOverview event={event} />
       </div>

@@ -10,7 +10,7 @@ interface AboutPageProps {
 }
 
 const AboutPage: NextPage<AboutPageProps> = ({ team }) => (
-  <Layout>
+  <Layout title="About">
     <div className="container mx-auto p-4">
       <h1 className="text-5xl font-bold py-4">About Fusion</h1>
       <p className="py-4">Cool meetup</p>

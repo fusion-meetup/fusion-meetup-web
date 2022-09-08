@@ -12,7 +12,7 @@ interface EventsPageProps {
 }
 
 const EventsPage: NextPage<EventsPageProps> = ({ events }) => (
-  <Layout>
+  <Layout title="Events">
     <div className="container mx-auto p-4">
       <Heading level={2} className="py-4">
         Fusion Events

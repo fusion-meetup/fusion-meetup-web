@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({
     <>
       <Head>
         <title>
-          {`Fusion Meetup - ${
+          {`Fusion Meetup – ${
             title || "A quarterly tech meetup held in Birmingham city centre"
           }`}
         </title>
@@ -33,7 +33,6 @@ export const Layout: React.FC<LayoutProps> = ({
           name="description"
           content="Fusion Meetup: A quarterly tech meetup held in Birmingham city centre"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="bg-slate-100 dark:bg-slate-900 dark:text-white min-h-screen flex flex-col">

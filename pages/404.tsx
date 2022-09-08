@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { Layout } from "../components/organisms/Layout";
 
 const NotFoundPage: NextPage = () => (
-  <Layout>
+  <Layout title="404">
     <div className="container mx-auto p-4">
       <div className="py-24">
         <h1 className="text-9xl font-bold text-center py-4">

@@ -11,7 +11,7 @@ interface BlogPageProps {
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({ blogPosts }) => (
-  <Layout>
+  <Layout title="Blog">
     <div className="container mx-auto p-4">
       <Heading level={2} className="py-4">
         Blog Posts
