@@ -5,7 +5,7 @@ import fusionHeart from "../../public/fusion-heart.png";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mt-auto">
+    <footer className="z-2 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mt-auto">
       <div className="container mx-auto p-4 py-6 flex flex-row flex-wrap gap-x-4 gap-y-6">
         <div className="flex flex-row flex-wrap items-center gap-1">
           Made with

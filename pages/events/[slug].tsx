@@ -21,7 +21,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
   const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
 
   return (
-    <Layout className="px-4">
+    <Layout className="px-4" fancyBackground="colours">
       <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
         <EventOverview event={event} />
       </div>
