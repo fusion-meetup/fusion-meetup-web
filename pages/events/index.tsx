@@ -11,39 +11,43 @@ interface EventsPageProps {
   events: EventsUpcomingAndPast;
 }
 
-const EventsPage: NextPage<EventsPageProps> = ({ events }) => (
-  <Layout title="Events">
-    <div className="container mx-auto p-4">
-      <Heading level={2} className="py-4">
-        Fusion Events
-      </Heading>
+const EventsPage: NextPage<EventsPageProps> = ({ events }) => {
+  const isOneFutureEvent = events.upcoming.length === 1;
 
-      {events.upcoming.length ? (
-        <div className="flex flex-col gap-4 py-4">
-          <Heading level={3} className="py-4">
-            {events.upcoming.length === 1 ? "Next Event" : "Upcoming Events"}
-          </Heading>
+  return (
+    <Layout title="Events">
+      <div className="container mx-auto p-4">
+        <Heading level={2} className="py-4">
+          Fusion Events
+        </Heading>
 
-          {events.upcoming.map((event) => (
-            <EventCard key={event.key} event={event} />
-          ))}
-        </div>
-      ) : null}
+        {events.upcoming.length ? (
+          <div className="flex flex-col gap-4 py-4">
+            <Heading level={3} className="py-4">
+              {isOneFutureEvent ? "Next Event" : "Upcoming Events"}
+            </Heading>
 
-      {events.past.length ? (
-        <div className="flex flex-col gap-4 py-4">
-          <Heading level={3} className="py-4">
-            Past Events
-          </Heading>
+            {events.upcoming.map((event, i) => (
+              <EventCard key={event.key} event={event} large isFirst={i === 0} />
+            ))}
+          </div>
+        ) : null}
 
-          {events.past.map((event) => (
-            <EventCard key={event.key} event={event} />
-          ))}
-        </div>
-      ) : null}
-    </div>
-  </Layout>
-);
+        {events.past.length ? (
+          <div className="flex flex-col gap-4 py-4">
+            <Heading level={3} className="py-4">
+              Past Events
+            </Heading>
+
+            {events.past.map((event) => (
+              <EventCard key={event.key} event={event} />
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </Layout>
+  );
+};
 
 export const getStaticProps: GetStaticProps<EventsPageProps> = async () => {
   const events = await getFusionEvents();
