@@ -1,14 +1,11 @@
 import type { NextPage } from "next";
 
 import { Layout } from "../components/organisms/Layout";
-import { Hero } from "../components/molecules/Hero";
 import { Button } from "../components/atoms/Button";
 import { Heading } from "../components/atoms/Heading";
 
 const Home: NextPage = () => (
   <Layout withHero>
-    <Hero />
-
     <div className="container mx-auto p-4">
       <Heading level={1} className="py-4">
         Fusion Meetup

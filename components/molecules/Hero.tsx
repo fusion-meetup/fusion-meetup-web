@@ -8,19 +8,16 @@ const FusionLogoParallax = dynamic(() => import("../molecules/FusionLogoParallax
 
 const colourBars = [
   { color: "#FF40B4", angle: -56, position: { top: "55%", left: "-5%" } },
-  { color: "#54C8E8", angle: -106, position: { top: "35%", left: "30%" } },
-  { color: "#FFCD02", angle: -70, position: { top: "44%", left: "52%" } },
+  { color: "#54C8E8", angle: -106, position: { top: "30%", left: "30%" } },
+  { color: "#FFCD02", angle: -70, position: { top: "44%", left: "55%" } },
 ];
 
 export const Hero = () => {
   return (
-    <div className="w-full h-80 md:h-[40vw] xl:h-[33rem] relative overflow-hidden">
+    <div className="w-full h-80 md:h-[40vw] xl:h-[33rem] relative">
       {colourBars.map((bar, i) => (
         <HeroColourBar key={bar.color} {...{ ...bar, animationOffset: i }} />
       ))}
-
-      <div className="absolute w-full bottom-0 h-20 bg-gradient-to-b from-transparent to-slate-100 dark:to-slate-900"></div>
-      <div className="absolute w-full bottom-[-1px] h-[2px] bg-slate-100 dark:bg-slate-900"></div>
 
       <div className="absolute left-1/2 translate-x-[-50%] w-96 md:w-[46vw] xl:w-[36rem] mx-auto p-16 pt-20 z-15">
         <FusionLogoParallax />
@@ -53,10 +50,10 @@ export const HeroColourBar: React.FC<HeroColourBar> = ({
   return (
     <div
       className="absolute motion-safe:animate-chillin"
-      style={{ ...position, animationDelay: `${animationOffset * 600}ms` }}
+      style={{ ...position, animationDelay: `${animationOffset * 1500}ms` }}
     >
       <div
-        className="w-[52vw] h-[12vw] blur opacity-20"
+        className="w-[52vw] h-[12vw] blur-xl opacity-25"
         style={{
           background: color,
           transform: `rotate(${angle}deg)`,

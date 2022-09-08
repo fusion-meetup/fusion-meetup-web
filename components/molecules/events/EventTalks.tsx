@@ -9,7 +9,7 @@ interface EventTalksProps {
 
 export const EventTalks: React.FC<EventTalksProps> = ({ talks }) => {
   return (
-    <div className="p-8 rounded-xl bg-white dark:bg-blue-800 dark:bg-opacity-25 shadow">
+    <div className="p-8 rounded-xl bg-white dark:bg-blue-800 dark:bg-opacity-50 shadow">
       <Heading level={2}>Talks</Heading>
 
       <div className="flex flex-col gap-6 pt-6">

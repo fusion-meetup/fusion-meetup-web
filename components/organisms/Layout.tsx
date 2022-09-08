@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Header } from "../molecules/Header";
 import { Footer } from "./Footer";
 import fusionColoursBackground from "../../public/fusion-colours-background.png";
+import { Hero } from "../molecules/Hero";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -37,17 +38,25 @@ export const Layout: React.FC<LayoutProps> = ({
 
       <div className="bg-slate-100 dark:bg-slate-900 dark:text-white min-h-screen flex flex-col">
         {fancyBackground === "colours" && (
-          <div className="absolute top-12 sm:top-0 md:-top-16 lg:-top-24 xl:-top-32 left-0 w-full">
+          <div
+            className={clsx("absolute top-12 left-0 w-full", {
+              "sm:top-0 md:-top-16 lg:-top-24 xl:-top-32": !withHero,
+            })}
+          >
             <Image
               src={fusionColoursBackground}
               alt="background image"
               width={512}
               height={741}
               layout="responsive"
-              className="w-full blur-lg opacity-50 md:opacity-30"
+              className={clsx("w-full blur-lg opacity-70 md:opacity-40", {
+                "opacity-25 md:opacity-25": withHero,
+              })}
             />
           </div>
         )}
+
+        {withHero ? <Hero /> : null}
 
         <Header />
 
