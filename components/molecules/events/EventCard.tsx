@@ -26,9 +26,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isFirst, isUpcoming
     >
       <div
         className={clsx(
-          "relative z-1 bg-white dark:bg-slate-800 rounded-lg shadow-sm dark:shadow-md p-6",
-          { "dark:bg-slate-700": isUpcoming },
-          "transition-opacity group-hover:bg-opacity-90"
+          "relative z-1 bg-white rounded-lg shadow-sm p-6",
+          "transition-all bg-opacity-90 group-hover:bg-opacity-100",
+          "dark:shadow-md dark:bg-slate-800 dark:bg-opacity-100 dark:group-hover:bg-opacity-90"
         )}
       >
         <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6">

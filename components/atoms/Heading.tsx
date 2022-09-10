@@ -3,17 +3,20 @@ import clsx from "clsx";
 interface HeadingProps {
   level?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   className?: string;
+  noBold?: boolean;
   children?: React.ReactNode;
 }
 
 export const Heading: React.FC<HeadingProps> = ({
   level,
   className: classNameProp,
+  noBold,
   children,
 }) => {
   const className = clsx(
-    "font-bold break-words",
+    "break-words",
     {
+      "font-bold": !noBold,
       "text-6xl md:text-7xl": level === 0,
       "text-4xl md:text-5xl": level === 1,
       "text-3xl md:text-4xl": level === 2,

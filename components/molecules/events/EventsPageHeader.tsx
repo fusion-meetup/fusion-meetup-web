@@ -19,7 +19,8 @@ export const EventsPageHeader: React.FC<EventsPageHeaderProps> = ({ children }) 
 
         <Heading
           level={4}
-          className="absolute top-2 left-4 right-0 text-slate-500 dark:text-slate-300"
+          className="absolute top-2 left-4 text-slate-600 dark:text-slate-300"
+          noBold
         >
           {children}
         </Heading>

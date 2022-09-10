@@ -80,3 +80,12 @@ export const getFusionEventBySlug = async (
 export const getFusionEventsSlugs = async (): Promise<string[]> => {
   return await cms.fetch(`*[_type == "event" && defined(slug.current)][].slug.current`);
 };
+
+export const getNextFusionEvent = async (): Promise<FusionEvent> => {
+  const eventSanity: SanityFusionEvent = await cms.fetch(
+    `*[_type == "event"]
+    { ..., 'slug': slug.current }
+    | order(date desc)[0]`
+  );
+  return mapSanityFusionEvent(eventSanity);
+};

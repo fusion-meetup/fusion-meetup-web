@@ -36,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({
         />
       </Head>
 
-      <div className="bg-slate-100 dark:bg-slate-900 dark:text-white min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         {fancyBackground === "colours" && (
           <div
             className={clsx("absolute top-12 left-0 w-full", {
@@ -60,7 +60,12 @@ export const Layout: React.FC<LayoutProps> = ({
 
         <Header />
 
-        <main className={clsx(className, "relative z-1 pb-8", { "pt-12": !withHero })}>
+        <main
+          className={clsx(className, "relative z-1 pb-8", {
+            "pt-12": !withHero,
+            "-mt-8": withHero,
+          })}
+        >
           {children}
         </main>
 
