@@ -1,6 +1,6 @@
-import { SanitySpeaker } from "../../../types/cms/FusionEvent";
-import { Heading } from "../../atoms/Heading";
-import { SanityContent } from "../../atoms/SanityContent";
+import { SanitySpeaker } from "../../types/cms/FusionEvent";
+import { Heading } from "../atoms/Heading";
+import { SanityContent } from "../atoms/SanityContent";
 
 interface EventSpeakerProps {
   speaker: SanitySpeaker;

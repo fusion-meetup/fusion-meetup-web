@@ -1,6 +1,6 @@
-import { FusionEvent } from "../../../types/cms/FusionEvent";
-import { FusionLogo } from "../../atoms/FusionLogo";
-import { Heading } from "../../atoms/Heading";
+import { FusionEvent } from "../../types/cms/FusionEvent";
+import { FusionLogo } from "../atoms/FusionLogo";
+import { Heading } from "../atoms/Heading";
 import { EventDetails } from "./EventDetails";
 
 interface EventOverviewProps {

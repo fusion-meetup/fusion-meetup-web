@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Heading } from "../../atoms/Heading";
+import { Heading } from "../atoms/Heading";
 
 export interface EventsPageHeaderProps {
   children: React.ReactNode;

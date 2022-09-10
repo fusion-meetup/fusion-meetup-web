@@ -6,9 +6,9 @@ import { FusionEvent } from "../../types/cms/FusionEvent";
 import { getFusionEventBySlug, getFusionEventsSlugs } from "../../lib/cms/queries";
 import { Layout } from "../../components/organisms/Layout";
 import { SanityContent } from "../../components/atoms/SanityContent";
-import { EventTalks } from "../../components/molecules/events/EventTalks";
-import { EventSponsors } from "../../components/molecules/events/EventSponsors";
-import { EventOverview } from "../../components/molecules/events/EventOverview";
+import { EventTalks } from "../../components/events/EventTalks";
+import { EventSponsors } from "../../components/events/EventSponsors";
+import { EventOverview } from "../../components/events/EventOverview";
 
 interface EventPageProps {
   event: FusionEvent | undefined;

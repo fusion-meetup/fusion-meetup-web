@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import dayjs from "dayjs";
 
-import { FusionEvent } from "../../../types/cms/FusionEvent";
+import { FusionEvent } from "../../types/cms/FusionEvent";
 import { EventCardSpeakerImage } from "./EventCardSpeakerImage";
 import { EventDetails } from "./EventDetails";
 

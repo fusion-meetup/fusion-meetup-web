@@ -6,7 +6,7 @@ import { Button } from "../components/atoms/Button";
 import { Heading } from "../components/atoms/Heading";
 import { FusionEvent } from "../types/cms/FusionEvent";
 import { getNextFusionEvent } from "../lib/cms/queries";
-import { EventCard } from "../components/molecules/events/EventCard";
+import { EventCard } from "../components/events/EventCard";
 
 interface HomePageProps {
   nextEvent: FusionEvent | undefined;

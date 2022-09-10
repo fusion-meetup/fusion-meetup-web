@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import { cms } from "../../../lib/cms";
+import { cms } from "../../lib/cms";
 
 interface EventCardSpeakerImageProps {
   image: SanityImageSource;

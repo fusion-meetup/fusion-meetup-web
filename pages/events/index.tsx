@@ -4,8 +4,8 @@ import { EventsUpcomingAndPast } from "../../types/cms/FusionEvent";
 import { getFusionEvents } from "../../lib/cms/queries";
 import { Layout } from "../../components/organisms/Layout";
 import { Heading } from "../../components/atoms/Heading";
-import { EventCard } from "../../components/molecules/events/EventCard";
-import { EventsPageHeader } from "../../components/molecules/events/EventsPageHeader";
+import { EventCard } from "../../components/events/EventCard";
+import { EventsPageHeader } from "../../components/events/EventsPageHeader";
 
 interface EventsPageProps {
   events: EventsUpcomingAndPast;

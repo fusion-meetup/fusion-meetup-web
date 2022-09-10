@@ -1,6 +1,6 @@
-import { SanityTalk } from "../../../types/cms/FusionEvent";
-import { Heading } from "../../atoms/Heading";
-import { SanityContent } from "../../atoms/SanityContent";
+import { SanityTalk } from "../../types/cms/FusionEvent";
+import { Heading } from "../atoms/Heading";
+import { SanityContent } from "../atoms/SanityContent";
 import { EventSpeaker } from "./EventSpeaker";
 
 interface EventTalksProps {

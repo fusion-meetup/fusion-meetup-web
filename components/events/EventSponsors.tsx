@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { FaArrowDown } from "react-icons/fa";
 
-import { sanityImageUrlBuilder } from "../../../lib/cms";
-import { SanitySponsor, SponsorLevel } from "../../../types/cms/FusionEvent";
-import { Heading } from "../../atoms/Heading";
-import { SanityContent } from "../../atoms/SanityContent";
+import { sanityImageUrlBuilder } from "../../lib/cms";
+import { SanitySponsor, SponsorLevel } from "../../types/cms/FusionEvent";
+import { Heading } from "../atoms/Heading";
+import { SanityContent } from "../atoms/SanityContent";
 
 interface EventSponsorsProps {
   sponsors: SanitySponsor[];

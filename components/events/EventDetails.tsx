@@ -2,8 +2,8 @@ import dayjs from "dayjs";
 import { MdCalendarToday, MdLocationPin, MdLunchDining } from "react-icons/md";
 import { SiEventbrite } from "react-icons/si";
 
-import { FusionEvent } from "../../../types/cms/FusionEvent";
-import { Button } from "../../atoms/Button";
+import { FusionEvent } from "../../types/cms/FusionEvent";
+import { Button } from "../atoms/Button";
 
 interface EventDetailsProps {
   event: FusionEvent;
