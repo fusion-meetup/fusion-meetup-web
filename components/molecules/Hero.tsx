@@ -49,7 +49,7 @@ export const HeroColourBar: React.FC<HeroColourBar> = ({
 }) => {
   return (
     <div
-      className="absolute motion-safe:animate-chillin"
+      className="absolute motion-safe:animate-chillin h-0 w-0"
       style={{ ...position, animationDelay: `${animationOffset * 1500}ms` }}
     >
       <div
