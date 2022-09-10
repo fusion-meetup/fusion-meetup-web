@@ -34,18 +34,20 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, displayLinks 
 
   return (
     <div className="flex flex-col gap-4">
-      {details.map((detail) => (
-        <div key={detail.key} className="flex flex-row items-center gap-2">
-          <div className="text-2xl">{detail.icon}</div>
-          <div>
-            {detail.label?.split("\n").map((line) => (
-              <p key={line} className="text-lg">
-                {line}
-              </p>
-            ))}
+      {details
+        .filter((d) => d.label)
+        .map((detail) => (
+          <div key={detail.key} className="flex flex-row items-center gap-2">
+            <div className="text-2xl">{detail.icon}</div>
+            <div>
+              {detail.label?.split("\n").map((line) => (
+                <p key={line} className="text-lg">
+                  {line}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
       {displayLinks ? (
         <div className="pt-2">
