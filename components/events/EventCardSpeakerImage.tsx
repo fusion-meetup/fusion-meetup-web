@@ -17,7 +17,13 @@ export const EventCardSpeakerImage: React.FC<EventCardSpeakerImageProps> = ({
 
   return (
     <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
-      <Image {...imageProps} layout="fill" objectFit="cover" alt={alt} />
+      <Image
+        src={imageProps.src}
+        loader={imageProps.loader}
+        layout="fill"
+        objectFit="cover"
+        alt={alt}
+      />
     </div>
   );
 };

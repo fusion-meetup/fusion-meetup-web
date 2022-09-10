@@ -10,5 +10,6 @@ export interface TeamMember {
   key: string;
   name: string;
   twitter: string | null;
+  twitterUrl: string | null;
   image: SanityImgMapped | null;
 }

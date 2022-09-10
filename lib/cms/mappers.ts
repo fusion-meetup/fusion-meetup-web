@@ -21,6 +21,7 @@ export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
   name: x.name,
   twitter: x.twitter || null,
+  twitterUrl: x.twitter ? `https://twitter.com/${x.twitter}` : null,
   image: mapSanityImg(x.image),
 });
 
@@ -31,6 +32,7 @@ export const mapSanityBlogPost = (x: SanityBlogPost): BlogPost => ({
   publishedAt: x.publishedAt,
   author: x.author ? mapSanityTeamMember(x.author) : null,
   body: x.body || [],
+  mainImage: x.mainImage,
 });
 
 export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({
