@@ -28,7 +28,7 @@ const HomePage: NextPage<HomePageProps> = ({ nextEvent }) => (
               Next Event
             </h3>
           </div>
-          <EventCard event={nextEvent} isFirst isUpcoming />
+          <EventCard event={nextEvent} isFirst />
         </div>
       ) : null}
 

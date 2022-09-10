@@ -19,6 +19,7 @@
     "dayjs": "^1.11.5",
     "next": "12.2.5",
     "next-sanity": "^0.8.2",
+    "next-sanity-image": "^4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.2",
