@@ -31,7 +31,9 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = ({
 
         <div className="text-sm opacity-50">
           {enableTwitterLink && teamMember.twitterUrl ? (
-            <a href={teamMember.twitterUrl}>@{teamMember.twitter}</a>
+            <a href={teamMember.twitterUrl} target="_blank" rel="noopener noreferrer">
+              @{teamMember.twitter}
+            </a>
           ) : (
             <>@{teamMember.twitter}</>
           )}
