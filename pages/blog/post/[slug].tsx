@@ -40,6 +40,8 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
 export const getStaticProps: GetStaticProps<BlogPostPageProps> = async (context) => {
   const blogPost = await getBlogPostBySlug(context.params?.slug as string | undefined);
 
+  if (!blogPost) return { notFound: true };
+
   return {
     props: {
       blogPost,
@@ -52,7 +54,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 };
 
