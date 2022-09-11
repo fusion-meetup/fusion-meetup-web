@@ -35,7 +35,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
         <SanityContent value={event.topContent} />
       </div>
 
-      <div className="container mx-auto py-4">
+      <div className={clsx(narrowContainerClassName, "py-4")}>
         <EventTalks talks={event.talks} />
       </div>
 
