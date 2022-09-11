@@ -25,12 +25,15 @@ export default {
       to: { type: "teamMember" },
     },
     {
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      initialValue: false,
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",
-      options: {
-        hotspot: true,
-      },
     },
     {
       name: "categories",

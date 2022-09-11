@@ -33,6 +33,7 @@ export const mapSanityBlogPost = (x: SanityBlogPost): BlogPost => ({
   author: x.author ? mapSanityTeamMember(x.author) : null,
   body: x.body || [],
   mainImage: x.mainImage,
+  featured: x.featured || false,
 });
 
 export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({

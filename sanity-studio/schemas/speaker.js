@@ -18,9 +18,6 @@ export default {
       name: "photo",
       title: "Photo",
       type: "image",
-      options: {
-        hotspot: true,
-      },
     },
     {
       name: "bio",

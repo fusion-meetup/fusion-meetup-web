@@ -1,18 +1,21 @@
 import type { GetStaticProps, NextPage } from "next";
 import clsx from "clsx";
 
+import { BlogPost } from "../types/cms/Blog";
+import { FusionEvent } from "../types/cms/FusionEvent";
+import { getBlogPosts, getNextFusionEvent } from "../lib/cms/queries";
 import { Layout } from "../components/organisms/Layout";
 import { Button } from "../components/atoms/Button";
 import { Heading } from "../components/atoms/Heading";
-import { FusionEvent } from "../types/cms/FusionEvent";
-import { getNextFusionEvent } from "../lib/cms/queries";
 import { EventCard } from "../components/events/EventCard";
+import { BlogPostsOverview } from "../components/homepage/BlogPostsOverview";
 
 interface HomePageProps {
   nextEvent: FusionEvent | undefined;
+  blogPosts: BlogPost[];
 }
 
-const HomePage: NextPage<HomePageProps> = ({ nextEvent }) => (
+const HomePage: NextPage<HomePageProps> = ({ nextEvent, blogPosts }) => (
   <Layout withHero>
     <div className="container mx-auto p-4">
       {nextEvent ? (
@@ -40,6 +43,12 @@ const HomePage: NextPage<HomePageProps> = ({ nextEvent }) => (
         <p className="pb-2">A quarterly tech meetup held in Birmingham city centre</p>
       </div>
 
+      <div className="py-8">
+        <Heading level={2}>Fusion Blog</Heading>
+
+        <BlogPostsOverview blogPosts={blogPosts} />
+      </div>
+
       <div className="py-16">
         <Heading level={3} className="pb-4 text-center">
           Temporary Links
@@ -62,11 +71,12 @@ const HomePage: NextPage<HomePageProps> = ({ nextEvent }) => (
 );
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  const nextEvent = await getNextFusionEvent();
+  const [nextEvent, blogPosts] = await Promise.all([getNextFusionEvent(), getBlogPosts()]);
 
   return {
     props: {
       nextEvent,
+      blogPosts,
     },
   };
 };

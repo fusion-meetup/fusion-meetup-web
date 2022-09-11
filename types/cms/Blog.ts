@@ -10,6 +10,7 @@ export interface SanityBlogPost extends SanityDocumentBase {
   author?: SanityTeamMember;
   body: any;
   mainImage?: SanityImageSource;
+  featured?: boolean;
 }
 
 export interface BlogPost {
@@ -20,4 +21,5 @@ export interface BlogPost {
   author: TeamMember | null;
   body: any;
   mainImage?: SanityImageSource;
+  featured: boolean;
 }

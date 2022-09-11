@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
 import clsx from "clsx";
 import dayjs from "dayjs";
+import { FaStar } from "react-icons/fa";
 
 import { cms } from "../../lib/cms";
 import { BlogPost } from "../../types/cms/Blog";
@@ -9,9 +10,10 @@ import { BlogAuthor } from "./BlogAuthor";
 
 interface BlogCardProps {
   post: BlogPost;
+  className?: string;
 }
 
-export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
   const imageProps = useNextSanityImage(cms, post.mainImage!, { enableBlurUp: true });
 
   return (
@@ -19,7 +21,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
       key={post.key}
       href={`/blog/post/${post.slug}`}
       className={clsx(
-        "group bg-white overflow-hidden rounded-xl shadow border-2 border-transparent hover:border-pink-600",
+        className,
+        "group bg-white overflow-hidden rounded-xl box-border shadow hover:border-4 hover:-m-1 hover:border-pink-600",
         "dark:bg-slate-800 dark:shadow-lg dark:hover:border-pink-400"
       )}
     >
@@ -32,6 +35,15 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
             objectFit="cover"
             alt={`Image for ${post.title}`}
           />
+
+          {post.featured ? (
+            <div className="absolute top-2 right-2 bg-yellow text-slate-800 font-bold text-sm rounded px-1 flex gap-1 items-center">
+              Featured{" "}
+              <span className="text-xs">
+                <FaStar />
+              </span>
+            </div>
+          ) : null}
         </div>
 
         <div className="flex-1 p-6 pt-2 flex flex-col gap-6 justify-between">
