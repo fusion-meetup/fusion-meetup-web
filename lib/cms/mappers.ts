@@ -1,21 +1,6 @@
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
-import type { SanityImg, SanityImgMapped } from "../../types/cms/Sanity";
 import type { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
-import { getSanityImgSrc } from ".";
-
-// TODO: Replace with next-sanity-image
-// https://www.sanity.io/plugins/next-sanity-image
-const mapSanityImg = (img: SanityImg | undefined): SanityImgMapped | null => {
-  if (!img) return null;
-
-  return {
-    src: getSanityImgSrc(img),
-    alt: img.alt,
-    width: img.width,
-    height: img.height,
-  };
-};
 
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,

@@ -39,14 +39,11 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
         } else {
           const image = sanityImageUrlBuilder.image(item).url() as string;
 
+          // TODO: Replace img with SanityImage
+
           return (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={`${item._type}-${i}`}
-              src={image}
-              alt={item.alt || "Image"}
-              loading="lazy"
-            />
+            <img key={`${item._type}-${i}`} src={image} alt={item.alt || "Image"} loading="lazy" />
           );
         }
       })}

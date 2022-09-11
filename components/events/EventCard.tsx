@@ -2,7 +2,7 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
-import { EventCardSpeakerImage } from "./EventCardSpeakerImage";
+import { SanityImage } from "../atoms/SanityImage";
 import { EventDetails } from "./EventDetails";
 
 interface EventCardProps {
@@ -31,10 +31,14 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isFirst }) => {
         {event.talks.map((talk) => (
           <div key={talk._key} className="flex flex-row gap-4">
             {talk.speaker.photo ? (
-              <EventCardSpeakerImage
-                image={talk.speaker.photo}
-                alt={`Profile photo for ${talk.speaker.name}`}
-              />
+              <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
+                <SanityImage
+                  image={talk.speaker.photo}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={`Profile photo for ${talk.speaker.name}`}
+                />
+              </div>
             ) : null}
 
             <div className="flex flex-col gap-2">

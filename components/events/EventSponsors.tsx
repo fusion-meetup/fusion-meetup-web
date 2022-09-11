@@ -27,6 +27,7 @@ export const EventSponsors: React.FC<EventSponsorsProps> = ({ sponsors }) => {
             key={sponsor._key}
             className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-12 p-8 rounded-xl bg-white dark:bg-slate-800"
           >
+            {/* TODO: Replace img with SanityImage */}
             <div className="w-2/3 sm:w-1/2 md:w-full flex flex-row items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
