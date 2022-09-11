@@ -30,6 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const reqBody = req.body;
   const cmsType = reqBody._type;
 
+  await res.revalidate("/");
+
   try {
     switch (cmsType) {
       case "teamMember":
