@@ -20,7 +20,7 @@ export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
           return (
             <div
               key={teamMember.key}
-              className="relative flex flex-col gap-3 p-6 bg-slate-800 rounded-xl"
+              className="relative flex flex-col gap-3 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl shadow"
             >
               <div className="flex flex-col items-center w-28 xs:w-32 md:w-32 mx-auto">
                 {teamMember.image && (
