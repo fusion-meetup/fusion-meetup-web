@@ -55,10 +55,10 @@ const HomePage: NextPage<HomePageProps> = ({ nextEvent, blogPosts }) => (
         </Heading>
 
         <div className="flex flex-row gap-4 flex-wrap justify-center">
-          <Button href="/blog">Blog</Button>
+          <Button href="/events">Events</Button>
 
-          <Button href="/events" color="pink">
-            Events
+          <Button href="/blog" color="pink">
+            Blog
           </Button>
 
           <Button href="/about" color="yellow">

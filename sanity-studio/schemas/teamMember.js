@@ -17,6 +17,13 @@ export default {
       validation: (rule) => rule.required().min(2).max(50),
     },
     {
+      name: "intro",
+      type: "string",
+      title: "Intro",
+      description: "Short intro about the team member",
+      validation: (rule) => rule.required().max(140),
+    },
+    {
       name: "image",
       type: "img",
       title: "Image",

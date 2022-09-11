@@ -4,6 +4,7 @@ import { TeamMember } from "../types/cms/TeamMember";
 import { Layout } from "../components/organisms/Layout";
 import { MeetTheTeam } from "../components/molecules/MeetTheTeam";
 import { getTeamMembers } from "../lib/cms/queries";
+import { Heading } from "../components/atoms/Heading";
 
 interface AboutPageProps {
   team: TeamMember[];
@@ -12,8 +13,9 @@ interface AboutPageProps {
 const AboutPage: NextPage<AboutPageProps> = ({ team }) => (
   <Layout title="About">
     <div className="container mx-auto p-4">
-      <h1 className="text-5xl font-bold py-4">About Fusion</h1>
-      <p className="py-4">Cool meetup</p>
+      <Heading level={1} className="py-6">
+        About Fusion
+      </Heading>
 
       <MeetTheTeam team={team} />
     </div>

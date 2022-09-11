@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const theme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -45,6 +46,10 @@ module.exports = {
         800: "#594700",
         900: "#211A00",
       },
+    },
+    screens: {
+      xs: "475px",
+      ...theme.screens,
     },
     extend: {
       fontFamily: {

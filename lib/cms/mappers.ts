@@ -20,9 +20,15 @@ const mapSanityImg = (img: SanityImg | undefined): SanityImgMapped | null => {
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
   name: x.name,
+  intro: x.intro || "",
+  image: mapSanityImg(x.image),
   twitter: x.twitter || null,
   twitterUrl: x.twitter ? `https://twitter.com/${x.twitter}` : null,
-  image: mapSanityImg(x.image),
+  website: x.website || null,
+  linkedin: x.linkedin || null,
+  github: x.github || null,
+  instagram: x.instagram || null,
+  twitch: x.twitch || null,
 });
 
 export const mapSanityBlogPost = (x: SanityBlogPost): BlogPost => ({
