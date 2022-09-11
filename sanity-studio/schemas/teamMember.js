@@ -25,7 +25,7 @@ export default {
     },
     {
       name: "image",
-      type: "img",
+      type: "image",
       title: "Image",
     },
     {

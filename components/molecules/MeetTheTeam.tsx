@@ -1,8 +1,8 @@
-import Image from "next/image";
 import type { FC } from "react";
 
 import type { TeamMember } from "../../types/cms/TeamMember";
 import { Heading } from "../atoms/Heading";
+import { SanityImage } from "../atoms/SanityImage";
 
 interface MeetTheTeamProps {
   team: TeamMember[];
@@ -22,16 +22,17 @@ export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
               key={teamMember.key}
               className="relative flex flex-col gap-3 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl shadow"
             >
-              <div className="flex flex-col items-center w-28 xs:w-32 md:w-32 mx-auto">
+              <div className="flex flex-col items-center">
                 {teamMember.image && (
-                  <Image
-                    src={teamMember.image.src}
-                    alt={teamMember.image.alt || teamMember.name}
-                    className="rounded-full max-h-full"
-                    width={teamMember.image.width}
-                    height={teamMember.image.height}
-                    layout="intrinsic"
-                  />
+                  <div className="relative w-28 xs:w-32 md:w-32 aspect-square">
+                    <SanityImage
+                      image={teamMember.image}
+                      alt={`Profile photo for ${teamMember.name}`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-full"
+                    />
+                  </div>
                 )}
               </div>
 

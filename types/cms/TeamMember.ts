@@ -1,9 +1,11 @@
-import { SanityDocumentBase, SanityImg, SanityImgMapped } from "./Sanity";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+import { SanityDocumentBase } from "./Sanity";
 
 export interface SanityTeamMember extends SanityDocumentBase {
   name: string;
   intro?: string;
-  image?: SanityImg;
+  image?: SanityImageSource;
   twitter?: string;
   website?: string;
   linkedin?: string;
@@ -16,7 +18,7 @@ export interface TeamMember {
   key: string;
   name: string;
   intro: string;
-  image: SanityImgMapped | null;
+  image: SanityImageSource | null;
   twitter: string | null;
   twitterUrl: string | null;
   website: string | null;

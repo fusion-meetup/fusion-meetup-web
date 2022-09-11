@@ -21,7 +21,7 @@ export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
   name: x.name,
   intro: x.intro || "",
-  image: mapSanityImg(x.image),
+  image: x.image || null,
   twitter: x.twitter || null,
   twitterUrl: x.twitter ? `https://twitter.com/${x.twitter}` : null,
   website: x.website || null,

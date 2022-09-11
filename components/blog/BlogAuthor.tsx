@@ -1,27 +1,24 @@
 import Image from "next/image";
 
 import { TeamMember } from "../../types/cms/TeamMember";
+import { SanityImage } from "../atoms/SanityImage";
 
 interface BlogAuthorProps {
   teamMember: TeamMember;
   enableTwitterLink?: boolean;
 }
 
-export const BlogAuthor: React.FC<BlogAuthorProps> = ({
-  teamMember,
-  enableTwitterLink,
-}) => {
+export const BlogAuthor: React.FC<BlogAuthorProps> = ({ teamMember, enableTwitterLink }) => {
   return (
-    <div className="flex flex-row gap-4 items-center">
+    <div className="flex flex-row gap-3 items-center">
       {teamMember.image ? (
-        <div className="w-10 h-10">
-          <Image
-            src={teamMember.image.src}
-            alt={teamMember.image.alt || teamMember.name}
-            className="rounded-full max-h-full"
-            width={teamMember.image.width}
-            height={teamMember.image.height}
-            layout="intrinsic"
+        <div className="relative w-10 h-10">
+          <SanityImage
+            image={teamMember.image}
+            alt={`Profile photo for ${teamMember.name}`}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-full"
           />
         </div>
       ) : null}
