@@ -55,3 +55,7 @@
 .fusion-gradient:hover::before {
   opacity: 1;
 }
+
+.blue-replace-italic em {
+  @apply not-italic text-blue-600 dark:text-blue-400;
+}

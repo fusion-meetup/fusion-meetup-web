@@ -1,9 +1,19 @@
 import { cms } from ".";
+import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
-import { EventsUpcomingAndPast, FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
+import {
+  EventsUpcomingAndPast,
+  FusionEvent,
+  SanityFusionEvent,
+} from "../../types/cms/FusionEvent";
 import { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 
-import { mapSanityBlogPost, mapSanityFusionEvent, mapSanityTeamMember } from "./mappers";
+import {
+  mapSanityAboutFusion,
+  mapSanityBlogPost,
+  mapSanityFusionEvent,
+  mapSanityTeamMember,
+} from "./mappers";
 
 export const getTeamMembers = async (): Promise<TeamMember[]> => {
   const sanityTeamMembers: SanityTeamMember[] = await cms.fetch(
@@ -37,7 +47,9 @@ export const getBlogPostBySlug = async (slug: string | undefined): Promise<BlogP
 };
 
 export const getBlogPostsSlugs = async (): Promise<string[]> => {
-  return await cms.fetch(`*[_type == "blogPost" && defined(slug.current)][].slug.current`);
+  return await cms.fetch(
+    `*[_type == "blogPost" && defined(slug.current)][].slug.current`
+  );
 };
 
 export const getFusionEvents = async (): Promise<EventsUpcomingAndPast> => {
@@ -61,7 +73,9 @@ export const getFusionEvents = async (): Promise<EventsUpcomingAndPast> => {
   );
 };
 
-export const getFusionEventBySlug = async (slug: string | undefined): Promise<FusionEvent> => {
+export const getFusionEventBySlug = async (
+  slug: string | undefined
+): Promise<FusionEvent> => {
   const eventSanity: SanityFusionEvent = await cms.fetch(
     `*[_type == "event" && slug.current == $slug][0]
     { ..., 'slug': slug.current }`,
@@ -81,4 +95,11 @@ export const getNextFusionEvent = async (): Promise<FusionEvent> => {
     | order(date desc)[0]`
   );
   return mapSanityFusionEvent(eventSanity);
+};
+
+export const getAboutFusionInfo = async (): Promise<AboutFusionInfo> => {
+  const sanityAboutFusion: SanityAboutFusionInfo = await cms.fetch(
+    `*[_type == "about"][0]`
+  );
+  return mapSanityAboutFusion(sanityAboutFusion);
 };

@@ -1,7 +1,7 @@
 export default {
   name: "teamMember",
   type: "document",
-  title: "Team Member",
+  title: "Team Members",
   preview: {
     select: {
       title: "name",

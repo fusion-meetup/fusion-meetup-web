@@ -11,7 +11,7 @@ interface MeetTheTeamProps {
 export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
   return (
     <div>
-      <Heading level={3} className="py-4 pb-8">
+      <Heading level={2} className="py-4 pb-8">
         Meet the team
       </Heading>
 

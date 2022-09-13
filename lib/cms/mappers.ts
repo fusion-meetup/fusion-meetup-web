@@ -1,6 +1,7 @@
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
 import type { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
+import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
 
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
@@ -46,3 +47,11 @@ const eventTypeDisplayMap: Record<string, string> = {
   meetup: "Meetup",
   conference: "Conference",
 };
+
+export const mapSanityAboutFusion = (x: SanityAboutFusionInfo): AboutFusionInfo => ({
+  key: x._id,
+  title: x.title || "",
+  description: x.description || [],
+  quote: x.quote || [],
+  buttonText: x.buttonText || "",
+});
