@@ -2,7 +2,8 @@ import type { GetStaticProps, NextPage } from "next";
 
 import { BlogPost } from "../types/cms/Blog";
 import { FusionEvent } from "../types/cms/FusionEvent";
-import { getBlogPosts, getNextFusionEvent } from "../lib/cms/queries";
+import { AboutFusionInfo } from "../types/cms/AboutFusionInfo";
+import { getAboutFusionInfo, getBlogPosts, getNextFusionEvent } from "../lib/cms/queries";
 import { Layout } from "../components/organisms/Layout";
 import { Button } from "../components/atoms/Button";
 import { Heading } from "../components/atoms/Heading";
@@ -13,14 +14,15 @@ import { NextEvent } from "../components/homepage/NextEvent";
 interface HomePageProps {
   nextEvent: FusionEvent | undefined;
   blogPosts: BlogPost[];
+  about: AboutFusionInfo;
 }
 
-const HomePage: NextPage<HomePageProps> = ({ nextEvent, blogPosts }) => (
+const HomePage: NextPage<HomePageProps> = ({ nextEvent, blogPosts, about }) => (
   <Layout withHero>
     <div className="container mx-auto flex flex-col gap-20 px-4 py-4">
       <NextEvent nextEvent={nextEvent} />
 
-      <AboutFusion />
+      <AboutFusion about={about} showLearnMoreButton />
 
       <div>
         <Heading level={2}>Fusion Blog</Heading>
@@ -49,15 +51,17 @@ const HomePage: NextPage<HomePageProps> = ({ nextEvent, blogPosts }) => (
 );
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  const [nextEvent, blogPosts] = await Promise.all([
+  const [nextEvent, blogPosts, about] = await Promise.all([
     getNextFusionEvent(),
     getBlogPosts(),
+    getAboutFusionInfo(),
   ]);
 
   return {
     props: {
       nextEvent,
       blogPosts,
+      about,
     },
   };
 };
