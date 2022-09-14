@@ -67,7 +67,7 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         <Heading level={2}>Contact the Fusion Team</Heading>
 
         <div className="flex flex-row flex-wrap items-center gap-1 py-4">
-          <p>This contact form goes directly to the Fusion team</p>
+          <p className="w-full">This contact form goes directly to the Fusion team</p>
           <p>We aim to reply via email as soon as possible</p>
           <Image
             alt="Fusion heart"
