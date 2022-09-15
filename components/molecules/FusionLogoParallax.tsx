@@ -7,7 +7,6 @@ import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 
 // TODO: Fix mouse scope on either side
 // TODO: Make this use accelerometer instead of mouse position on mobile
-// TODO: Handle JavaScript being disabled (fallback to static logo)
 
 const FusionLogoParallax = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
