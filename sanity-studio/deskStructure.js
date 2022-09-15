@@ -1,12 +1,27 @@
 import S from "@sanity/desk-tool/structure-builder";
 
+const globalSchemaTypes = [
+  {
+    title: "About Fusion",
+    name: "about",
+  },
+  {
+    title: "Code of Conduct",
+    name: "codeOfConduct",
+  },
+];
+
 export default () =>
   S.list()
     .title("Fusion Web Content Base")
     .items([
-      S.listItem()
-        .title("About Fusion")
-        .child(S.document().schemaType("about").documentId("about")),
+      ...globalSchemaTypes.map((schemaType) =>
+        S.listItem()
+          .title(schemaType.title)
+          .child(S.document().schemaType(schemaType.name).documentId(schemaType.name))
+      ),
       S.divider(),
-      ...S.documentTypeListItems().filter((item) => !["about"].includes(item.getId())),
+      ...S.documentTypeListItems().filter(
+        (item) => !globalSchemaTypes.map((x) => x.name).includes(item.getId())
+      ),
     ]);

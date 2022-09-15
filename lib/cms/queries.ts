@@ -1,6 +1,7 @@
 import { cms } from ".";
 import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
+import { CodeOfConduct, SanityCodeOfConduct } from "../../types/cms/CodeOfConduct";
 import {
   EventsUpcomingAndPast,
   FusionEvent,
@@ -9,6 +10,7 @@ import {
 import { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 
 import {
+  mapCodeOfConduct,
   mapSanityAboutFusion,
   mapSanityBlogPost,
   mapSanityFusionEvent,
@@ -102,4 +104,11 @@ export const getAboutFusionInfo = async (): Promise<AboutFusionInfo> => {
     `*[_type == "about"][0]`
   );
   return mapSanityAboutFusion(sanityAboutFusion);
+};
+
+export const getCodeOfConduct = async (): Promise<CodeOfConduct> => {
+  const sanityCodeOfConduct: SanityCodeOfConduct = await cms.fetch(
+    `*[_type == "codeOfConduct"][0]`
+  );
+  return mapCodeOfConduct(sanityCodeOfConduct);
 };

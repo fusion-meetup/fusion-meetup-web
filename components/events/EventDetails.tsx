@@ -1,6 +1,10 @@
+import clsx from "clsx";
 import dayjs from "dayjs";
+import Link from "next/link";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { MdCalendarToday, MdLocationPin, MdLunchDining } from "react-icons/md";
 import { SiEventbrite } from "react-icons/si";
+import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { Button } from "../atoms/Button";
@@ -8,9 +12,14 @@ import { Button } from "../atoms/Button";
 interface EventDetailsProps {
   event: FusionEvent;
   displayLinks?: boolean;
+  codeOfConduct?: CodeOfConduct;
 }
 
-export const EventDetails: React.FC<EventDetailsProps> = ({ event, displayLinks }) => {
+export const EventDetails: React.FC<EventDetailsProps> = ({
+  event,
+  displayLinks,
+  codeOfConduct,
+}) => {
   const date = dayjs(event.date).format("Do MMMM, YYYY");
 
   const details = [
@@ -50,7 +59,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, displayLinks 
         ))}
 
       {displayLinks ? (
-        <div className="pt-2">
+        <div className="pt-2 flex flex-row items-center flex-wrap gap-4">
           <Button
             href={event.eventbriteLink || undefined}
             targetBlank
@@ -59,6 +68,20 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, displayLinks 
           >
             <SiEventbrite /> Eventbrite
           </Button>
+
+          <Link href="/code-of-conduct" passHref>
+            <a
+              className={clsx(
+                "flex flex-row items-center gap-2 h-10 px-3 w-max",
+                "rounded-md border-2 border-slate-400 dark:border-slate-600",
+                "hover:bg-slate-400 hover:bg-opacity-30 hover:shadow",
+                "dark:hover:bg-slate-700 dark:hover:bg-opacity-70"
+              )}
+            >
+              <IoMdInformationCircleOutline />{" "}
+              {codeOfConduct?.linkText || "Code of Conduct"}
+            </a>
+          </Link>
         </div>
       ) : null}
     </div>

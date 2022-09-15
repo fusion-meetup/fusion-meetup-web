@@ -3,6 +3,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // General
 import about from "./about";
+import codeOfConduct from "./codeOfConduct";
 
 // Documents
 import event from "./event";
@@ -21,6 +22,7 @@ export default createSchema({
   name: "default",
   types: schemaTypes.concat([
     about,
+    codeOfConduct,
     event,
     teamMember,
     blogPost,

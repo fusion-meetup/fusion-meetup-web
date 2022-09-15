@@ -3,20 +3,24 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
-import { getFusionEventBySlug, getFusionEventsSlugs } from "../../lib/cms/queries";
+import {
+  getCodeOfConduct,
+  getFusionEventBySlug,
+  getFusionEventsSlugs,
+} from "../../lib/cms/queries";
 import { Layout } from "../../components/organisms/Layout";
 import { SanityContent } from "../../components/atoms/SanityContent";
 import { EventTalks } from "../../components/events/EventTalks";
 import { EventSponsors } from "../../components/events/EventSponsors";
 import { EventOverview } from "../../components/events/EventOverview";
+import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 
 interface EventPageProps {
   event: FusionEvent | undefined;
+  codeOfConduct?: CodeOfConduct;
 }
 
-// TODO: Create a Code of Conduct page and link to it
-
-const EventPage: NextPage<EventPageProps> = ({ event }) => {
+const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
   if (!event) return null;
 
   const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
@@ -28,7 +32,7 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
       fancyBackground="colours"
     >
       <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
-        <EventOverview event={event} />
+        <EventOverview event={event} codeOfConduct={codeOfConduct} />
       </div>
 
       <div className={clsx(narrowContainerClassName, "pt-2 pb-8")}>
@@ -47,11 +51,15 @@ const EventPage: NextPage<EventPageProps> = ({ event }) => {
 };
 
 export const getStaticProps: GetStaticProps<EventPageProps> = async (context) => {
-  const event = await getFusionEventBySlug(context.params?.slug as string | undefined);
+  const [event, codeOfConduct] = await Promise.all([
+    getFusionEventBySlug(context.params?.slug as string | undefined),
+    getCodeOfConduct(),
+  ]);
 
   return {
     props: {
       event,
+      codeOfConduct,
     },
   };
 };

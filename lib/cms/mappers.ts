@@ -2,6 +2,7 @@ import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
 import type { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
 import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
+import { CodeOfConduct, SanityCodeOfConduct } from "../../types/cms/CodeOfConduct";
 
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
@@ -54,4 +55,11 @@ export const mapSanityAboutFusion = (x: SanityAboutFusionInfo): AboutFusionInfo 
   description: x.description || [],
   quote: x.quote || [],
   buttonText: x.buttonText || "",
+});
+
+export const mapCodeOfConduct = (x: SanityCodeOfConduct): CodeOfConduct => ({
+  key: x._id,
+  title: x.title || "",
+  content: x.content || [],
+  linkText: x.linkText || "",
 });
