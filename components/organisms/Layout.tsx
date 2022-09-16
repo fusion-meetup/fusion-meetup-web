@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import clsx from "clsx";
 import Head from "next/head";
 import Image from "next/image";
@@ -8,7 +6,6 @@ import { Header } from "../molecules/Header";
 import { Footer } from "./Footer";
 import fusionColoursBackground from "../../public/fusion-colours-background.png";
 import { Hero } from "../molecules/Hero";
-import { getBlogPostsSlugs } from "../../lib/cms/queries";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,24 +22,6 @@ export const Layout: React.FC<LayoutProps> = ({
   fancyBackground,
   className,
 }) => {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!router.isReady) return;
-    if (window.location.hostname !== "localhost") return;
-
-    const surprise = async () => {
-      const slugs = await getBlogPostsSlugs();
-      if (!slugs.includes("surprise")) return;
-
-      setTimeout(() => {
-        router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-      }, 10000);
-    };
-
-    surprise();
-  }, [router, router.isReady]);
-
   return (
     <>
       <Head>
