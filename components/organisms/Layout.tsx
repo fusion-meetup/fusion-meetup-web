@@ -8,6 +8,7 @@ import { Header } from "../molecules/Header";
 import { Footer } from "./Footer";
 import fusionColoursBackground from "../../public/fusion-colours-background.png";
 import { Hero } from "../molecules/Hero";
+import { getBlogPostsSlugs } from "../../lib/cms/queries";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -30,17 +31,16 @@ export const Layout: React.FC<LayoutProps> = ({
     if (!router.isReady) return;
     if (window.location.hostname !== "localhost") return;
 
-    const today = new Date();
-    const todayIsToday =
-      today.getFullYear() === 2022 &&
-      today.getMonth() === 8 &&
-      today.getDate() === 16;
+    const surprise = async () => {
+      const slugs = await getBlogPostsSlugs();
+      if (!slugs.includes("surprise")) return;
 
-    if (todayIsToday && today.getHours() === 16 && today.getMinutes() >= 20) {
       setTimeout(() => {
         router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
       }, 10000);
-    }
+    };
+
+    surprise();
   }, [router, router.isReady]);
 
   return (
