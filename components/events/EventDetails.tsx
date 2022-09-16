@@ -15,12 +15,28 @@ interface EventDetailsProps {
   codeOfConduct?: CodeOfConduct;
 }
 
+/**
+ * Returns the actual date or easily read indicators
+ * @param dateString String represenation of the date from Sanity
+ * @returns The date-kinda
+ */
+const dateOutput = (dateString: string): string => {
+  const date = dayjs(dateString);
+  if (date.isToday()) {
+    return "Today";
+  }
+  if (date.isTomorrow()) {
+    return "Tomorrow";
+  }
+  return date.format("Do MMMM, YYYY");
+};
+
 export const EventDetails: React.FC<EventDetailsProps> = ({
   event,
   displayLinks,
   codeOfConduct,
 }) => {
-  const date = dayjs(event.date).format("Do MMMM, YYYY");
+  const date = dateOutput(event.date);
 
   const details = [
     {
