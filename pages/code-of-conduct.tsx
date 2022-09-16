@@ -10,7 +10,9 @@ interface CodeOfConductPageProps {
   codeOfConduct: CodeOfConduct;
 }
 
-const CodeOfConductPage: NextPage<CodeOfConductPageProps> = ({ codeOfConduct }) => (
+const CodeOfConductPage: NextPage<CodeOfConductPageProps> = ({
+  codeOfConduct,
+}) => (
   <Layout title="About">
     <div className="max-w-[800px] mx-auto p-4">
       <Heading level={1} className="py-6">
@@ -24,7 +26,9 @@ const CodeOfConductPage: NextPage<CodeOfConductPageProps> = ({ codeOfConduct }) 
   </Layout>
 );
 
-export const getStaticProps: GetStaticProps<CodeOfConductPageProps> = async () => {
+export const getStaticProps: GetStaticProps<
+  CodeOfConductPageProps
+> = async () => {
   const codeOfConduct = await getCodeOfConduct();
 
   return {

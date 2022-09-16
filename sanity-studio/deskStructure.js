@@ -18,7 +18,9 @@ export default () =>
       ...globalSchemaTypes.map((schemaType) =>
         S.listItem()
           .title(schemaType.title)
-          .child(S.document().schemaType(schemaType.name).documentId(schemaType.name))
+          .child(
+            S.document().schemaType(schemaType.name).documentId(schemaType.name)
+          )
       ),
       S.divider(),
       ...S.documentTypeListItems().filter(

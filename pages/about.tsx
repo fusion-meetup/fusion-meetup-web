@@ -25,7 +25,10 @@ const AboutPage: NextPage<AboutPageProps> = ({ team, about }) => (
 );
 
 export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
-  const [team, about] = await Promise.all([getTeamMembers(), getAboutFusionInfo()]);
+  const [team, about] = await Promise.all([
+    getTeamMembers(),
+    getAboutFusionInfo(),
+  ]);
 
   return {
     props: {

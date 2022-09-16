@@ -3,7 +3,11 @@ import type { GetStaticProps, NextPage } from "next";
 import { BlogPost } from "../types/cms/Blog";
 import { FusionEvent } from "../types/cms/FusionEvent";
 import { AboutFusionInfo } from "../types/cms/AboutFusionInfo";
-import { getAboutFusionInfo, getBlogPosts, getNextFusionEvent } from "../lib/cms/queries";
+import {
+  getAboutFusionInfo,
+  getBlogPosts,
+  getNextFusionEvent,
+} from "../lib/cms/queries";
 import { Layout } from "../components/organisms/Layout";
 import { Button } from "../components/atoms/Button";
 import { Heading } from "../components/atoms/Heading";

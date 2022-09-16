@@ -43,7 +43,12 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
 
           return (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={`${item._type}-${i}`} src={image} alt={item.alt || "Image"} loading="lazy" />
+            <img
+              key={`${item._type}-${i}`}
+              src={image}
+              alt={item.alt || "Image"}
+              loading="lazy"
+            />
           );
         }
       })}

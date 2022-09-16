@@ -1,8 +1,14 @@
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
 import type { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 import { FusionEvent, SanityFusionEvent } from "../../types/cms/FusionEvent";
-import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
-import { CodeOfConduct, SanityCodeOfConduct } from "../../types/cms/CodeOfConduct";
+import {
+  AboutFusionInfo,
+  SanityAboutFusionInfo,
+} from "../../types/cms/AboutFusionInfo";
+import {
+  CodeOfConduct,
+  SanityCodeOfConduct,
+} from "../../types/cms/CodeOfConduct";
 
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
@@ -49,7 +55,9 @@ const eventTypeDisplayMap: Record<string, string> = {
   conference: "Conference",
 };
 
-export const mapSanityAboutFusion = (x: SanityAboutFusionInfo): AboutFusionInfo => ({
+export const mapSanityAboutFusion = (
+  x: SanityAboutFusionInfo
+): AboutFusionInfo => ({
   key: x._id,
   title: x.title || "",
   description: x.description || [],

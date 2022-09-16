@@ -9,7 +9,10 @@ interface EventOverviewProps {
   codeOfConduct?: CodeOfConduct;
 }
 
-export const EventOverview: React.FC<EventOverviewProps> = ({ event, codeOfConduct }) => {
+export const EventOverview: React.FC<EventOverviewProps> = ({
+  event,
+  codeOfConduct,
+}) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[3fr_2fr] gap-2 md:gap-4">
       <div className="order-1 md:order-2">
@@ -20,7 +23,11 @@ export const EventOverview: React.FC<EventOverviewProps> = ({ event, codeOfCondu
         <Heading level={1}>Fusion {event.eventTypeDisplay}</Heading>
 
         <div className="py-8">
-          <EventDetails event={event} displayLinks codeOfConduct={codeOfConduct} />
+          <EventDetails
+            event={event}
+            displayLinks
+            codeOfConduct={codeOfConduct}
+          />
         </div>
       </div>
     </div>

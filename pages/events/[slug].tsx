@@ -50,7 +50,9 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<EventPageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<EventPageProps> = async (
+  context
+) => {
   const [event, codeOfConduct] = await Promise.all([
     getFusionEventBySlug(context.params?.slug as string | undefined),
     getCodeOfConduct(),

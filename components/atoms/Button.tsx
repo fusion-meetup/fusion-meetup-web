@@ -30,9 +30,12 @@ export const Button: React.FC<ButtonProps> = ({
     "box-content margin-0 leading-normal items-center block w-fit cursor-pointer",
     "flex flex-row justify-center gap-2",
     {
-      "bg-blue-600 hover:bg-blue-700 outline-blue-600/50 text-white": color === "blue",
-      "bg-pink-600 hover:bg-pink-700 outline-pink-600/50 text-white": color === "pink",
-      "bg-yellow-500 hover:bg-yellow-300 outline-yellow-500/50 text-black": color === "yellow",
+      "bg-blue-600 hover:bg-blue-700 outline-blue-600/50 text-white":
+        color === "blue",
+      "bg-pink-600 hover:bg-pink-700 outline-pink-600/50 text-white":
+        color === "pink",
+      "bg-yellow-500 hover:bg-yellow-300 outline-yellow-500/50 text-black":
+        color === "yellow",
     },
     "transition-all ease-out duration-100 py-2 px-4 rounded-md font-bold text-md hover:shadow",
     "focus:outline active:outline outline-3 outline-offset-2 focus:scale-95",

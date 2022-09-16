@@ -83,7 +83,9 @@ export default {
       date: "date",
     },
     prepare(selection) {
-      const date = selection.date ? dayjs(selection.date).format("DD/MM/YYYY") : "Missing date";
+      const date = selection.date
+        ? dayjs(selection.date).format("DD/MM/YYYY")
+        : "Missing date";
 
       return Object.assign({}, selection, {
         title: `Fusion ${selection.eventType} - ${date}`,

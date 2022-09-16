@@ -20,7 +20,9 @@ const contactFormValuesToEmbed = (values: ContactFormValues) => ({
     { name: "Email", value: values.email },
     {
       name: "Type",
-      value: contactOptions.find((co) => co.value === values.type)?.label || values.type,
+      value:
+        contactOptions.find((co) => co.value === values.type)?.label ||
+        values.type,
     },
     { name: "Message", value: values.message },
   ],

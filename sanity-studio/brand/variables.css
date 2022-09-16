@@ -6,9 +6,9 @@
   --brand-secondary: #f00a95;
   --brand-secondary--inverted: #021b2a;
 
-  --font-family-inter: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  --font-family-inter: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-base: var(--font-family-inter);
   --font-family-sans-serif: var(--font-family-inter);
   --text-color: var(--brand-secondary--inverted);

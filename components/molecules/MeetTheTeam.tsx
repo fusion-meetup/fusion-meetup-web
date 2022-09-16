@@ -24,7 +24,9 @@ export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
   );
 };
 
-const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({ teamMember }) => (
+const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({
+  teamMember,
+}) => (
   <div className="relative flex flex-col gap-3 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl shadow">
     <div className="flex flex-col items-center">
       {teamMember.image && (
@@ -44,7 +46,9 @@ const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({ teamMember }) =>
   </div>
 );
 
-const TeamMemberDetails: React.FC<{ teamMember: TeamMember }> = ({ teamMember }) => (
+const TeamMemberDetails: React.FC<{ teamMember: TeamMember }> = ({
+  teamMember,
+}) => (
   <div className="flex flex-col items-center">
     <Heading level={4} className="text-center">
       {teamMember.name}

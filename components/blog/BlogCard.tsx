@@ -14,7 +14,9 @@ interface BlogCardProps {
 }
 
 export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
-  const imageProps = useNextSanityImage(cms, post.mainImage!, { enableBlurUp: true });
+  const imageProps = useNextSanityImage(cms, post.mainImage!, {
+    enableBlurUp: true,
+  });
 
   return (
     <a

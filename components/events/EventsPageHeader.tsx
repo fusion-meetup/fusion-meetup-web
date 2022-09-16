@@ -6,7 +6,9 @@ export interface EventsPageHeaderProps {
   children: React.ReactNode;
 }
 
-export const EventsPageHeader: React.FC<EventsPageHeaderProps> = ({ children }) => {
+export const EventsPageHeader: React.FC<EventsPageHeaderProps> = ({
+  children,
+}) => {
   return (
     <div className="pt-6 px-4">
       <div className="relative">

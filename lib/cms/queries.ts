@@ -1,7 +1,13 @@
 import { cms } from ".";
-import { AboutFusionInfo, SanityAboutFusionInfo } from "../../types/cms/AboutFusionInfo";
+import {
+  AboutFusionInfo,
+  SanityAboutFusionInfo,
+} from "../../types/cms/AboutFusionInfo";
 import { BlogPost, SanityBlogPost } from "../../types/cms/Blog";
-import { CodeOfConduct, SanityCodeOfConduct } from "../../types/cms/CodeOfConduct";
+import {
+  CodeOfConduct,
+  SanityCodeOfConduct,
+} from "../../types/cms/CodeOfConduct";
 import {
   EventsUpcomingAndPast,
   FusionEvent,
@@ -35,7 +41,9 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
   return blogPostsSanity.map(mapSanityBlogPost);
 };
 
-export const getBlogPostBySlug = async (slug: string | undefined): Promise<BlogPost> => {
+export const getBlogPostBySlug = async (
+  slug: string | undefined
+): Promise<BlogPost> => {
   const sanityBlogPost: SanityBlogPost = await cms.fetch(
     `*[_type == "blogPost" && slug.current == $slug][0]{
       ...,
@@ -87,7 +95,9 @@ export const getFusionEventBySlug = async (
 };
 
 export const getFusionEventsSlugs = async (): Promise<string[]> => {
-  return await cms.fetch(`*[_type == "event" && defined(slug.current)][].slug.current`);
+  return await cms.fetch(
+    `*[_type == "event" && defined(slug.current)][].slug.current`
+  );
 };
 
 export const getNextFusionEvent = async (): Promise<FusionEvent> => {

@@ -5,7 +5,10 @@ interface FusionLogoProps {
   className?: string;
 }
 
-export const FusionLogo: React.FC<FusionLogoProps> = ({ logoComponents, ...props }) => (
+export const FusionLogo: React.FC<FusionLogoProps> = ({
+  logoComponents,
+  ...props
+}) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1260" {...props}>
     <style>
       {`

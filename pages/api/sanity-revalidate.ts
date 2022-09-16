@@ -8,12 +8,16 @@ type Data = {
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
   if (req.method !== "POST") {
     return res.status(401).json({ message: "Must be a POST request" });
   }
 
-  if (!secret) return res.status(401).json({ message: "Missing SANITY_WEBHOOK_SECRET" });
+  if (!secret)
+    return res.status(401).json({ message: "Missing SANITY_WEBHOOK_SECRET" });
 
   const webhookSecretHeader = req.headers["sanity-webhook-secret"];
   if (!webhookSecretHeader) {

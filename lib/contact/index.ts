@@ -1,4 +1,8 @@
-export type ContactFormType = "general" | "talkSubmission" | "question" | "sponsorship";
+export type ContactFormType =
+  | "general"
+  | "talkSubmission"
+  | "question"
+  | "sponsorship";
 
 export interface ContactFormValues {
   name: string;

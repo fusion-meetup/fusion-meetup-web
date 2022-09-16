@@ -9,8 +9,19 @@ interface SanityImageProps extends Omit<ImageProps, "src" | "loader"> {
   alt: string;
 }
 
-export const SanityImage: React.FC<SanityImageProps> = ({ image, alt, ...props }) => {
+export const SanityImage: React.FC<SanityImageProps> = ({
+  image,
+  alt,
+  ...props
+}) => {
   const imageProps = useNextSanityImage(cms, image, { enableBlurUp: true });
 
-  return <Image src={imageProps.src} loader={imageProps.loader} alt={alt} {...props} />;
+  return (
+    <Image
+      src={imageProps.src}
+      loader={imageProps.loader}
+      alt={alt}
+      {...props}
+    />
+  );
 };

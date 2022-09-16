@@ -34,7 +34,9 @@ const FusionLogoParallax = () => {
     <animated.div
       className="absolute top-0 w-full h-full"
       style={{
-        transform: prefersReducedMotion ? undefined : springProps.xy.to(translateFn),
+        transform: prefersReducedMotion
+          ? undefined
+          : springProps.xy.to(translateFn),
       }}
     >
       <div
@@ -53,7 +55,9 @@ const FusionLogoParallax = () => {
   return (
     <div
       className="relative"
-      onMouseMove={({ clientX: x, clientY: y }) => setMouse({ xy: calcXy(x, y) })}
+      onMouseMove={({ clientX: x, clientY: y }) =>
+        setMouse({ xy: calcXy(x, y) })
+      }
       onMouseLeave={() => setMouse({ xy: [0, 0] })}
     >
       {animatedLogoComponent(

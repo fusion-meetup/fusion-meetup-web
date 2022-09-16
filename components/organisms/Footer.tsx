@@ -9,7 +9,13 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto p-4 flex flex-row flex-wrap gap-x-4">
         <div className="flex flex-row flex-wrap items-center gap-1 py-2">
           Made with
-          <Image alt="Fusion heart" src={fusionHeart} layout="fixed" width={20} height={20} />
+          <Image
+            alt="Fusion heart"
+            src={fusionHeart}
+            layout="fixed"
+            width={20}
+            height={20}
+          />
           by Fusion in Birmingham
         </div>
 

@@ -17,11 +17,15 @@ export default async function handler(
   res: NextApiResponse<ApiContactResponse>
 ) {
   if (req.method !== "POST") {
-    return res.status(401).json({ success: false, message: "Method not allowed" });
+    return res
+      .status(401)
+      .json({ success: false, message: "Method not allowed" });
   }
 
   if (!webhookSecret) {
-    return res.status(500).json({ success: false, message: "Missing webhook secret" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Missing webhook secret" });
   }
 
   const reqBody: RequestData = req.body;
@@ -31,7 +35,9 @@ export default async function handler(
     if (result) {
       return res.status(200).json({ success: true, message: "Success" });
     } else {
-      return res.status(500).json({ success: false, message: "Error sending message" });
+      return res
+        .status(500)
+        .json({ success: false, message: "Error sending message" });
     }
   } catch (err) {
     return res.status(500).send({ success: false, message: "Unknown error" });

@@ -8,7 +8,10 @@ interface BlogAuthorProps {
   enableTwitterLink?: boolean;
 }
 
-export const BlogAuthor: React.FC<BlogAuthorProps> = ({ teamMember, enableTwitterLink }) => {
+export const BlogAuthor: React.FC<BlogAuthorProps> = ({
+  teamMember,
+  enableTwitterLink,
+}) => {
   return (
     <div className="flex flex-row gap-3 items-center">
       {teamMember.image ? (
@@ -28,7 +31,11 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = ({ teamMember, enableTwitte
 
         <div className="text-sm opacity-50">
           {enableTwitterLink && teamMember.twitterUrl ? (
-            <a href={teamMember.twitterUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={teamMember.twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               @{teamMember.twitter}
             </a>
           ) : (

@@ -6,7 +6,11 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { MdBackspace } from "react-icons/md";
 
-import { ContactFormType, ContactFormValues, contactOptions } from "../lib/contact";
+import {
+  ContactFormType,
+  ContactFormValues,
+  contactOptions,
+} from "../lib/contact";
 import { Layout } from "../components/organisms/Layout";
 import { Heading } from "../components/atoms/Heading";
 import { Input } from "../components/atoms/Input";
@@ -24,22 +28,28 @@ interface ContactPageProps {}
 const ContactPage: NextPage<ContactPageProps> = () => {
   const router = useRouter();
 
-  const [submitSuccess, setSubmitSuccess] = useState<boolean | undefined>(undefined);
+  const [submitSuccess, setSubmitSuccess] = useState<boolean | undefined>(
+    undefined
+  );
   const [sendingFormResult, setSendingFormResult] = useState<boolean>(false);
 
-  const { register, handleSubmit, setValue, reset } = useForm<ContactFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      type: "general",
-      message: "",
-    },
-  });
+  const { register, handleSubmit, setValue, reset } =
+    useForm<ContactFormValues>({
+      defaultValues: {
+        name: "",
+        email: "",
+        type: "general",
+        message: "",
+      },
+    });
 
   const contactFormSubmit = async (data: ContactFormValues) => {
     try {
       setSendingFormResult(true);
-      const response = await axios.post<ApiContactResponse>("/api/contact", data);
+      const response = await axios.post<ApiContactResponse>(
+        "/api/contact",
+        data
+      );
       setSubmitSuccess(response.data.success);
     } catch (e) {
       setSubmitSuccess(false);
@@ -67,7 +77,9 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         <Heading level={2}>Contact the Fusion Team</Heading>
 
         <div className="flex flex-row flex-wrap items-center gap-1 py-4">
-          <p className="w-full">This contact form goes directly to the Fusion team</p>
+          <p className="w-full">
+            This contact form goes directly to the Fusion team
+          </p>
           <p>We aim to reply via email as soon as possible</p>
           <Image
             alt="Fusion heart"
@@ -124,7 +136,8 @@ const ContactPage: NextPage<ContactPageProps> = () => {
 
             {submitSuccess === false ? (
               <Alert type="error">
-                Something went wrong – please try again, or shoot us a message on{" "}
+                Something went wrong – please try again, or shoot us a message
+                on{" "}
                 <a
                   href="https://twitter.com/thefusion_hub"
                   className="underline"
@@ -141,13 +154,20 @@ const ContactPage: NextPage<ContactPageProps> = () => {
               {sendingFormResult ? (
                 <div className="opacity-50">Sending...</div>
               ) : (
-                <Button typeSubmit value="Submit" color="pink" className="px-16" />
+                <Button
+                  typeSubmit
+                  value="Submit"
+                  color="pink"
+                  className="px-16"
+                />
               )}
             </div>
           </form>
         ) : (
           <div className="py-4 flex flex-col gap-8">
-            <Alert type="success">Contact form sent! Thanks for getting in touch</Alert>
+            <Alert type="success">
+              Contact form sent! Thanks for getting in touch
+            </Alert>
 
             <Button
               color="blue"

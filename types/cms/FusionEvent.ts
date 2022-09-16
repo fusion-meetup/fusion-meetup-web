@@ -54,7 +54,12 @@ export interface SanitySpeaker extends SanityObjectBase {
   bio: any;
 }
 
-export type SponsorLevel = "headline" | "platinum" | "gold" | "silver" | "bronze";
+export type SponsorLevel =
+  | "headline"
+  | "platinum"
+  | "gold"
+  | "silver"
+  | "bronze";
 
 export interface SanitySponsor extends SanityObjectBase {
   name: string;
