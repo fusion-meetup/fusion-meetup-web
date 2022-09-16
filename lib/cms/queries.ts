@@ -36,7 +36,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     `*[_type == "blogPost"]
     { ..., author->, 'slug': slug.current }
     | order(publishedAt desc)
-    | order(featured asc)`
+    | order((featured == true) desc)`
   );
   return blogPostsSanity.map(mapSanityBlogPost);
 };
