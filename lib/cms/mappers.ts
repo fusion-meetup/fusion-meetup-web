@@ -13,6 +13,7 @@ import {
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
   name: x.name,
+  slug: x.slug,
   intro: x.intro || "",
   image: x.image || null,
   twitter: x.twitter || null,

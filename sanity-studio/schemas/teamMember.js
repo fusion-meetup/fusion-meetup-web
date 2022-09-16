@@ -17,6 +17,22 @@ export default {
       validation: (rule) => rule.required().min(2).max(50),
     },
     {
+      name: "slug",
+      title: "Slug",
+      description: "This will be used for the URL",
+      type: "slug",
+      options: {
+        source: (doc) => {
+          if (!doc.name) throw new Error("Missing event date");
+          return doc.name
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^0-9a-z\-]/gi, "");
+        },
+        maxLength: 96,
+      },
+    },
+    {
       name: "intro",
       type: "string",
       title: "Intro",

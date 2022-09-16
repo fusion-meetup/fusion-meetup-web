@@ -26,6 +26,7 @@ import {
 export const getTeamMembers = async (): Promise<TeamMember[]> => {
   const sanityTeamMembers: SanityTeamMember[] = await cms.fetch(
     `*[_type == "teamMember"]
+    { ..., 'slug': slug.current }
     | order(order asc)`
   );
   return sanityTeamMembers.map(mapSanityTeamMember);

@@ -4,6 +4,7 @@ import { SanityDocumentBase } from "./Sanity";
 
 export interface SanityTeamMember extends SanityDocumentBase {
   name: string;
+  slug: string;
   intro?: string;
   image?: SanityImageSource;
   twitter?: string;
@@ -17,6 +18,7 @@ export interface SanityTeamMember extends SanityDocumentBase {
 export interface TeamMember {
   key: string;
   name: string;
+  slug: string;
   intro: string;
   image: SanityImageSource | null;
   twitter: string | null;
