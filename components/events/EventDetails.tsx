@@ -4,10 +4,11 @@ import Link from "next/link";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { MdCalendarToday, MdLocationPin, MdLunchDining } from "react-icons/md";
 import { SiEventbrite } from "react-icons/si";
-import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 
+import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { Button } from "../atoms/Button";
+import { GradientText } from "../atoms/GradientText";
 
 interface EventDetailsProps {
   event: FusionEvent;
@@ -20,13 +21,13 @@ interface EventDetailsProps {
  * @param dateString String represenation of the date from Sanity
  * @returns The date-kinda
  */
-const dateOutput = (dateString: string): string => {
+const dateOutput = (dateString: string): string | JSX.Element => {
   const date = dayjs(dateString);
   if (date.isToday()) {
-    return "Today";
+    return <GradientText className="text-xl">Today!</GradientText>;
   }
   if (date.isTomorrow()) {
-    return "Tomorrow";
+    return <GradientText className="text-xl">Tomorrow</GradientText>;
   }
   return date.format("Do MMMM, YYYY");
 };
@@ -64,12 +65,12 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
         .map((detail) => (
           <div key={detail.key} className="flex flex-row items-center gap-2">
             <div className="text-2xl">{detail.icon}</div>
-            <div>
-              {detail.label?.split("\n").map((line) => (
-                <p key={line} className="text-lg">
-                  {line}
-                </p>
-              ))}
+            <div className="text-lg">
+              {typeof detail.label === "string"
+                ? detail.label
+                    ?.split("\n")
+                    .map((line) => <p key={line}>{line}</p>)
+                : detail.label}
             </div>
           </div>
         ))}
