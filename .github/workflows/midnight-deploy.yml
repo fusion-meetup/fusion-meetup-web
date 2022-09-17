@@ -1,0 +1,12 @@
+# This exists because "Today" and "Tomorrow" are used in static content
+name: Midnight Deploy
+on:
+  schedule:
+    - cron: "15 0 * * *"
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: curl ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
