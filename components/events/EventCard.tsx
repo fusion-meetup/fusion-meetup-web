@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import dayjs from "dayjs";
+import { RiUserSmileLine } from "react-icons/ri";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { SanityImage } from "../atoms/SanityImage";
@@ -30,16 +31,25 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isFirst }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
         {event.talks.map((talk) => (
           <div key={talk._key} className="flex flex-row gap-4">
-            {talk.speaker.photo ? (
-              <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
+            <div
+              className={clsx(
+                "relative w-16 h-16 rounded-full overflow-hidden shrink-0",
+                "flex items-center justify-center bg-blue text-4xl bg-opacity-50"
+              )}
+            >
+              {talk.speaker.photo ? (
                 <SanityImage
                   image={talk.speaker.photo}
                   layout="fill"
                   objectFit="cover"
                   alt={`Profile photo for ${talk.speaker.name}`}
                 />
-              </div>
-            ) : null}
+              ) : (
+                <div className="text-4xl opacity-70">
+                  <RiUserSmileLine />
+                </div>
+              )}
+            </div>
 
             <div className="flex flex-col gap-2">
               <h3 className="font-md">{talk.title}</h3>
