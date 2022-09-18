@@ -25,13 +25,17 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
               key={`${item._type}-${i}`}
               value={item}
               components={{
-                // TODO: Style blockquote
                 block: {
                   h1: ({ children }) => <Heading level={2}>{children}</Heading>,
                   h2: ({ children }) => <Heading level={3}>{children}</Heading>,
                   h3: ({ children }) => <Heading level={4}>{children}</Heading>,
                   h4: ({ children }) => <Heading level={5}>{children}</Heading>,
                   h5: ({ children }) => <Heading level={6}>{children}</Heading>,
+                  blockquote: ({ children }) => (
+                    <blockquote className="pl-2 md:pl-3 border-l-4 border-slate-300 dark:border-slate-700">
+                      {children}
+                    </blockquote>
+                  ),
                 },
               }}
             />
