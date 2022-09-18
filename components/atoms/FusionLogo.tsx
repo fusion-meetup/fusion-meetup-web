@@ -38,11 +38,7 @@ export const FusionLogo: React.FC<FusionLogoProps> = ({
 // SVG paths
 
 const barBlueBehind = (
-  <path
-    key="barBlueBehind"
-    fill="#54c8e8"
-    d="m734.695 472.768 186.18-64.513 173.431 500.519-186.18 64.512z"
-  />
+  <path key="barBlueBehind" fill="#54c8e8" d="m820 716 185-64 89 257-185 64z" />
 );
 
 const rectangleFrame = (
@@ -68,7 +64,7 @@ const barBlueInfront = (
   <path
     key="barBlueInfront"
     fill="#54c8e8"
-    d="M608.29 107.952 794.47 43.44l179.896 519.175-186.18 64.512z"
+    d="m609 108 185-65 215 619-186 65z"
   />
 );
 
