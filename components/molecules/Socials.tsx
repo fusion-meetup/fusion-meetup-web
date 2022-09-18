@@ -5,22 +5,27 @@ import { FaFacebook, FaTwitter, FaMeetup, FaLinkedin } from "react-icons/fa";
 interface SocialLinkItem {
   href: string;
   icon: ReactNode;
+  name: string;
 }
 
 const socialLinks: SocialLinkItem[] = [
   {
+    name: "Meetup",
     href: "https://www.meetup.com/fusion-technology-meetup-birmingham",
     icon: <FaMeetup />,
   },
   {
+    name: "Twitter",
     href: "https://twitter.com/thefusion_hub",
     icon: <FaTwitter />,
   },
   {
+    name: "LinkedIn",
     href: "https://www.linkedin.com/company/technical-team-solutions/",
     icon: <FaLinkedin />,
   },
   {
+    name: "Facebook",
     href: "https://www.facebook.com/fusionmeetup",
     icon: <FaFacebook />,
   },
@@ -29,13 +34,14 @@ const socialLinks: SocialLinkItem[] = [
 export const Socials: FC = () => {
   return (
     <div className="flex flex-row text-2xl">
-      {socialLinks.map(({ href, icon }) => (
+      {socialLinks.map(({ href, icon, name }) => (
         <a
-          key={href}
+          key={name}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           className="group p-2 focus:outline-none"
+          aria-label={name}
         >
           <div
             className={clsx(

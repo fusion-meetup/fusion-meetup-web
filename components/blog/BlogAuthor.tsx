@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { TeamMember } from "../../types/cms/TeamMember";
 import { SanityImage } from "../atoms/SanityImage";
 
@@ -27,7 +25,7 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = ({
       ) : null}
 
       <div>
-        <h5 className="font-bold">{teamMember.name}</h5>
+        <p className="font-bold">{teamMember.name}</p>
 
         <div className="text-sm opacity-50">
           {enableTwitterLink && teamMember.twitterUrl ? (

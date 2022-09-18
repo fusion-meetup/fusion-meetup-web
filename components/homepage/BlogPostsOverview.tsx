@@ -24,7 +24,7 @@ export const BlogPostsOverview: React.FC<{ blogPosts: BlogPost[] }> = ({
       </div>
 
       <Button href="/blog" color="pink">
-        More Posts <FaArrowRight />
+        More posts <FaArrowRight />
       </Button>
     </div>
   );

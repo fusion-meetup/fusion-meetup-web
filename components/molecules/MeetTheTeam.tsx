@@ -50,9 +50,7 @@ const TeamMemberDetails: React.FC<{ teamMember: TeamMember }> = ({
   teamMember,
 }) => (
   <div className="flex flex-col items-center">
-    <Heading level={4} className="text-center">
-      {teamMember.name}
-    </Heading>
+    <p className="text-xl md:text-2xl text-center">{teamMember.name}</p>
 
     {teamMember.twitterUrl ? (
       <a
