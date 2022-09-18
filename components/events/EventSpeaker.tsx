@@ -24,7 +24,7 @@ export const EventSpeaker: React.FC<EventSpeakerProps> = ({ speaker }) => {
         ) : null}
 
         <div>
-          <Heading level={4}>{speaker.name}</Heading>
+          <p className="text-xl md:text-2xl font-bold">{speaker.name}</p>
 
           {speaker.pronouns ? (
             <p className="opacity-50">({speaker.pronouns})</p>

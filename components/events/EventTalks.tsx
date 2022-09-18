@@ -23,7 +23,7 @@ export const EventTalks: React.FC<EventTalksProps> = ({ talks }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-6 md:gap-8">
               <div className="flex flex-col gap-2">
-                <Heading level={4}>{talk.title}</Heading>
+                <p className="text-xl md:text-2xl font-bold">{talk.title}</p>
 
                 <div className="opacity-70">
                   <SanityContent value={talk.overview} />

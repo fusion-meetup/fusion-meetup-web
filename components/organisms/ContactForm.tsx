@@ -18,7 +18,6 @@ import { Button } from "../atoms/Button";
 import { Alert } from "../atoms/Alert";
 import { FormFieldLabel } from "../atoms/FormFieldLabel";
 import fusionHeart from "../../public/fusion-heart.png";
-import fusionContactIcon from "../../public/fusion-contact-icon.png";
 
 export const ContactForm: React.FC = () => {
   const router = useRouter();
@@ -76,14 +75,7 @@ export const ContactForm: React.FC = () => {
   }, [router.isReady, setValue, router.query.t]);
 
   return (
-    <div className="max-w-[640px] xl:max-w-[800px] mx-auto p-4 pt-8">
-      <Image
-        src={fusionContactIcon}
-        alt="Fusion Contact Icon"
-        width={128}
-        height={128}
-      />
-
+    <>
       <Heading level={2}>Contact the Fusion Team</Heading>
 
       <div className="flex flex-row flex-wrap items-center gap-1 py-4">
@@ -190,7 +182,7 @@ export const ContactForm: React.FC = () => {
           </Button>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

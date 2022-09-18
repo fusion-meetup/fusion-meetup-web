@@ -45,7 +45,7 @@ export const EventSponsors: React.FC<EventSponsorsProps> = ({ sponsors }) => {
 
             <div className="flex flex-col gap-4">
               <div className="flex flex-row w-full justify-between items-center">
-                <Heading level={4}>{sponsor.name}</Heading>
+                <p className="text-xl md:text-2xl font-bold">{sponsor.name}</p>
 
                 <div
                   className={clsx(
