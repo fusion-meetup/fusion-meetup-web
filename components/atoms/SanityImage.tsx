@@ -1,6 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 import { cms } from "../../lib/cms";
 
@@ -14,14 +14,7 @@ export const SanityImage: React.FC<SanityImageProps> = ({
   alt,
   ...props
 }) => {
-  const imageProps = useNextSanityImage(cms, image, { enableBlurUp: true });
+  const imageProps = useNextSanityImage(cms, image, { enableBlurUp: false });
 
-  return (
-    <Image
-      src={imageProps.src}
-      loader={imageProps.loader}
-      alt={alt}
-      {...props}
-    />
-  );
+  return <Image {...imageProps} alt={alt} {...props} />;
 };

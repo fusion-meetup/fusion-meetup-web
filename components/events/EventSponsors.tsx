@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { FaArrowDown } from "react-icons/fa";
 
-import { sanityImageUrlBuilder } from "../../lib/cms";
 import { SanitySponsor, SponsorLevel } from "../../types/cms/FusionEvent";
 import { Heading } from "../atoms/Heading";
 import { SanityContent } from "../atoms/SanityContent";
+import { SanityImage } from "../atoms/SanityImage";
 
 interface EventSponsorsProps {
   sponsors: SanitySponsor[];
@@ -27,20 +27,22 @@ export const EventSponsors: React.FC<EventSponsorsProps> = ({ sponsors }) => {
             key={sponsor._key}
             className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-12 p-8 rounded-xl bg-white dark:bg-slate-800"
           >
-            {/* TODO: Replace img with SanityImage */}
             <div className="w-2/3 sm:w-1/2 md:w-full flex flex-row items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={sanityImageUrlBuilder.image(sponsor.logo).url()}
-                alt={`${sponsor.name} logo`}
-                className="w-full dark:hidden"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={sanityImageUrlBuilder.image(sponsor.logoDark).url()}
-                alt={`${sponsor.name} logo`}
-                className="w-full hidden dark:block"
-              />
+              <div className="dark:hidden">
+                <SanityImage
+                  image={sponsor.logo}
+                  alt={`${sponsor.name} logo`}
+                  layout="intrinsic"
+                />
+              </div>
+
+              <div className="hidden dark:block">
+                <SanityImage
+                  image={sponsor.logoDark}
+                  alt={`${sponsor.name} logo`}
+                  layout="intrinsic"
+                />
+              </div>
             </div>
 
             <div className="flex flex-col gap-4">

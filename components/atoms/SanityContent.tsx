@@ -1,13 +1,16 @@
 import { PortableText } from "@portabletext/react";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import { sanityImageUrlBuilder } from "../../lib/cms";
 import { Heading } from "./Heading";
+import { SanityImage } from "./SanityImage";
 
-interface ContentItem {
-  _type: "block" | "image";
-  [key: string]: any;
-  children?: ContentItem[];
-}
+type ContentItem =
+  | {
+      _type: "block" | "image";
+      [key: string]: any;
+      children?: ContentItem[];
+    }
+  | (SanityImageSource & { _type: "image" });
 
 interface SanityContentProps {
   value: ContentItem[];
@@ -41,17 +44,12 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
             />
           );
         } else {
-          const image = sanityImageUrlBuilder.image(item).url() as string;
-
-          // TODO: Replace img with SanityImage
-
           return (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <SanityImage
               key={`${item._type}-${i}`}
-              src={image}
-              alt={item.alt || "Image"}
-              loading="lazy"
+              image={item}
+              alt="Image"
+              layout="responsive"
             />
           );
         }

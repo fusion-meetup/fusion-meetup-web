@@ -4,9 +4,7 @@ import { FusionLogo } from "../atoms/FusionLogo";
 
 const FusionLogoParallax = dynamic(
   () => import("../molecules/FusionLogoParallax"),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 const colourBars = [
