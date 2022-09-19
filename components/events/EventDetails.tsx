@@ -2,8 +2,13 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { MdCalendarToday, MdLocationPin, MdLunchDining } from "react-icons/md";
 import { SiEventbrite } from "react-icons/si";
+import {
+  MdCalendarToday,
+  MdHome,
+  MdLocationPin,
+  MdLunchDining,
+} from "react-icons/md";
 
 import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 import { FusionEvent } from "../../types/cms/FusionEvent";
@@ -49,7 +54,12 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
     },
     {
       key: "location",
-      icon: <MdLocationPin />,
+      icon:
+        event.location.address.toLowerCase() !== "virtual" ? (
+          <MdLocationPin />
+        ) : (
+          <MdHome />
+        ),
       label: event.location.address,
       link: event.location.googleMapsLink,
     },
