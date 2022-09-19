@@ -45,12 +45,14 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
           );
         } else {
           return (
-            <SanityImage
-              key={`${item._type}-${i}`}
-              image={item}
-              alt="Image"
-              layout="responsive"
-            />
+            <div className="rounded-md overflow-hidden">
+              <SanityImage
+                key={`${item._type}-${i}`}
+                image={item}
+                alt="Image"
+                layout="responsive"
+              />
+            </div>
           );
         }
       })}

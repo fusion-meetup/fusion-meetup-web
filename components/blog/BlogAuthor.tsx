@@ -13,13 +13,12 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = ({
   return (
     <div className="flex flex-row gap-3 items-center">
       {teamMember.image ? (
-        <div className="relative w-10 h-10">
+        <div className="relative w-10 h-10 rounded-full overflow-hidden">
           <SanityImage
             image={teamMember.image}
             alt={`Profile photo for ${teamMember.name}`}
             layout="fill"
             objectFit="cover"
-            className="rounded-full"
           />
         </div>
       ) : null}

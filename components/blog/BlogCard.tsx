@@ -1,13 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
-import { useNextSanityImage } from "next-sanity-image";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import { FaStar } from "react-icons/fa";
 
-import { cms } from "../../lib/cms";
 import { BlogPost } from "../../types/cms/Blog";
 import { BlogAuthor } from "./BlogAuthor";
+import { SanityImage } from "../atoms/SanityImage";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -15,10 +13,6 @@ interface BlogCardProps {
 }
 
 export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
-  const imageProps = useNextSanityImage(cms, post.mainImage!, {
-    enableBlurUp: true,
-  });
-
   return (
     <Link href={`/blog/post/${post.slug}`}>
       <a
@@ -30,12 +24,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
       >
         <div className="h-full flex flex-col gap-2">
           <div className="w-full h-40 relative">
-            <Image
-              src={imageProps.src}
-              loader={imageProps.loader}
+            <SanityImage
+              image={post.mainImage!}
+              alt={`Image for ${post.title}`}
               layout="fill"
               objectFit="cover"
-              alt={`Image for ${post.title}`}
               priority
             />
 

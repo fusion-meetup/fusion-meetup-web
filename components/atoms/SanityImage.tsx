@@ -14,7 +14,27 @@ export const SanityImage: React.FC<SanityImageProps> = ({
   alt,
   ...props
 }) => {
-  const imageProps = useNextSanityImage(cms, image, { enableBlurUp: false });
+  const imageProps = useNextSanityImage(cms, image, {
+    enableBlurUp: true,
+  });
 
-  return <Image {...imageProps} alt={alt} {...props} />;
+  const customProps = {
+    quality: 80,
+    ...props,
+  };
+
+  if (props.layout === "fill") {
+    return (
+      <Image
+        src={imageProps.src}
+        loader={imageProps.loader}
+        alt={alt}
+        blurDataURL={imageProps.blurDataURL}
+        placeholder={imageProps.placeholder}
+        {...customProps}
+      />
+    );
+  }
+
+  return <Image {...imageProps} alt={alt} {...customProps} />;
 };

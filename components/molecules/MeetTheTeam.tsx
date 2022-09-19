@@ -30,13 +30,12 @@ const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({
   <div className="relative flex flex-col gap-3 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl shadow">
     <div className="flex flex-col items-center">
       {teamMember.image && (
-        <div className="relative w-28 xs:w-32 md:w-32 aspect-square">
+        <div className="relative w-28 xs:w-32 md:w-32 aspect-square rounded-full overflow-hidden">
           <SanityImage
             image={teamMember.image}
             alt={`Profile photo for ${teamMember.name}`}
             layout="fill"
             objectFit="cover"
-            className="rounded-full"
           />
         </div>
       )}

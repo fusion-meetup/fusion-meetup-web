@@ -26,7 +26,7 @@ export const SpeakerImage: React.FC<SpeakerImageProps> = ({
       {speaker.photo ? (
         <SanityImage
           image={speaker.photo}
-          layout="fill"
+          layout="intrinsic"
           objectFit="cover"
           alt={`Profile photo for ${speaker.name}`}
           priority

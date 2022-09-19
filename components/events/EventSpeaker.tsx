@@ -1,7 +1,6 @@
 import { SanitySpeaker } from "../../types/cms/FusionEvent";
-import { Heading } from "../atoms/Heading";
 import { SanityContent } from "../atoms/SanityContent";
-import { SanityImage } from "../atoms/SanityImage";
+import { SpeakerImage } from "./SpeakerImage";
 
 interface EventSpeakerProps {
   speaker: SanitySpeaker;
@@ -12,13 +11,10 @@ export const EventSpeaker: React.FC<EventSpeakerProps> = ({ speaker }) => {
     <div className="flex flex-col gap-4">
       <div className="flex flex-row items-center gap-4">
         {speaker.photo ? (
-          <div className="relative w-20 md:w-24 aspect-square">
-            <SanityImage
-              image={speaker.photo}
-              alt={`Photo of ${speaker.name}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-full"
+          <div className="relative">
+            <SpeakerImage
+              speaker={speaker}
+              className="w-20 md:w-24 aspect-square"
             />
           </div>
         ) : null}
