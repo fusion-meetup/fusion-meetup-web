@@ -14,6 +14,7 @@ interface EventDetailsProps {
   event: FusionEvent;
   displayLinks?: boolean;
   codeOfConduct?: CodeOfConduct;
+  small?: boolean;
 }
 
 /**
@@ -36,6 +37,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   event,
   displayLinks,
   codeOfConduct,
+  small,
 }) => {
   const date = dateOutput(event.date);
 
@@ -59,13 +61,16 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   ];
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2">
       {details
         .filter((d) => d.label)
         .map((detail) => (
           <div key={detail.key} className="flex flex-row items-center gap-2">
-            <div className="text-2xl">{detail.icon}</div>
-            <div className="text-lg">
+            <div className={clsx({ "text-lg": small, "text-2xl": !small })}>
+              {detail.icon}
+            </div>
+
+            <div className={clsx("text-sm", { "text-lg": !small })}>
               {typeof detail.label === "string"
                 ? detail.label
                     ?.split("\n")
@@ -86,7 +91,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             <SiEventbrite /> Eventbrite
           </Button>
 
-          <Link href="/code-of-conduct" passHref>
+          <Link href="/code-of-conduct">
             <a
               className={clsx(
                 "flex flex-row items-center gap-2 h-10 px-3 w-max",

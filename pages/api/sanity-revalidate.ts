@@ -40,6 +40,8 @@ export default async function handler(
     switch (cmsType) {
       case "teamMember":
         await res.revalidate(`/about`);
+        await res.revalidate(`/blog`);
+        // TODO: Revalidate blog posts by author
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "event":
         await res.revalidate(`/events`);
