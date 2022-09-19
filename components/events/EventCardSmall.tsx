@@ -48,7 +48,11 @@ export const EventCardSmall: React.FC<EventCardSmallProps> = ({
                   className="w-8 h-8"
                   small
                 />
-                <p className="text-sm font-bold">{talk.speaker.name}</p>
+
+                <div>
+                  <p className="font-bold">{talk.speaker.name}</p>
+                  <p className="text-sm opacity-50">{talk.title}</p>
+                </div>
               </div>
             </div>
           ))}
