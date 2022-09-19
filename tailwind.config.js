@@ -1,6 +1,13 @@
 const colors = require("tailwindcss/colors");
 const theme = require("tailwindcss/defaultTheme");
 
+// https://github.com/tailwindlabs/tailwindcss/issues/4690#issuecomment-1046087220
+delete colors.lightBlue;
+delete colors.warmGray;
+delete colors.trueGray;
+delete colors.coolGray;
+delete colors.blueGray;
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
