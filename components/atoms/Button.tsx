@@ -57,7 +57,7 @@ export const Button: React.FC<ButtonProps> = ({
     };
 
     return (
-      <Link href={href} passHref>
+      <Link href={href}>
         <a {...commonProps} {...(targetBlank ? targetBlankProps : {})} />
       </Link>
     );
