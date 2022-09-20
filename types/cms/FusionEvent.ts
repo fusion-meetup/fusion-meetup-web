@@ -13,6 +13,7 @@ export interface SanityFusionEvent extends SanityDocumentBase {
   talks: SanityTalk[];
   sponsors: SanitySponsor[];
   bottomContent: any;
+  youTubeLink?: string;
 }
 
 export interface FusionEvent {
@@ -28,6 +29,7 @@ export interface FusionEvent {
   talks: SanityTalk[];
   sponsors: SanitySponsor[];
   bottomContent: any | null;
+  youTubeLink?: string | null;
 }
 
 export interface EventsUpcomingAndPast {

@@ -14,6 +14,7 @@ import { Heading } from "../components/atoms/Heading";
 import { BlogPostsOverview } from "../components/homepage/BlogPostsOverview";
 import { AboutFusion } from "../components/homepage/AboutFusion";
 import { NextEvent } from "../components/homepage/NextEvent";
+import { LiveEvent } from "../components/homepage/LiveEvent";
 import { PastEventsOverview } from "../components/events/PastEventsOverview";
 
 interface HomePageProps {
@@ -31,6 +32,7 @@ const HomePage: NextPage<HomePageProps> = ({
 }) => (
   <Layout withHero>
     <div className="container mx-auto flex flex-col gap-20 px-4 py-4">
+      <LiveEvent liveEvent={nextEvent} />
       <NextEvent nextEvent={nextEvent} />
 
       <AboutFusion about={about} showLearnMoreButton />

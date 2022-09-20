@@ -75,6 +75,11 @@ export default {
       title: "Content (Bottom)",
       type: "content",
     },
+    {
+      name: "youTubeLink",
+      title: "YouTube Session",
+      type: "url",
+    },
   ],
   preview: {
     select: {
