@@ -11,8 +11,7 @@ export const LiveEvent: React.FC<LiveEventProps> = ({ liveEvent }) => {
   if (!liveEvent) return null;
   if (!liveEvent.youTubeLink) return null;
   const date = dayjs(liveEvent.date);
-  // @TODO make sure is negative before commit
-  if (dayjs().isBetween(date.hour(19), date.hour(22), "hour")) return null;
+  if (!dayjs().isBetween(date.hour(19), date.hour(22), "hour")) return null;
 
   const youTubeLink = new URL(liveEvent.youTubeLink);
   const youTubeID = youTubeLink.searchParams.get("v");
