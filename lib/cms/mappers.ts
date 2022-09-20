@@ -49,6 +49,7 @@ export const mapSanityFusionEvent = (x: SanityFusionEvent): FusionEvent => ({
   talks: x.talks || [],
   sponsors: x.sponsors || [],
   bottomContent: x.bottomContent || null,
+  youTubeLink: x.youTubeLink || null,
 });
 
 const eventTypeDisplayMap: Record<string, string> = {
