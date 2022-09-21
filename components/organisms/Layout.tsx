@@ -1,10 +1,8 @@
 import clsx from "clsx";
 import Head from "next/head";
-import Image from "next/image";
 
 import { Header } from "../molecules/Header";
 import { Footer } from "./Footer";
-import fusionColoursBackground from "../../public/fusion-colours-background.png";
 import { Hero } from "../molecules/Hero";
 
 interface LayoutProps {
@@ -36,26 +34,11 @@ export const Layout: React.FC<LayoutProps> = ({
         />
       </Head>
 
-      <div className="min-h-screen flex flex-col">
-        {fancyBackground === "colours" && (
-          <div
-            className={clsx("absolute top-12 left-0 w-full", {
-              "sm:top-0 md:-top-16 lg:-top-24 xl:-top-32": !withHero,
-            })}
-          >
-            <Image
-              src={fusionColoursBackground}
-              alt="background image"
-              width={512}
-              height={741}
-              layout="responsive"
-              className={clsx("w-full blur-lg opacity-70 md:opacity-40", {
-                "opacity-25 md:opacity-25": withHero,
-              })}
-            />
-          </div>
-        )}
-
+      <div
+        className={clsx("min-h-screen flex flex-col", {
+          "background-fusion-colours": fancyBackground === "colours",
+        })}
+      >
         {withHero ? <Hero /> : null}
 
         <Header />

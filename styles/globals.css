@@ -51,7 +51,6 @@
     hsl(48deg 100% 50%) 100%
   );
 }
-
 .fusion-gradient:hover::before {
   opacity: 1;
 }
@@ -63,4 +62,22 @@
 .grecaptcha-badge {
   top: 4rem !important;
   opacity: 0.7;
+}
+
+.background-fusion-colours {
+  overflow: hidden;
+  position: relative;
+}
+.background-fusion-colours::before {
+  @apply absolute block bg-cover bg-no-repeat blur md:blur-xl;
+  @apply bg-[center_top] md:bg-[center_top] xl:bg-[center_top_-20vw];
+  @apply opacity-70 md:opacity-40;
+  background-image: url("/fusion-colours-background-small.webp");
+  background-size: 100% auto;
+  top: -5%;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  content: "";
+  z-index: -1;
 }
