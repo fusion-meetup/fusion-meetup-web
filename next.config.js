@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
   redirects: async () => [
     {
       source: "/cms",
