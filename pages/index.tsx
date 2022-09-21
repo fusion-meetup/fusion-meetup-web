@@ -31,8 +31,11 @@ const HomePage: NextPage<HomePageProps> = ({
   pastEvents,
 }) => (
   <Layout withHero>
-    <div className="container mx-auto flex flex-col gap-20 px-4 py-4">
-      <LiveEvent liveEvent={nextEvent} />
+    <div className="container mx-auto flex flex-col gap-10 md:gap-20 px-4 py-4">
+      <div className="w-full max-w-[640px] xl:max-w-[800px] mx-auto">
+        <LiveEvent liveEvent={nextEvent} />
+      </div>
+
       <NextEvent nextEvent={nextEvent} />
 
       <AboutFusion about={about} showLearnMoreButton />
