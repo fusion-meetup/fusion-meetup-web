@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 
 import { BlogPost } from "../types/cms/Blog";
 import { FusionEvent } from "../types/cms/FusionEvent";
@@ -14,8 +15,11 @@ import { Heading } from "../components/atoms/Heading";
 import { BlogPostsOverview } from "../components/homepage/BlogPostsOverview";
 import { AboutFusion } from "../components/homepage/AboutFusion";
 import { NextEvent } from "../components/homepage/NextEvent";
-import { LiveEvent } from "../components/homepage/LiveEvent";
 import { PastEventsOverview } from "../components/events/PastEventsOverview";
+
+const LiveEvent = dynamic(() => import("../components/homepage/LiveEvent"), {
+  ssr: false,
+});
 
 interface HomePageProps {
   nextEvent: FusionEvent | undefined;
@@ -32,9 +36,7 @@ const HomePage: NextPage<HomePageProps> = ({
 }) => (
   <Layout withHero>
     <div className="container mx-auto flex flex-col gap-10 md:gap-20 px-4 py-4">
-      <div className="w-full max-w-[640px] xl:max-w-[800px] mx-auto">
-        <LiveEvent liveEvent={nextEvent} />
-      </div>
+      <LiveEvent liveEvent={nextEvent} />
 
       <NextEvent nextEvent={nextEvent} />
 
