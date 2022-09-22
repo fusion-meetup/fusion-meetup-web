@@ -101,7 +101,7 @@ export const ContactForm: React.FC = () => {
           <div>
             <FormFieldLabel htmlFor="name">Name</FormFieldLabel>
             <Input
-              {...(register("name"), { required: true })}
+              {...register("name", { required: true })}
               placeholder="Arthur Dent"
               disabled={sendingFormResult}
             />
@@ -110,7 +110,7 @@ export const ContactForm: React.FC = () => {
           <div>
             <FormFieldLabel htmlFor="email">Email</FormFieldLabel>
             <Input
-              {...(register("email"), { required: true })}
+              {...register("email", { required: true })}
               type="email"
               placeholder="arthur@dent.io"
               disabled={sendingFormResult}
@@ -120,7 +120,7 @@ export const ContactForm: React.FC = () => {
           <div>
             <FormFieldLabel htmlFor="type">Subject</FormFieldLabel>
             <Select
-              {...(register("type"), { required: true })}
+              {...register("type", { required: true })}
               options={contactOptions}
               disabled={sendingFormResult}
             />
@@ -130,7 +130,7 @@ export const ContactForm: React.FC = () => {
             <FormFieldLabel htmlFor="type">Message</FormFieldLabel>
             <Input
               multiLine
-              {...(register("message"), { required: true })}
+              {...register("message", { required: true })}
               placeholder="Hi Fusion team!"
               disabled={sendingFormResult}
             />

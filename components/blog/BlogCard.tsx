@@ -29,7 +29,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
               alt={`Image for ${post.title}`}
               layout="fill"
               objectFit="cover"
-              priority
             />
 
             {post.featured ? (

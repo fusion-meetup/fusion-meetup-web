@@ -29,7 +29,6 @@ export const SpeakerImage: React.FC<SpeakerImageProps> = ({
           layout="fill"
           objectFit="cover"
           alt={`Profile photo for ${speaker.name}`}
-          priority
         />
       ) : (
         <div className={clsx("opacity-70 text-2xl", { "text-4xl": !small })}>

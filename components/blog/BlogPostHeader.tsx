@@ -44,7 +44,6 @@ export const BlogPostHeader: React.FC<BlogPostHeaderProps> = ({ blogPost }) => {
                 image={blogPost.mainImage}
                 alt={alt}
                 className="rounded"
-                priority
               />
             ) : null}
           </div>
@@ -58,7 +57,6 @@ export const BlogPostHeader: React.FC<BlogPostHeaderProps> = ({ blogPost }) => {
               image={blogPost.mainImage}
               alt={alt}
               className="rounded"
-              priority
             />
           </div>
         ) : null}

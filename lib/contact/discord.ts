@@ -9,6 +9,7 @@ const embedColours: { [type in ContactFormType]: number } = {
   talkSubmission: 15277667,
   sponsorship: 15844367,
   question: 3066993,
+  feedback: 1146986,
 };
 
 const contactFormValuesToEmbed = (values: ContactFormValues) => ({

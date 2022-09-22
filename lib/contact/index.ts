@@ -2,7 +2,8 @@ export type ContactFormType =
   | "general"
   | "talkSubmission"
   | "question"
-  | "sponsorship";
+  | "sponsorship"
+  | "feedback";
 
 export interface ContactFormValues {
   name: string;
@@ -16,4 +17,5 @@ export const contactOptions: { value: ContactFormType; label: string }[] = [
   { value: "talkSubmission", label: "Talk Submission" },
   { value: "question", label: "Question" },
   { value: "sponsorship", label: "Sponsorship" },
+  { value: "feedback", label: "Feedback" },
 ];

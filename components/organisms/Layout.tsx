@@ -15,23 +15,19 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
-  title,
+  title: pageTitle,
   withHero,
   fancyBackground,
   className,
 }) => {
+  const description =
+    "Fusion is a Birmingham-based tech meetup, bringing the community together over great food for a social evening of tech talks aimed to inspire and educate";
+
   return (
     <>
       <Head>
-        <title>
-          {`Fusion Meetup – ${
-            title || "A quarterly tech meetup held in Birmingham city centre"
-          }`}
-        </title>
-        <meta
-          name="description"
-          content="Fusion Meetup: A quarterly tech meetup held in Birmingham city centre"
-        />
+        <title>{`Fusion Meetup – ${pageTitle || description}`}</title>
+        <meta name="description" content={`Fusion Meetup: ${description}`} />
       </Head>
 
       <div
