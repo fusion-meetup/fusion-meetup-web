@@ -14,7 +14,7 @@ interface BlogCardProps {
 
 export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
   return (
-    <Link href={`/blog/post/${post.slug}`}>
+    <Link href={`/blog/${post.slug}`}>
       <a
         className={clsx(
           className,

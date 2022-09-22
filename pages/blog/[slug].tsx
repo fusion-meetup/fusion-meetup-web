@@ -2,12 +2,12 @@ import type { GetStaticProps, NextPage } from "next";
 import dayjs from "dayjs";
 import clsx from "clsx";
 
-import { BlogPost } from "../../../types/cms/Blog";
-import { getBlogPostBySlug, getBlogPostsSlugs } from "../../../lib/cms/queries";
-import { Layout } from "../../../components/organisms/Layout";
-import { SanityContent } from "../../../components/atoms/SanityContent";
-import { BlogAuthor } from "../../../components/blog/BlogAuthor";
-import { BlogPostHeader } from "../../../components/blog/BlogPostHeader";
+import { BlogPost } from "../../types/cms/Blog";
+import { getBlogPostBySlug, getBlogPostsSlugs } from "../../lib/cms/queries";
+import { Layout } from "../../components/organisms/Layout";
+import { SanityContent } from "../../components/atoms/SanityContent";
+import { BlogAuthor } from "../../components/blog/BlogAuthor";
+import { BlogPostHeader } from "../../components/blog/BlogPostHeader";
 
 interface BlogPostPageProps {
   blogPost?: BlogPost;

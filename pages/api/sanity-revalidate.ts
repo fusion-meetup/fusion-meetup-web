@@ -49,7 +49,7 @@ export default async function handler(
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "blogPost":
         await res.revalidate(`/blog`);
-        await res.revalidate(`/blog/post/${reqBody.slug?.current}`);
+        await res.revalidate(`/blog/${reqBody.slug?.current}`);
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "blogCategory":
         await res.revalidate(`/blog`);
