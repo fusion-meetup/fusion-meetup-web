@@ -7,7 +7,7 @@ interface ButtonProps {
   href?: string;
   targetBlank?: boolean;
   className?: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   typeSubmit?: boolean;
   value?: string;
   children?: React.ReactNode;

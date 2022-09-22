@@ -5,6 +5,10 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap");
 
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .sanity-content a,
   a.link {
     @apply underline underline-offset-4 transition-colors;
