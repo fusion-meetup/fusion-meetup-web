@@ -8,6 +8,7 @@ import { Layout } from "../../components/organisms/Layout";
 import { SanityContent } from "../../components/atoms/SanityContent";
 import { BlogAuthor } from "../../components/blog/BlogAuthor";
 import { BlogPostHeader } from "../../components/blog/BlogPostHeader";
+import { Breadcrumbs } from "../../components/molecules/Breadcrumbs";
 
 interface BlogPostPageProps {
   blogPost?: BlogPost;
@@ -21,7 +22,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
       <BlogPostHeader blogPost={blogPost} />
 
       <div className="relative z-0 max-w-[640px] xl:max-w-[800px] mx-auto p-4">
-        <div className="py-6">
+        <div className="flex flex-col gap-10 py-6">
           <div
             className={clsx(
               "p-4 pl-5 pr-6 rounded-lg flex flex-row items-center justify-between gap-4 flex-wrap",
@@ -33,10 +34,12 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ blogPost }) => {
             ) : null}
             Published on {dayjs(blogPost.publishedAt).format("Do MMMM, YYYY")}
           </div>
-        </div>
 
-        <div className="pt-4 pb-16">
-          <SanityContent value={blogPost.body} />
+          <Breadcrumbs params={{ slug: blogPost.title }} />
+
+          <div className="pb-16">
+            <SanityContent value={blogPost.body} />
+          </div>
         </div>
       </div>
     </Layout>

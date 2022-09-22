@@ -3,6 +3,7 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
+import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
 import {
   getCodeOfConduct,
   getFusionEventBySlug,
@@ -13,7 +14,7 @@ import { SanityContent } from "../../components/atoms/SanityContent";
 import { EventTalks } from "../../components/events/EventTalks";
 import { EventSponsors } from "../../components/events/EventSponsors";
 import { EventOverview } from "../../components/events/EventOverview";
-import { CodeOfConduct } from "../../types/cms/CodeOfConduct";
+import { Breadcrumbs } from "../../components/molecules/Breadcrumbs";
 
 interface EventPageProps {
   event: FusionEvent | undefined;
@@ -25,17 +26,20 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
 
   const narrowContainerClassName = "max-w-[800px] xl:max-w-[960px] mx-auto";
 
+  const formattedDate = dayjs(event.date).format("Do MMMM YYYY");
+  const title = `${formattedDate} ${event.eventTypeDisplay}`;
+
   return (
-    <Layout
-      title={dayjs(event.date).format("Do MMMM YYYY")}
-      className="px-4"
-      fancyBackground="colours"
-    >
+    <Layout title={title} className="px-4" fancyBackground="colours">
       <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
         <EventOverview event={event} codeOfConduct={codeOfConduct} />
       </div>
 
-      <div className={clsx(narrowContainerClassName, "pt-2 pb-8")}>
+      <div
+        className={clsx(narrowContainerClassName, "pb-8 flex flex-col gap-8")}
+      >
+        <Breadcrumbs params={{ slug: title }} />
+
         <SanityContent value={event.topContent} />
       </div>
 
