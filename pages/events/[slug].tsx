@@ -50,6 +50,10 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
       <div className={clsx(narrowContainerClassName, "py-8")}>
         <EventSponsors sponsors={event.sponsors} />
       </div>
+
+      <div className={clsx(narrowContainerClassName, "py-8")}>
+        <SanityContent value={event.bottomContent} />
+      </div>
     </Layout>
   );
 };
