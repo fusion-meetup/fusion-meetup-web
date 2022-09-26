@@ -14,6 +14,7 @@ import { SanityContent } from "../../components/atoms/SanityContent";
 import { EventTalks } from "../../components/events/EventTalks";
 import { EventSponsors } from "../../components/events/EventSponsors";
 import { EventOverview } from "../../components/events/EventOverview";
+import EventEmbed from "../../components/events/EventEmbed";
 import { Breadcrumbs } from "../../components/molecules/Breadcrumbs";
 
 interface EventPageProps {
@@ -40,7 +41,11 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
       >
         <Breadcrumbs params={{ slug: title }} />
 
-        <SanityContent value={event.topContent} />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <SanityContent value={event.topContent} />
+
+          <EventEmbed event={event} />
+        </div>
       </div>
 
       <div className={clsx(narrowContainerClassName, "py-4")}>
