@@ -88,3 +88,14 @@
   content: "";
   z-index: -1;
 }
+
+.eventbrite-container {
+  @apply relative rounded-xl overflow-hidden shadow-lg bg-white bg-opacity-10;
+  height: 425px;
+}
+
+.eventbrite-container::before {
+  content: "Loading Eventbrite...";
+  @apply absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center;
+  z-index: -1;
+}
