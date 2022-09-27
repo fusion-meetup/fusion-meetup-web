@@ -35,7 +35,7 @@ const dateOutput = (dateString: string): string | JSX.Element => {
   if (date.isTomorrow()) {
     return <GradientText className="text-xl">Tomorrow</GradientText>;
   }
-  return date.format("Do MMMM, YYYY");
+  return date.format("ddd Do MMMM, YYYY");
 };
 
 export const EventDetails: React.FC<EventDetailsProps> = ({
