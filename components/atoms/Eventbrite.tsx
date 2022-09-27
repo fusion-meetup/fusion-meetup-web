@@ -5,7 +5,7 @@ interface EventbriteProps {
   eventbriteLink: string | undefined | null;
 }
 
-const Eventbrite: React.FC<EventbriteProps> = ({ eventbriteLink }) => {
+export const Eventbrite: React.FC<EventbriteProps> = ({ eventbriteLink }) => {
   const [ebScriptIsLoaded, setEbScriptIsLoaded] = useState(false);
 
   const eventbriteId = eventbriteLink
@@ -49,5 +49,3 @@ const Eventbrite: React.FC<EventbriteProps> = ({ eventbriteLink }) => {
     </>
   );
 };
-
-export default Eventbrite;

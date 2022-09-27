@@ -14,8 +14,8 @@ import { SanityContent } from "../../components/atoms/SanityContent";
 import { EventTalks } from "../../components/events/EventTalks";
 import { EventSponsors } from "../../components/events/EventSponsors";
 import { EventOverview } from "../../components/events/EventOverview";
-import EventEmbed from "../../components/events/EventEmbed";
 import { Breadcrumbs } from "../../components/molecules/Breadcrumbs";
+import { EventEmbed } from "../../components/events/EventEmbed";
 
 interface EventPageProps {
   event: FusionEvent | undefined;
