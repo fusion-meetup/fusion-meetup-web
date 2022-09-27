@@ -15,6 +15,7 @@ import { EventTalks } from "../../components/events/EventTalks";
 import { EventSponsors } from "../../components/events/EventSponsors";
 import { EventOverview } from "../../components/events/EventOverview";
 import { Breadcrumbs } from "../../components/molecules/Breadcrumbs";
+import { EventEmbed } from "../../components/events/EventEmbed";
 
 interface EventPageProps {
   event: FusionEvent | undefined;
@@ -36,19 +37,27 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
       </div>
 
       <div
-        className={clsx(narrowContainerClassName, "pb-8 flex flex-col gap-8")}
+        className={clsx(narrowContainerClassName, "pb-4 flex flex-col gap-8")}
       >
         <Breadcrumbs params={{ slug: title }} />
 
         <SanityContent value={event.topContent} />
       </div>
 
-      <div className={clsx(narrowContainerClassName, "py-4")}>
+      <div className={clsx(narrowContainerClassName, "py-6")}>
+        <EventEmbed event={event} />
+      </div>
+
+      <div className={clsx(narrowContainerClassName, "py-6")}>
         <EventTalks talks={event.talks} />
       </div>
 
       <div className={clsx(narrowContainerClassName, "py-8")}>
         <EventSponsors sponsors={event.sponsors} />
+      </div>
+
+      <div className={clsx(narrowContainerClassName, "py-8")}>
+        <SanityContent value={event.bottomContent} />
       </div>
     </Layout>
   );
