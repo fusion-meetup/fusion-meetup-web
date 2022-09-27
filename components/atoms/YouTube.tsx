@@ -7,8 +7,9 @@ const YouTube: React.FC<YouTubeProps> = ({ youTubeLink }) => {
 
   const youTubeLinkObject = new URL(youTubeLink);
   const youTubeID = youTubeLinkObject.searchParams.get("v");
+
   return (
-    <div className="w-full max-w-[640px] xl:max-w-[800px] mx-auto pt-6 lg:pt-0">
+    <div className="w-full max-w-[640px] xl:max-w-[800px] mx-auto">
       <div className="flex flex-col relative gap-8">
         <div className="relative overflow-hidden shadow rounded-xl height-64 pb-[56.25%]">
           <iframe

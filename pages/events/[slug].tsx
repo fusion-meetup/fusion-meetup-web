@@ -37,18 +37,18 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
       </div>
 
       <div
-        className={clsx(narrowContainerClassName, "pb-8 flex flex-col gap-8")}
+        className={clsx(narrowContainerClassName, "pb-4 flex flex-col gap-8")}
       >
         <Breadcrumbs params={{ slug: title }} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <SanityContent value={event.topContent} />
-
-          <EventEmbed event={event} />
-        </div>
+        <SanityContent value={event.topContent} />
       </div>
 
-      <div className={clsx(narrowContainerClassName, "py-4")}>
+      <div className={clsx(narrowContainerClassName, "py-6")}>
+        <EventEmbed event={event} />
+      </div>
+
+      <div className={clsx(narrowContainerClassName, "py-6")}>
         <EventTalks talks={event.talks} />
       </div>
 
