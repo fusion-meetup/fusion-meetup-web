@@ -15,7 +15,7 @@ export const GradientText: React.FC<GradientTextProps> = ({
         className,
         "text-transparent bg-clip-text bg-gradient-to-r",
         "from-blue-700 to-pink-700 dark:from-blue-500 dark:to-pink-400",
-        "font-semibold"
+        "font-semibold w-max"
       )}
     >
       {children}

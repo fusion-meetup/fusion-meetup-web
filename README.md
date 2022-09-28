@@ -4,7 +4,6 @@
   <a href="https://meetup.thefusionhub.co.uk/">meetup.thefusionhub.co.uk</a>
 </p>
 
-
 ![Fusion website banner](https://user-images.githubusercontent.com/14852491/191825161-4ad52225-109d-43f1-8d63-bc555943d9eb.png)
 
 ---
