@@ -30,7 +30,11 @@ const EventsPage: NextPage<EventsPageProps> = ({ events }) => {
 
               <div className="flex flex-col gap-4">
                 {events.upcoming.map((event, i) => (
-                  <EventCard key={event.key} event={event} isFirst={i === 0} />
+                  <EventCard
+                    key={event.key}
+                    event={event}
+                    highlight={i === 0}
+                  />
                 ))}
               </div>
             </div>

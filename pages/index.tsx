@@ -8,13 +8,13 @@ import {
   getAboutFusionInfo,
   getBlogPosts,
   getFusionEvents,
-  getNextFusionEvent,
+  getLatestFusionEvent,
 } from "../lib/cms/queries";
 import { Layout } from "../components/organisms/Layout";
 import { Heading } from "../components/atoms/Heading";
 import { BlogPostsOverview } from "../components/homepage/BlogPostsOverview";
 import { AboutFusion } from "../components/homepage/AboutFusion";
-import { NextEvent } from "../components/homepage/NextEvent";
+import { LatestEvent } from "../components/homepage/LatestEvent";
 import { PastEventsOverview } from "../components/events/PastEventsOverview";
 
 const LiveEvent = dynamic(() => import("../components/homepage/LiveEvent"), {
@@ -22,23 +22,23 @@ const LiveEvent = dynamic(() => import("../components/homepage/LiveEvent"), {
 });
 
 interface HomePageProps {
-  nextEvent: FusionEvent | undefined;
+  latestEvent: FusionEvent | null;
   blogPosts: BlogPost[];
   about: AboutFusionInfo;
   pastEvents: FusionEvent[];
 }
 
 const HomePage: NextPage<HomePageProps> = ({
-  nextEvent,
+  latestEvent,
   blogPosts,
   about,
   pastEvents,
 }) => (
   <Layout withHero>
     <div className="container mx-auto flex flex-col gap-10 md:gap-20 px-4 py-4">
-      <LiveEvent liveEvent={nextEvent} />
+      <LiveEvent liveEvent={latestEvent} />
 
-      <NextEvent nextEvent={nextEvent} />
+      <LatestEvent latestEvent={latestEvent} />
 
       <AboutFusion about={about} showLearnMoreButton />
 
@@ -56,8 +56,8 @@ const HomePage: NextPage<HomePageProps> = ({
 );
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  const [nextEvent, blogPosts, about, events] = await Promise.all([
-    getNextFusionEvent(),
+  const [latestEvent, blogPosts, about, events] = await Promise.all([
+    getLatestFusionEvent(),
     getBlogPosts(),
     getAboutFusionInfo(),
     getFusionEvents(),
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 
   return {
     props: {
-      nextEvent,
+      latestEvent,
       blogPosts,
       about,
       pastEvents: events.past,

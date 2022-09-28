@@ -101,7 +101,7 @@ export const getFusionEventsSlugs = async (): Promise<string[]> => {
   );
 };
 
-export const getNextFusionEvent = async (): Promise<FusionEvent> => {
+export const getLatestFusionEvent = async (): Promise<FusionEvent> => {
   const eventSanity: SanityFusionEvent = await cms.fetch(
     `*[_type == "event"]
     { ..., 'slug': slug.current }

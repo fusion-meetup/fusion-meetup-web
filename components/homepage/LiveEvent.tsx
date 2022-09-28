@@ -5,7 +5,7 @@ import { FusionEvent } from "../../types/cms/FusionEvent";
 import { Button } from "../atoms/Button";
 
 interface LiveEventProps {
-  liveEvent: FusionEvent | undefined;
+  liveEvent: FusionEvent | null;
 }
 
 const LiveEvent: React.FC<LiveEventProps> = ({ liveEvent }) => {

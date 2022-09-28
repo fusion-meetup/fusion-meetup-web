@@ -1,14 +1,17 @@
 import clsx from "clsx";
+import dayjs from "dayjs";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { EventCard } from "../events/EventCard";
 
-interface NextEventProps {
-  nextEvent: FusionEvent | undefined;
+interface LatestEventProps {
+  latestEvent: FusionEvent | null;
 }
 
-export const NextEvent: React.FC<NextEventProps> = ({ nextEvent }) => {
-  if (!nextEvent) return null;
+export const LatestEvent: React.FC<LatestEventProps> = ({ latestEvent }) => {
+  if (!latestEvent) return null;
+
+  const isNextEvent = dayjs(latestEvent.date).isAfter(dayjs(), "day");
 
   return (
     <div className="flex flex-col relative">
@@ -20,11 +23,11 @@ export const NextEvent: React.FC<NextEventProps> = ({ nextEvent }) => {
             "dark:bg-slate-700 dark:bg-opacity-50"
           )}
         >
-          Next Event
+          {isNextEvent ? "Next Event" : "Last Event"}
         </h3>
       </div>
 
-      <EventCard event={nextEvent} isFirst />
+      <EventCard event={latestEvent} highlight={isNextEvent} />
     </div>
   );
 };

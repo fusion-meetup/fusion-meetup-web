@@ -8,14 +8,14 @@ import { SpeakerImage } from "./SpeakerImage";
 
 interface EventCardProps {
   event: FusionEvent;
-  isFirst?: boolean;
+  highlight?: boolean;
 }
 
-export const EventCard: React.FC<EventCardProps> = ({ event, isFirst }) => {
+export const EventCard: React.FC<EventCardProps> = ({ event, highlight }) => {
   return (
     <EventCardContainer
       event={event}
-      isFirst={isFirst}
+      highlight={highlight}
       className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6"
     >
       <div className="flex flex-col gap-2">
@@ -46,17 +46,17 @@ export const EventCard: React.FC<EventCardProps> = ({ event, isFirst }) => {
 
 const EventCardContainer: React.FC<{
   event: FusionEvent;
-  isFirst?: boolean;
+  highlight?: boolean;
   className?: string;
   children: React.ReactNode;
-}> = ({ event, isFirst, className, children }) => (
+}> = ({ event, highlight, className, children }) => (
   <Link href={`/events/${event.slug}`}>
     <a
       className={clsx(
         "overflow-hidden transition-all duration-300 p-1 rounded-xl relative",
         {
-          "bg-slate-500 hover:bg-blue": !isFirst,
-          "fusion-gradient": isFirst,
+          "bg-slate-500 hover:bg-blue": !highlight,
+          "fusion-gradient": highlight,
         },
         "group shadow-sm hover:shadow-xl"
       )}

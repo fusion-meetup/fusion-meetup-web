@@ -22,35 +22,32 @@ interface EventDetailsProps {
   small?: boolean;
 }
 
-/**
- * Returns the actual date or easily read indicators
- * @param dateString String represenation of the date from Sanity
- * @returns The date-kinda
- */
-const dateOutput = (dateString: string): string | JSX.Element => {
-  const date = dayjs(dateString);
-  if (date.isToday()) {
-    return <GradientText className="text-xl">Today!</GradientText>;
-  }
-  if (date.isTomorrow()) {
-    return <GradientText className="text-xl">Tomorrow</GradientText>;
-  }
-  return date.format("ddd Do MMMM, YYYY");
-};
-
 export const EventDetails: React.FC<EventDetailsProps> = ({
   event,
   displayLinks,
   codeOfConduct,
   small,
 }) => {
-  const date = dateOutput(event.date);
+  const eventDate = dayjs(event.date);
+  let todayOrTomorrow = null;
+  if (eventDate.isToday()) todayOrTomorrow = "Today!";
+  if (eventDate.isTomorrow()) todayOrTomorrow = "Tomorrow";
 
   const details = [
     {
       key: "date",
       icon: <MdCalendarToday />,
-      label: date,
+      label: (
+        <div className="">
+          {todayOrTomorrow ? (
+            <GradientText className="text-xl">{todayOrTomorrow}</GradientText>
+          ) : null}
+
+          <div className={clsx({ "text-sm opacity-50": todayOrTomorrow })}>
+            {eventDate.format("ddd Do MMMM, YYYY")}
+          </div>
+        </div>
+      ),
     },
     {
       key: "location",
