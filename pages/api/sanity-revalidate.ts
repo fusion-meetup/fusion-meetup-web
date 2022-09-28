@@ -34,8 +34,6 @@ export default async function handler(
   const reqBody = req.body;
   const cmsType = reqBody._type;
 
-  return res.status(200).json({ message: "Skipped revalidation" });
-
   await res.revalidate("/");
 
   try {
