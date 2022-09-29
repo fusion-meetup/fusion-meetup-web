@@ -11,7 +11,8 @@ interface LatestEventProps {
 export const LatestEvent: React.FC<LatestEventProps> = ({ latestEvent }) => {
   if (!latestEvent) return null;
 
-  const isNextEvent = dayjs(latestEvent.date).isAfter(dayjs(), "day");
+  const eventDate = dayjs(latestEvent.date);
+  const isNextEvent = eventDate.isToday() || eventDate.isAfter(dayjs(), "day");
 
   return (
     <div className="flex flex-col relative">
