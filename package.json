@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "James Vickery <dev@jmsv.me>",
   "private": true,
+  "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
   },
