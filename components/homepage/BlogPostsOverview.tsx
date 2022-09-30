@@ -5,13 +5,13 @@ import { BlogPost } from "../../types/cms/Blog";
 import { Button } from "../atoms/Button";
 import { BlogCard } from "../blog/BlogCard";
 
-export const BlogPostsOverview: React.FC<{ blogPosts: BlogPost[] }> = ({
-  blogPosts,
+export const BlogPostsOverview: React.FC<{ threeBlogPosts: BlogPost[] }> = ({
+  threeBlogPosts,
 }) => {
   return (
     <div className="flex flex-col gap-8 py-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {blogPosts.slice(0, 3).map((post, i) => (
+        {threeBlogPosts.slice(0, 3).map((post, i) => (
           <BlogCard
             post={post}
             key={post.key}

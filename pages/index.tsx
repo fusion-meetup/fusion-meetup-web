@@ -23,16 +23,16 @@ const LiveEvent = dynamic(() => import("../components/homepage/LiveEvent"), {
 
 interface HomePageProps {
   latestEvent: FusionEvent | null;
-  blogPosts: BlogPost[];
   about: AboutFusionInfo;
-  pastEvents: FusionEvent[];
+  threeBlogPosts: BlogPost[];
+  pastFourEvents: FusionEvent[];
 }
 
 const HomePage: NextPage<HomePageProps> = ({
   latestEvent,
-  blogPosts,
   about,
-  pastEvents,
+  threeBlogPosts,
+  pastFourEvents,
 }) => (
   <Layout withHero>
     <div className="container mx-auto flex flex-col gap-10 md:gap-20 px-4 py-4">
@@ -44,31 +44,31 @@ const HomePage: NextPage<HomePageProps> = ({
 
       <div>
         <Heading level={2}>Fusion Blog</Heading>
-        <BlogPostsOverview blogPosts={blogPosts} />
+        <BlogPostsOverview threeBlogPosts={threeBlogPosts} />
       </div>
 
       <div>
         <Heading level={2}>Past Events</Heading>
-        <PastEventsOverview pastEvents={pastEvents} />
+        <PastEventsOverview pastFourEvents={pastFourEvents} />
       </div>
     </div>
   </Layout>
 );
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  const [latestEvent, blogPosts, about, events] = await Promise.all([
+  const [latestEvent, about, blogPosts, events] = await Promise.all([
     getLatestFusionEvent(),
-    getBlogPosts(),
     getAboutFusionInfo(),
+    getBlogPosts(),
     getFusionEvents(),
   ]);
 
   return {
     props: {
       latestEvent,
-      blogPosts,
       about,
-      pastEvents: events.past,
+      threeBlogPosts: blogPosts.slice(0, 3),
+      pastFourEvents: events.past.slice(0, 4),
     },
   };
 };

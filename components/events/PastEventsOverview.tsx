@@ -6,16 +6,16 @@ import { Button } from "../atoms/Button";
 import { EventCardSmall } from "./EventCardSmall";
 
 interface PastEventsOverviewProps {
-  pastEvents: FusionEvent[];
+  pastFourEvents: FusionEvent[];
 }
 
 export const PastEventsOverview: React.FC<PastEventsOverviewProps> = ({
-  pastEvents,
+  pastFourEvents,
 }) => {
   return (
     <div className="flex flex-col gap-8 py-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {pastEvents.slice(0, 4).map((event, i) => (
+        {pastFourEvents.slice(0, 4).map((event, i) => (
           <EventCardSmall
             event={event}
             key={event.key}
