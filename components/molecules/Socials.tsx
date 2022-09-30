@@ -1,6 +1,12 @@
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
-import { FaFacebook, FaTwitter, FaMeetup, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaMeetup,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
 
 interface SocialLinkItem {
   href: string;
@@ -10,19 +16,24 @@ interface SocialLinkItem {
 
 const socialLinks: SocialLinkItem[] = [
   {
-    name: "Meetup",
-    href: "https://www.meetup.com/fusion-technology-meetup-birmingham",
-    icon: <FaMeetup />,
-  },
-  {
     name: "Twitter",
     href: "https://twitter.com/thefusion_hub",
     icon: <FaTwitter />,
   },
   {
+    name: "GitHub",
+    href: "https://github.com/fusion-meetup/fusion-meetup-web",
+    icon: <FaGithub />,
+  },
+  {
     name: "LinkedIn",
     href: "https://www.linkedin.com/company/technical-team-solutions/",
     icon: <FaLinkedin />,
+  },
+  {
+    name: "Meetup",
+    href: "https://www.meetup.com/fusion-technology-meetup-birmingham",
+    icon: <FaMeetup />,
   },
   {
     name: "Facebook",
