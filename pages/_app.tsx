@@ -22,6 +22,10 @@ const FusionMeetupWeb = ({ Component, pageProps }: AppProps) => (
         property="og:image"
         content="https://meetup.thefusionhub.co.uk/fusion-og-image.jpg"
       />
+      <meta
+        name="google-site-verification"
+        content="qy8sddOqx6p3UYWX9At1Gvhe-Yh9FajmFGRe73Jq7zE"
+      />
     </Head>
 
     <Component {...pageProps} />
