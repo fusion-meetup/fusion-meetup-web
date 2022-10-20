@@ -66,11 +66,6 @@
   @apply not-italic text-blue-600 dark:text-blue-400;
 }
 
-.grecaptcha-badge {
-  top: 4rem !important;
-  opacity: 0.7;
-}
-
 .background-fusion-colours {
   overflow: hidden;
   position: relative;

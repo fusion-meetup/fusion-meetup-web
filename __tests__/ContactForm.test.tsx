@@ -2,7 +2,6 @@ import { render } from "@testing-library/react";
 import axios from "axios";
 
 import { ContactForm } from "../components/organisms/ContactForm";
-import { ReCaptchaProvider } from "../components/providers/ReCaptchaProvider";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -17,11 +16,7 @@ jest.mock("next/router", () => ({
 mockedAxios.get.mockImplementation(() => Promise.resolve(true));
 
 const renderContactForm = () => {
-  return render(
-    <ReCaptchaProvider>
-      <ContactForm />
-    </ReCaptchaProvider>
-  );
+  return render(<ContactForm />);
 };
 
 describe("ContactForm", () => {

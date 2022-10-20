@@ -2,11 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import { ContactFormValues } from "../../lib/contact";
 import { sendContactForm } from "../../lib/contact/discord";
-import { verifyReCaptcha } from "../../lib/recaptcha/verifyReCaptcha";
-
-interface RequestData extends ContactFormValues {
-  reCaptchaToken: string;
-}
 
 type ApiContactResponse = {
   success: boolean;
@@ -22,10 +17,7 @@ export default async function handler(
   if (req.method !== "POST") return r(res, 401, "Method not allowed");
   if (!webhookSecret) return r(res, 500, "Missing webhook secret");
 
-  const reqBody: RequestData = req.body;
-
-  const validReCaptcha = await verifyReCaptcha(reqBody.reCaptchaToken);
-  if (!validReCaptcha) return r(res, 401, "Invalid reCaptcha token");
+  const reqBody: ContactFormValues = req.body;
 
   try {
     const result = await sendContactForm(reqBody, webhookSecret);
