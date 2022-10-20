@@ -31,6 +31,7 @@ export const ContactForm: React.FC = () => {
         email: "",
         type: "general",
         message: "",
+        query: "",
       },
     });
 
@@ -86,6 +87,16 @@ export const ContactForm: React.FC = () => {
             <Input
               {...register("name", { required: true })}
               placeholder="Arthur Dent"
+              disabled={sendingFormResult}
+            />
+          </div>
+
+          {/* Bot field */}
+          <div className="hidden">
+            <FormFieldLabel htmlFor="query">Query</FormFieldLabel>
+            <Input
+              {...register("query")}
+              placeholder="Tell us more"
               disabled={sendingFormResult}
             />
           </div>

@@ -10,6 +10,7 @@ export interface ContactFormValues {
   email: string;
   type: ContactFormType;
   message: string;
+  query: string;
 }
 
 export const contactOptions: { value: ContactFormType; label: string }[] = [

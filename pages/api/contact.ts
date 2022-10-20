@@ -19,6 +19,9 @@ export default async function handler(
 
   const reqBody: ContactFormValues = req.body;
 
+  // Bot field
+  if (reqBody.query) return r(res, 400, "Bad request");
+
   try {
     const result = await sendContactForm(reqBody, webhookSecret);
     if (result) {
