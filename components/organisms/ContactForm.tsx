@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { MdBackspace } from "react-icons/md";
 
 import {
@@ -21,20 +20,9 @@ import fusionHeart from "../../public/fusion-heart.png";
 
 export const ContactForm: React.FC = () => {
   const router = useRouter();
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [submitSuccess, setSubmitSuccess] = useState<boolean | undefined>();
   const [sendingFormResult, setSendingFormResult] = useState<boolean>(false);
-  const [reCaptchaToken, setReCaptchaToken] = useState<string | undefined>();
-
-  const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) return;
-    setReCaptchaToken(await executeRecaptcha("submitContactForm"));
-  }, [executeRecaptcha]);
-
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
 
   const { register, handleSubmit, setValue, reset } =
     useForm<ContactFormValues>({
@@ -43,29 +31,25 @@ export const ContactForm: React.FC = () => {
         email: "",
         type: "general",
         message: "",
+        query: "",
       },
     });
 
-  const contactFormSubmit = useCallback(
-    async (data: ContactFormValues) => {
-      try {
-        setSendingFormResult(true);
+  const contactFormSubmit = useCallback(async (data: ContactFormValues) => {
+    try {
+      setSendingFormResult(true);
 
-        if (!reCaptchaToken) throw new Error("reCaptcha token not set");
-
-        const response = await axios.post<ApiContactResponse>("/api/contact", {
-          ...data,
-          reCaptchaToken,
-        });
-        setSubmitSuccess(response.data.success);
-      } catch (e) {
-        setSubmitSuccess(false);
-      } finally {
-        setSendingFormResult(false);
-      }
-    },
-    [reCaptchaToken]
-  );
+      const response = await axios.post<ApiContactResponse>(
+        "/api/contact",
+        data
+      );
+      setSubmitSuccess(response.data.success);
+    } catch (e) {
+      setSubmitSuccess(false);
+    } finally {
+      setSendingFormResult(false);
+    }
+  }, []);
 
   // Set contact type using URL query if set
   useEffect(() => {
@@ -103,6 +87,16 @@ export const ContactForm: React.FC = () => {
             <Input
               {...register("name", { required: true })}
               placeholder="Arthur Dent"
+              disabled={sendingFormResult}
+            />
+          </div>
+
+          {/* Bot field */}
+          <div className="hidden">
+            <FormFieldLabel htmlFor="query">Query</FormFieldLabel>
+            <Input
+              {...register("query")}
+              placeholder="Tell us more"
               disabled={sendingFormResult}
             />
           </div>

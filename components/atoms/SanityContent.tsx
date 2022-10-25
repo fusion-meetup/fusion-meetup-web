@@ -45,13 +45,8 @@ export const SanityContent: React.FC<SanityContentProps> = ({ value }) => {
           );
         } else {
           return (
-            <div>
-              <SanityImage
-                key={`${item._type}-${i}`}
-                image={item}
-                alt="Image"
-                layout="intrinsic"
-              />
+            <div key={`${item._type}-${i}`}>
+              <SanityImage image={item} alt="Image" layout="intrinsic" />
             </div>
           );
         }

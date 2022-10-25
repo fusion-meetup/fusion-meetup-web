@@ -38,15 +38,16 @@ export const SiteMenu = () => {
         )}
       >
         {menuItems.map(({ title, href }, i) => (
-          <Link href={href} key={href} onClick={() => setMenuIsOpen(false)}>
-            <a
-              className={clsx(
-                "px-4 py-2 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 text-lg",
-                { "border-t-2 border-slate-300 dark:border-slate-700": i > 0 }
-              )}
-            >
-              {title}
-            </a>
+          <Link
+            href={href}
+            key={href}
+            onClick={() => setMenuIsOpen(false)}
+            className={clsx(
+              "px-4 py-2 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 text-lg",
+              { "border-t-2 border-slate-300 dark:border-slate-700": i > 0 }
+            )}
+          >
+            {title}
           </Link>
         ))}
       </div>
@@ -57,8 +58,12 @@ export const SiteMenu = () => {
     <>
       <div className="hidden md:flex h-full flex-row items-center gap-4 pr-2">
         {menuItems.map(({ title, href }) => (
-          <Link href={href} key={href}>
-            <a className="hover:underline underline-offset-4">{title}</a>
+          <Link
+            href={href}
+            key={href}
+            className="hover:underline underline-offset-4"
+          >
+            {title}
           </Link>
         ))}
       </div>
