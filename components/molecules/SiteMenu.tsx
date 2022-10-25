@@ -75,6 +75,7 @@ export const SiteMenu = () => {
             "transition-colors duration-200 focus:text-blue-700"
           )}
           onClick={() => setMenuIsOpen((x) => !x)}
+          aria-label="Menu button"
         >
           <IoMenu />
         </button>
