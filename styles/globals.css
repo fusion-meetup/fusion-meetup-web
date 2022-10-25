@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap");
-
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;

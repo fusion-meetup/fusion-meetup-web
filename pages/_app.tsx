@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Inter } from "@next/font/google";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import isTomorrow from "dayjs/plugin/isTomorrow";
@@ -12,6 +13,8 @@ dayjs.extend(advancedFormat);
 dayjs.extend(isToday);
 dayjs.extend(isTomorrow);
 dayjs.extend(isBetween);
+
+const inter = Inter();
 
 const FusionMeetupWeb = ({ Component, pageProps }: AppProps) => (
   <>
@@ -28,7 +31,9 @@ const FusionMeetupWeb = ({ Component, pageProps }: AppProps) => (
       />
     </Head>
 
-    <Component {...pageProps} />
+    <div className={inter.className}>
+      <Component {...pageProps} />
+    </div>
   </>
 );
 

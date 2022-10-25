@@ -20,6 +20,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@next/font": "^13.0.0",
     "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
     "@sanity/webhook": "^2.0.0",
