@@ -23,7 +23,7 @@
     "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
     "@sanity/webhook": "^2.0.0",
-    "@vercel/og": "^0.0.16",
+    "@vercel/og": "^0.0.20",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.5",
