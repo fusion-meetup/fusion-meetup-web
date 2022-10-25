@@ -14,12 +14,12 @@ export const EventOverview: React.FC<EventOverviewProps> = ({
   codeOfConduct,
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[3fr_2fr] gap-2 md:gap-4">
-      <div className="order-1 md:order-2">
+    <div className="grid grid-cols-1 sm:grid-cols-[3fr_2fr] md:grid-cols-2 xl:grid-cols-[3fr_2fr] gap-2 sm:gap-4">
+      <div className="order-1 sm:order-2">
         <FusionLogo />
       </div>
 
-      <div className="order-2 md:order-1 pt-4 md:pt-8">
+      <div className="order-2 sm:order-1 pt-4 sm:pt-8">
         <Heading level={1}>Fusion {event.eventTypeDisplay}</Heading>
 
         <div className="py-8">
