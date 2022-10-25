@@ -50,26 +50,25 @@ const EventCardContainer: React.FC<{
   className?: string;
   children: React.ReactNode;
 }> = ({ event, highlight, className, children }) => (
-  <Link href={`/events/${event.slug}`}>
-    <a
+  <Link
+    href={`/events/${event.slug}`}
+    className={clsx(
+      "overflow-hidden transition-all duration-300 p-1 rounded-xl relative",
+      {
+        "bg-slate-500 hover:bg-blue": !highlight,
+        "fusion-gradient": highlight,
+      },
+      "group shadow-sm hover:shadow-xl"
+    )}
+  >
+    <div
       className={clsx(
-        "overflow-hidden transition-all duration-300 p-1 rounded-xl relative",
-        {
-          "bg-slate-500 hover:bg-blue": !highlight,
-          "fusion-gradient": highlight,
-        },
-        "group shadow-sm hover:shadow-xl"
+        "relative z-1 bg-white rounded-lg shadow-sm p-6",
+        "transition-all bg-opacity-90 group-hover:bg-opacity-100",
+        "dark:shadow-md dark:bg-slate-800 dark:bg-opacity-100 dark:group-hover:bg-opacity-90"
       )}
     >
-      <div
-        className={clsx(
-          "relative z-1 bg-white rounded-lg shadow-sm p-6",
-          "transition-all bg-opacity-90 group-hover:bg-opacity-100",
-          "dark:shadow-md dark:bg-slate-800 dark:bg-opacity-100 dark:group-hover:bg-opacity-90"
-        )}
-      >
-        <div className={className}>{children}</div>
-      </div>
-    </a>
+      <div className={className}>{children}</div>
+    </div>
   </Link>
 );

@@ -98,18 +98,17 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             <SiEventbrite /> Eventbrite
           </Button>
 
-          <Link href="/code-of-conduct">
-            <a
-              className={clsx(
-                "flex flex-row items-center gap-2 h-10 px-3 w-max",
-                "rounded-md border-2 border-slate-400 dark:border-slate-600",
-                "hover:bg-slate-400 hover:bg-opacity-30 hover:shadow",
-                "dark:hover:bg-slate-700 dark:hover:bg-opacity-70"
-              )}
-            >
-              <IoMdInformationCircleOutline />{" "}
-              {codeOfConduct?.linkText || "Code of Conduct"}
-            </a>
+          <Link
+            href="/code-of-conduct"
+            className={clsx(
+              "flex flex-row items-center gap-2 h-10 px-3 w-max",
+              "rounded-md border-2 border-slate-400 dark:border-slate-600",
+              "hover:bg-slate-400 hover:bg-opacity-30 hover:shadow",
+              "dark:hover:bg-slate-700 dark:hover:bg-opacity-70"
+            )}
+          >
+            <IoMdInformationCircleOutline />{" "}
+            {codeOfConduct?.linkText || "Code of Conduct"}
           </Link>
         </div>
       ) : null}
