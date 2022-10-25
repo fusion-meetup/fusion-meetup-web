@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/legacy/image";
 import { useNextSanityImage } from "next-sanity-image";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 

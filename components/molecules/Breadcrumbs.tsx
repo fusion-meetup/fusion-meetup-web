@@ -40,14 +40,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             </div>
           ) : null}
 
-          <Link href={href} key={href}>
-            <a
-              className={clsx("link capitalize", {
-                "truncate text-ellipsis": index === linksAndText.length - 1,
-              })}
-            >
-              {text}
-            </a>
+          <Link
+            href={href}
+            key={href}
+            className={clsx("link capitalize", {
+              "truncate text-ellipsis": index === linksAndText.length - 1,
+            })}
+          >
+            {text}
           </Link>
         </React.Fragment>
       ))}

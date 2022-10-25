@@ -16,7 +16,7 @@ export const AboutFusion: React.FC<AboutFusionProps> = ({
   showLearnMoreButton,
   bigTitle,
 }) => (
-  <div className="flex flex-col gap-6">
+  <div className="flex flex-col md:gap-6">
     {bigTitle ? (
       <Heading level={1} className="py-6">
         {about.title}
