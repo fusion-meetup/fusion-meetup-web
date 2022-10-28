@@ -55,6 +55,12 @@ export default async function handler(
         await res.revalidate(`/blog`);
         // TODO: Revalidate all blog posts with this category
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
+      case "about":
+        await res.revalidate(`/about`);
+        return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
+      case "codeOfConduct":
+        await res.revalidate(`/code-of-conduct`);
+        return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
     }
 
     return res.json({ message: "No managed type", reqBody });
