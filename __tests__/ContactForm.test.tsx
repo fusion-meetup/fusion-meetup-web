@@ -21,10 +21,8 @@ const renderContactForm = () => {
 
 describe("ContactForm", () => {
   it("should render", async () => {
-    const { findByText } = renderContactForm();
+    const { asFragment } = renderContactForm();
 
-    expect(
-      await findByText("This contact form goes directly to the Fusion team")
-    ).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 });
