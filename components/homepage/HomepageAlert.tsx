@@ -12,7 +12,7 @@ export const HomepageAlert: React.FC<HomepageAlertProps> = ({
 
   return (
     <div className="pt-6">
-      <div className="p-4 border-4 border-yellow-500 dark:border-opacity-80 bg-white dark:bg-blue-700 backdrop-blur-md bg-opacity-40 dark:bg-opacity-20 rounded-xl shadow-xl">
+      <div className="p-6 border-4 border-yellow-500 dark:border-opacity-80 bg-white dark:bg-blue-700 backdrop-blur-md bg-opacity-40 dark:bg-opacity-20 rounded-xl shadow-xl">
         <SanityContent value={homepageContent.alertContent} />
       </div>
     </div>
