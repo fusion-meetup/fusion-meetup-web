@@ -61,6 +61,8 @@ export default async function handler(
       case "codeOfConduct":
         await res.revalidate(`/code-of-conduct`);
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
+      case "homepageContent":
+        return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
     }
 
     return res.json({ message: "No managed type", reqBody });

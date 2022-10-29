@@ -9,6 +9,10 @@ const globalSchemaTypes = [
     title: "Code of Conduct",
     name: "codeOfConduct",
   },
+  {
+    title: "Homepage Content",
+    name: "homepageContent",
+  },
 ];
 
 export default () =>

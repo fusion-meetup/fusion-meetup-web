@@ -9,6 +9,10 @@ import {
   CodeOfConduct,
   SanityCodeOfConduct,
 } from "../../types/cms/CodeOfConduct";
+import {
+  HomepageContent,
+  SanityHomepageContent,
+} from "../../types/cms/HomepageContent";
 
 export const mapSanityTeamMember = (x: SanityTeamMember): TeamMember => ({
   key: x._id,
@@ -73,3 +77,15 @@ export const mapCodeOfConduct = (x: SanityCodeOfConduct): CodeOfConduct => ({
   content: x.content || [],
   linkText: x.linkText || "",
 });
+
+export const mapSanityHomepageContent = (
+  x: SanityHomepageContent
+): HomepageContent => {
+  const showAlert = x.showAlert || false;
+
+  return {
+    key: x._id,
+    showAlert,
+    alertContent: showAlert ? x.alertContent || [] : [],
+  };
+};

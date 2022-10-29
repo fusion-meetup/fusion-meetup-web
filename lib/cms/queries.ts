@@ -13,6 +13,10 @@ import {
   FusionEvent,
   SanityFusionEvent,
 } from "../../types/cms/FusionEvent";
+import {
+  HomepageContent,
+  SanityHomepageContent,
+} from "../../types/cms/HomepageContent";
 import { SanityTeamMember, TeamMember } from "../../types/cms/TeamMember";
 
 import {
@@ -20,6 +24,7 @@ import {
   mapSanityAboutFusion,
   mapSanityBlogPost,
   mapSanityFusionEvent,
+  mapSanityHomepageContent,
   mapSanityTeamMember,
 } from "./mappers";
 
@@ -122,4 +127,11 @@ export const getCodeOfConduct = async (): Promise<CodeOfConduct> => {
     `*[_type == "codeOfConduct"][0]`
   );
   return mapCodeOfConduct(sanityCodeOfConduct);
+};
+
+export const getHomePageContent = async (): Promise<HomepageContent> => {
+  const sanityAboutFusion: SanityHomepageContent = await cms.fetch(
+    `*[_type == "homepageContent"][0]`
+  );
+  return mapSanityHomepageContent(sanityAboutFusion);
 };
