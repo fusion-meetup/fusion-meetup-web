@@ -45,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
     classNameProp,
     { "text-2xl py-3 px-6": size === "large" },
     {
-      "opacity-50 cursor-not-allowed bg-slate-400 dark:bg-slate-200 focus:outline-none focus:scale-100 hover:shadow-none":
+      "cursor-not-allowed bg-slate-400 text-slate-800 dark:bg-slate-600 dark:text-slate-100 focus:outline-none focus:scale-100 hover:shadow-none":
         disabled,
       "transition-all ease-out duration-100 hover:shadow focus:outline active:outline outline-3 outline-offset-2 focus:scale-95":
         !disabled,
