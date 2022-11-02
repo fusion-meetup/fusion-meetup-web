@@ -37,6 +37,26 @@ export const getTeamMembers = async (): Promise<TeamMember[]> => {
   return sanityTeamMembers.map(mapSanityTeamMember);
 };
 
+export const getTeamMemberBySlug = async (
+  slug: string | undefined
+): Promise<TeamMember> => {
+  const sanityTeamMember: SanityTeamMember = await cms.fetch(
+    `*[_type == "teamMember" && slug.current == $slug][0]{
+      ...,
+      'slug': slug.current,
+    }`,
+    { slug }
+  );
+
+  return mapSanityTeamMember(sanityTeamMember);
+};
+
+export const getTeamMembersSlugs = async (): Promise<string[]> => {
+  return await cms.fetch(
+    `*[_type == "teamMember" && defined(slug.current)][].slug.current`
+  );
+};
+
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const blogPostsSanity: SanityBlogPost[] = await cms.fetch(
     `*[_type == "blogPost"]
