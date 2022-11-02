@@ -31,7 +31,7 @@ export const EventCardSmall: React.FC<EventCardSmallProps> = ({
         </h2>
 
         <div className="pt-2">
-          <EventDetails event={event} small ticketProvider={""} />
+          <EventDetails event={event} small />
         </div>
       </div>
       <div className="py-4">

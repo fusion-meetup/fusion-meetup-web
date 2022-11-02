@@ -21,7 +21,7 @@ interface EventDetailsProps {
   displayLinks?: boolean;
   codeOfConduct?: CodeOfConduct;
   small?: boolean;
-  ticketProvider: string;
+  ticketProvider?: string;
 }
 
 export const EventDetails: React.FC<EventDetailsProps> = ({

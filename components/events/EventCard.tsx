@@ -24,7 +24,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, highlight }) => {
         </h2>
 
         <div className="pt-4">
-          <EventDetails event={event} ticketProvider={""} />
+          <EventDetails event={event} />
         </div>
       </div>
 
