@@ -34,23 +34,33 @@ export const EventCardSmall: React.FC<EventCardSmallProps> = ({
           <EventDetails event={event} small />
         </div>
       </div>
-      <div className="py-4">
-        <hr className="border-2 border-slate-800 dark:border-white rounded-full opacity-10" />
-      </div>
-      <div className="flex flex-col gap-2">
-        {event.talks.map((talk) => (
-          <div key={talk._key} className="flex flex-row gap-4">
-            <div className="flex flex-row items-center gap-3">
-              <SpeakerImage speaker={talk.speaker} className="w-8 h-8" small />
-
-              <div>
-                <p className="font-bold">{talk.speaker.name}</p>
-                <p className="text-sm opacity-50">{talk.title}</p>
-              </div>
-            </div>
+      {event.talks.length ? (
+        <>
+          <div className="py-4">
+            <hr className="border-2 border-slate-800 dark:border-white rounded-full opacity-10" />
           </div>
-        ))}
-      </div>
+          <div className="flex flex-col gap-2">
+            {event.talks.map((talk) => (
+              <div key={talk._key} className="flex flex-row gap-4">
+                <div className="flex flex-row items-center gap-3">
+                  <SpeakerImage
+                    speaker={talk.speaker}
+                    className="w-8 h-8"
+                    small
+                  />
+
+                  <div>
+                    <p className="font-bold">{talk.speaker.name}</p>
+                    <p className="text-sm opacity-50">{talk.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
     </Link>
   );
 };

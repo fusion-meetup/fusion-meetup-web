@@ -27,19 +27,22 @@ export const EventCard: React.FC<EventCardProps> = ({ event, highlight }) => {
           <EventDetails event={event} />
         </div>
       </div>
+      {event.talks.length ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {event.talks.map((talk) => (
+            <div key={talk._key} className="flex flex-row gap-4">
+              <SpeakerImage speaker={talk.speaker} className="w-16 h-16" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-        {event.talks.map((talk) => (
-          <div key={talk._key} className="flex flex-row gap-4">
-            <SpeakerImage speaker={talk.speaker} className="w-16 h-16" />
-
-            <div className="flex flex-col gap-2">
-              <h3 className="font-md">{talk.title}</h3>
-              <p className="text-sm font-bold">{talk.speaker.name}</p>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-md">{talk.title}</h3>
+                <p className="text-sm font-bold">{talk.speaker.name}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <></>
+      )}
     </EventCardContainer>
   );
 };
