@@ -5,16 +5,18 @@ import { Tito } from "../atoms/Tito";
 
 interface EventEmbedProps {
   event: FusionEvent;
+  ticketProvider: string | undefined | null;
 }
 
-export const EventEmbed: React.FC<EventEmbedProps> = ({ event }) => {
+export const EventEmbed: React.FC<EventEmbedProps> = ({
+  event,
+  ticketProvider,
+}) => {
   if (new Date(event.date) > new Date()) {
-    const { hostname } = new URL(String(event.eventbriteLink));
-    switch (hostname) {
-      case "www.eventbrite.co.uk":
-      case "www.eventbrite.com":
+    switch (ticketProvider) {
+      case "eventbrite":
         return <Eventbrite eventbriteLink={event.eventbriteLink} />;
-      case "ti.to":
+      case "tito":
         return <Tito titoLink={event.eventbriteLink} />;
       default:
         return <></>;

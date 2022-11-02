@@ -7,11 +7,13 @@ import { EventDetails } from "./EventDetails";
 interface EventOverviewProps {
   event: FusionEvent;
   codeOfConduct?: CodeOfConduct;
+  ticketProvider: string;
 }
 
 export const EventOverview: React.FC<EventOverviewProps> = ({
   event,
   codeOfConduct,
+  ticketProvider,
 }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-[3fr_2fr] md:grid-cols-2 xl:grid-cols-[3fr_2fr] gap-2 sm:gap-4">
@@ -27,6 +29,7 @@ export const EventOverview: React.FC<EventOverviewProps> = ({
             event={event}
             displayLinks
             codeOfConduct={codeOfConduct}
+            ticketProvider={ticketProvider}
           />
         </div>
       </div>

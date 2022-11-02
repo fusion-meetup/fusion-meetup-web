@@ -20,6 +20,7 @@ interface EventDetailsProps {
   displayLinks?: boolean;
   codeOfConduct?: CodeOfConduct;
   small?: boolean;
+  ticketProvider: string;
 }
 
 export const EventDetails: React.FC<EventDetailsProps> = ({
@@ -27,6 +28,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   displayLinks,
   codeOfConduct,
   small,
+  ticketProvider,
 }) => {
   const eventDate = dayjs(event.date);
   let todayOrTomorrow = null;
@@ -67,6 +69,17 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
     },
   ];
 
+  const ticketColours: { [key: string]: { light: string; dark: string } } = {
+    eventbrite: {
+      light: "#d1410c",
+      dark: "#a33107",
+    },
+    tito: {
+      light: "#157dfb",
+      dark: "#046ae6",
+    },
+  };
+
   return (
     <div className="flex flex-col gap-2">
       {details
@@ -94,7 +107,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               href={event.eventbriteLink || undefined}
               targetBlank
               color={null}
-              className="bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white"
+              className={`bg-[${ticketColours[ticketProvider].light}] hover:bg-[${ticketColours[ticketProvider].dark}] outline-[#d1410c80] text-white`}
             >
               <GrTicket /> Tickets
             </Button>

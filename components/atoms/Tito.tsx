@@ -15,7 +15,12 @@ export const Tito: React.FC<TitoProps> = ({ titoLink }) => {
   return (
     <>
       <Script id="tito-js" src="https://js.tito.io/v2" strategy="lazyOnload" />
-      {React.createElement("tito-widget", { event: eventId })}
+      <div className="rounded-xl bg-white dark:bg-slate-600 bg-opacity-50 dark:bg-opacity-50">
+        <div className="text-xl md:text-2xl text-center p-2 font-bold">
+          Get tickets
+        </div>
+        {React.createElement("tito-widget", { event: eventId })}
+      </div>
     </>
   );
 };
