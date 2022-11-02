@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { SiEventbrite } from "react-icons/si";
+import { IoTicket } from "react-icons/io5";
 import {
   MdCalendarToday,
   MdHome,
@@ -20,6 +21,7 @@ interface EventDetailsProps {
   displayLinks?: boolean;
   codeOfConduct?: CodeOfConduct;
   small?: boolean;
+  ticketProvider?: string;
 }
 
 export const EventDetails: React.FC<EventDetailsProps> = ({
@@ -27,6 +29,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   displayLinks,
   codeOfConduct,
   small,
+  ticketProvider,
 }) => {
   const eventDate = dayjs(event.date);
   let todayOrTomorrow = null;
@@ -67,6 +70,8 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
     },
   ];
 
+  const isEventbrite = ticketProvider === "eventbrite";
+
   return (
     <div className="flex flex-col gap-2">
       {details
@@ -89,14 +94,20 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
       {displayLinks ? (
         <div className="pt-2 flex flex-row items-center flex-wrap gap-4">
-          <Button
-            href={event.eventbriteLink || undefined}
-            targetBlank
-            color={null}
-            className="bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white"
-          >
-            <SiEventbrite /> Eventbrite
-          </Button>
+          {event.eventbriteLink ? (
+            <Button
+              href={event.eventbriteLink || undefined}
+              targetBlank
+              className={clsx({
+                "bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white":
+                  isEventbrite,
+              })}
+            >
+              {isEventbrite ? <SiEventbrite /> : <IoTicket />} Tickets
+            </Button>
+          ) : (
+            ""
+          )}
 
           <Link
             href="/code-of-conduct"
