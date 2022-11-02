@@ -2,7 +2,8 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { GrTicket } from "react-icons/gr";
+import { SiEventbrite } from "react-icons/si";
+import { IoTicket } from "react-icons/io5";
 import {
   MdCalendarToday,
   MdHome,
@@ -69,16 +70,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
     },
   ];
 
-  const ticketColours: { [key: string]: { light: string; dark: string } } = {
-    eventbrite: {
-      light: "#d1410c",
-      dark: "#a33107",
-    },
-    tito: {
-      light: "#157dfb",
-      dark: "#046ae6",
-    },
-  };
+  const isEventbrite = ticketProvider === "eventbrite";
 
   return (
     <div className="flex flex-col gap-2">
@@ -106,10 +98,12 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             <Button
               href={event.eventbriteLink || undefined}
               targetBlank
-              color={null}
-              className={`bg-[${ticketColours[ticketProvider].light}] hover:bg-[${ticketColours[ticketProvider].dark}] outline-[#d1410c80] text-white`}
+              className={clsx({
+                "bg-[#d1410c] hover:bg-[#a33107] outline-[#d1410c80] text-white":
+                  isEventbrite,
+              })}
             >
-              <GrTicket /> Tickets
+              {isEventbrite ? <SiEventbrite /> : <IoTicket />} Tickets
             </Button>
           ) : (
             ""
