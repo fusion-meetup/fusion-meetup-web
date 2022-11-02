@@ -67,9 +67,13 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
         <EventEmbed event={event} ticketProvider={ticketProvider} />
       </div>
 
-      <div className={clsx(narrowContainerClassName, "py-6")}>
-        <EventTalks talks={event.talks} />
-      </div>
+      {event.talks.length ? (
+        <div className={clsx(narrowContainerClassName, "py-6")}>
+          <EventTalks talks={event.talks} />
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className={clsx(narrowContainerClassName, "py-8")}>
         <EventSponsors sponsors={event.sponsors} />
