@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   typeSubmit?: boolean;
   value?: string;
+  disabled?: boolean;
   children?: React.ReactNode;
 }
 
@@ -22,27 +23,33 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   typeSubmit,
   value,
+  disabled,
   children,
 }) => {
   color = color === undefined || color === "default" ? "blue" : color;
 
   const className = clsx(
-    "box-content margin-0 leading-normal items-center block w-fit cursor-pointer",
-    "flex flex-row justify-center gap-2 text-base",
+    "cursor-pointer font-bold py-2 px-4 rounded-md text-md",
+    "box-content margin-0 leading-normal block w-fit",
+    "flex flex-row items-center justify-center gap-2 text-base",
     {
       "bg-blue-500 hover:bg-blue-400 outline-blue-500/50 text-black":
-        color === "blue",
+        color === "blue" && !disabled,
       "bg-pink-500 hover:bg-pink-400 outline-pink-500/50 text-black":
-        color === "pink",
+        color === "pink" && !disabled,
       "bg-yellow-500 hover:bg-yellow-400 outline-yellow-500/50 text-black":
-        color === "yellow",
+        color === "yellow" && !disabled,
       "bg-[#cc0000] hover:bg-[#990000] outline-[#cc000088] text-white":
-        color === "youtube",
+        color === "youtube" && !disabled,
     },
-    "transition-all ease-out duration-100 py-2 px-4 rounded-md font-bold text-md hover:shadow",
-    "focus:outline active:outline outline-3 outline-offset-2 focus:scale-95",
     classNameProp,
-    { "text-2xl py-3 px-6": size === "large" }
+    { "text-2xl py-3 px-6": size === "large" },
+    {
+      "cursor-not-allowed bg-slate-400 text-slate-800 dark:bg-slate-600 dark:text-slate-100 focus:outline-none focus:scale-100 hover:shadow-none":
+        disabled,
+      "transition-all ease-out duration-100 hover:shadow focus:outline active:outline outline-3 outline-offset-2 focus:scale-95":
+        !disabled,
+    }
   );
 
   const commonProps = {

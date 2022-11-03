@@ -106,7 +106,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               {isEventbrite ? <SiEventbrite /> : <IoTicket />} Tickets
             </Button>
           ) : (
-            ""
+            <Button disabled={true}>Tickets coming soon</Button>
           )}
 
           <Link
