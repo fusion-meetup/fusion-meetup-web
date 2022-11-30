@@ -2,6 +2,7 @@ import { SanityTalk } from "../../types/cms/FusionEvent";
 import { Heading } from "../atoms/Heading";
 import { SanityContent } from "../atoms/SanityContent";
 import { EventSpeaker } from "./EventSpeaker";
+import { LightningTalkBadge } from "./LightningTalkBadge";
 
 interface EventTalksProps {
   talks: SanityTalk[];
@@ -22,8 +23,10 @@ export const EventTalks: React.FC<EventTalksProps> = ({ talks }) => {
             ) : null}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-6 md:gap-8">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 <p className="text-xl md:text-2xl font-bold">{talk.title}</p>
+
+                {talk.isLightningTalk ? <LightningTalkBadge /> : null}
 
                 <div className="opacity-70">
                   <SanityContent value={talk.overview} />
