@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { FusionEvent } from "../../types/cms/FusionEvent";
 import { EventDetails } from "./EventDetails";
+import { LightningTalkBadge } from "./LightningTalkBadge";
 import { SpeakerImage } from "./SpeakerImage";
 
 interface EventCardProps {
@@ -36,6 +37,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, highlight }) => {
 
               <div className="flex flex-col gap-2">
                 <h3 className="font-md">{talk.title}</h3>
+                {talk.isLightningTalk ? <LightningTalkBadge basic /> : null}
                 <p className="text-sm font-bold">{talk.speaker.name}</p>
               </div>
             </div>

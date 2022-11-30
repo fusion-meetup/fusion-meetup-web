@@ -46,6 +46,7 @@ export interface SanityTalk extends SanityObjectBase {
   title: string;
   overview: any;
   speaker: SanitySpeaker;
+  isLightningTalk?: boolean;
 }
 
 export interface SanitySpeaker extends SanityObjectBase {
