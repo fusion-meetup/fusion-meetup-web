@@ -30,10 +30,29 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
   const formattedDate = dayjs(event.date).format("Do MMMM YYYY");
   const title = `${formattedDate} ${event.eventTypeDisplay}`;
 
+  let ticketProvider = "";
+  if (event.eventbriteLink) {
+    const { hostname } = new URL(String(event.eventbriteLink));
+    switch (hostname) {
+      case "www.eventbrite.co.uk":
+      case "www.eventbrite.com":
+        ticketProvider = "eventbrite";
+        break;
+      case "www.ti.to":
+      case "ti.to":
+        ticketProvider = "tito";
+        break;
+    }
+  }
+
   return (
     <Layout title={title} className="px-4" fancyBackground="colours">
       <div className={clsx(narrowContainerClassName, "pt-6 pb-4")}>
-        <EventOverview event={event} codeOfConduct={codeOfConduct} />
+        <EventOverview
+          event={event}
+          ticketProvider={ticketProvider}
+          codeOfConduct={codeOfConduct}
+        />
       </div>
 
       <div
@@ -45,12 +64,16 @@ const EventPage: NextPage<EventPageProps> = ({ event, codeOfConduct }) => {
       </div>
 
       <div className={clsx(narrowContainerClassName, "py-6")}>
-        <EventEmbed event={event} />
+        <EventEmbed event={event} ticketProvider={ticketProvider} />
       </div>
 
-      <div className={clsx(narrowContainerClassName, "py-6")}>
-        <EventTalks talks={event.talks} />
-      </div>
+      {event.talks.length ? (
+        <div className={clsx(narrowContainerClassName, "py-6")}>
+          <EventTalks talks={event.talks} />
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className={clsx(narrowContainerClassName, "py-8")}>
         <EventSponsors sponsors={event.sponsors} />

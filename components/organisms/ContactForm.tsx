@@ -16,15 +16,20 @@ import { Select } from "../atoms/Select";
 import { Button } from "../atoms/Button";
 import { Alert } from "../atoms/Alert";
 import { FormFieldLabel } from "../atoms/FormFieldLabel";
+import { CharCount } from "../atoms/CharCount";
 import fusionHeart from "../../public/fusion-heart.png";
+
+const MAX_MESSAGE_LENGTH = 1000;
 
 export const ContactForm: React.FC = () => {
   const router = useRouter();
 
   const [submitSuccess, setSubmitSuccess] = useState<boolean | undefined>();
   const [sendingFormResult, setSendingFormResult] = useState<boolean>(false);
+  const [showMessageTooLongError, setShowMessageTooLongError] =
+    useState<boolean>(false);
 
-  const { register, handleSubmit, setValue, reset } =
+  const { register, handleSubmit, setValue, reset, watch } =
     useForm<ContactFormValues>({
       defaultValues: {
         name: "",
@@ -36,6 +41,12 @@ export const ContactForm: React.FC = () => {
     });
 
   const contactFormSubmit = useCallback(async (data: ContactFormValues) => {
+    if (data.message.length > MAX_MESSAGE_LENGTH) {
+      setShowMessageTooLongError(true);
+      return;
+    }
+    setShowMessageTooLongError(false);
+
     try {
       setSendingFormResult(true);
 
@@ -120,7 +131,7 @@ export const ContactForm: React.FC = () => {
             />
           </div>
 
-          <div>
+          <div className="relative">
             <FormFieldLabel htmlFor="type">Message</FormFieldLabel>
             <Input
               multiLine
@@ -128,6 +139,10 @@ export const ContactForm: React.FC = () => {
               placeholder="Hi Fusion team!"
               disabled={sendingFormResult}
             />
+
+            <div className="absolute bottom-4 right-4">
+              <CharCount value={watch("message")} max={MAX_MESSAGE_LENGTH} />
+            </div>
           </div>
 
           {submitSuccess === false ? (
@@ -142,6 +157,13 @@ export const ContactForm: React.FC = () => {
                 Twitter
               </a>{" "}
               if this seems to be broken!
+            </Alert>
+          ) : null}
+
+          {showMessageTooLongError ? (
+            <Alert type="error">
+              Your message is too long – please shorten it to{" "}
+              {MAX_MESSAGE_LENGTH} characters or less
             </Alert>
           ) : null}
 

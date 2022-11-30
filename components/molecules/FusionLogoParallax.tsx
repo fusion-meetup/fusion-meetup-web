@@ -70,7 +70,6 @@ const FusionLogoParallax = () => {
 
       {animatedLogoComponent(["rectangleFrame"], translateZ(80))}
 
-      {/* TODO: Extend path - sometimes(?) doesn't cover rectangle frame while animating in */}
       {animatedLogoComponent(
         ["barBlueInfront"],
         translateZ(24),
