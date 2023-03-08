@@ -82,7 +82,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               {detail.icon}
             </div>
 
-            <div className={clsx("text-sm", { "text-lg": !small })}>
+            <div className={small ? "text-sm" : "text-lg"}>
               {typeof detail.label === "string"
                 ? detail.label
                     ?.split("\n")
