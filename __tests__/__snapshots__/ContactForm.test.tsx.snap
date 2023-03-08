@@ -115,7 +115,9 @@ exports[`ContactForm should render 1`] = `
         </option>
       </select>
     </div>
-    <div>
+    <div
+      class="relative"
+    >
       <label
         class="text-sm font-medium opacity-60 block pb-1"
         for="type"
@@ -127,12 +129,15 @@ exports[`ContactForm should render 1`] = `
         name="message"
         placeholder="Hi Fusion team!"
       />
+      <div
+        class="absolute bottom-4 right-4"
+      />
     </div>
     <div
       class="flex flex-row justify-end items-center gap-8"
     >
       <input
-        class="box-content margin-0 leading-normal items-center block w-fit cursor-pointer flex flex-row justify-center gap-2 text-base bg-pink-500 hover:bg-pink-400 outline-pink-500/50 text-black transition-all ease-out duration-100 py-2 px-4 rounded-md font-bold text-md hover:shadow focus:outline active:outline outline-3 outline-offset-2 focus:scale-95 px-16"
+        class="cursor-pointer font-bold py-2 px-4 rounded-md text-md box-content margin-0 leading-normal block w-fit flex flex-row items-center justify-center gap-2 text-base bg-pink-500 hover:bg-pink-400 outline-pink-500/50 text-black px-16 transition-all ease-out duration-100 hover:shadow focus:outline active:outline outline-3 outline-offset-2 focus:scale-95"
         type="submit"
         value="Submit"
       />
