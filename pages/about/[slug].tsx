@@ -1,5 +1,8 @@
 import type { GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import { SanityContent } from "../../components/atoms/SanityContent";
+import { SanityImage } from "../../components/atoms/SanityImage";
+import { TeamMemberCard } from "../../components/molecules/MeetTheTeam";
 import { Layout } from "../../components/organisms/Layout";
 import {
   getTeamMemberBySlug,
@@ -12,8 +15,15 @@ interface TeamMemberPageProps {
 
 const TeamMemberPage: NextPage<TeamMemberPageProps> = ({ teamMember }) => {
   return (
-    <Layout title={`${teamMember.name} – Blog`}>
-      {JSON.stringify(teamMember)}
+    <Layout title={`${teamMember.name} – Team Member`} className="px-4">
+      <TeamMemberCard teamMember={teamMember} />
+      <SanityImage
+        image={teamMember.image}
+        alt={`Profile photo for ${teamMember.name}`}
+        layout="fill"
+        objectFit="cover"
+      />
+      {JSON.stringify(teamMember.image.asset._ref)}
     </Layout>
   );
 };
