@@ -9,10 +9,16 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  assetPrefix: "/meetup",
   redirects: async () => [
     {
       source: "/cms",
       destination: "https://fusion-meetup-web.sanity.studio/",
+      permanent: true,
+    },
+    {
+      source: "/meetup/_next/:path*",
+      destination: "/_next/:path*",
       permanent: true,
     },
   ],
