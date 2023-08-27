@@ -36,6 +36,8 @@ export default async function handler(
 
   await res.revalidate("/");
 
+  console.log("Revalidate webhook");
+
   try {
     switch (cmsType) {
       case "teamMember":
@@ -49,6 +51,11 @@ export default async function handler(
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "blogPost":
         await res.revalidate(`/blog`);
+        if (reqBody.slug?.current) {
+          console.log("reqBody.slug?.current", reqBody.slug?.current);
+        } else {
+          console.log("reqBody", reqBody);
+        }
         await res.revalidate(`/blog/${reqBody.slug?.current}`);
         return res.json({ message: `Revalidated "${cmsType}"`, reqBody });
       case "blogCategory":
@@ -67,6 +74,7 @@ export default async function handler(
 
     return res.json({ message: "No managed type", reqBody });
   } catch (err) {
+    console.error("Sanity revalidate error:", err);
     return res.status(500).send({ message: "Error revalidating", reqBody });
   }
 }
