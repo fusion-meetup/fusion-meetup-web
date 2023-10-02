@@ -9,21 +9,18 @@ interface SponsorFusionProps {
   about: AboutFusionInfo;
 }
 
-export const SponsorFusion: React.FC<SponsorFusionProps> = ({
-  about,
-  showLearnMoreButton,
-}) => (
+export const SponsorFusion: React.FC<SponsorFusionProps> = ({ about }) => (
   <div className="flex flex-col gap-6">
     <Heading level={2} className="py-4 pb-8">
-        Supporting Fusion
+      Supporting Fusion
     </Heading>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 items-center">
-        <SanityContent value={about.sponsorship} />
+      <SanityContent value={about.sponsor} />
     </div>
 
-    <Button color="yellow" href="/Friends_of_Fusion_2023.pdf" target="_blank" >
-    Read our Sponsorship Packages
+    <Button color="yellow" href="/Friends_of_Fusion_2023.pdf">
+      Read our Sponsorship Packages
     </Button>
   </div>
 );
