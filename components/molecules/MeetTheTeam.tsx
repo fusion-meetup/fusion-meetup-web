@@ -24,7 +24,7 @@ export const MeetTheTeam: FC<MeetTheTeamProps> = ({ team }) => {
   );
 };
 
-const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({
+export const TeamMemberCard: React.FC<{ teamMember: TeamMember }> = ({
   teamMember,
 }) => (
   <div className="relative flex flex-col gap-3 p-6 bg-slate-100 dark:bg-slate-800 rounded-xl shadow">

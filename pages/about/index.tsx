@@ -1,11 +1,11 @@
 import type { GetStaticProps, NextPage } from "next";
 
-import { TeamMember } from "../types/cms/TeamMember";
-import { AboutFusionInfo } from "../types/cms/AboutFusionInfo";
-import { getAboutFusionInfo, getTeamMembers } from "../lib/cms/queries";
-import { Layout } from "../components/organisms/Layout";
-import { MeetTheTeam } from "../components/molecules/MeetTheTeam";
-import { AboutFusion } from "../components/homepage/AboutFusion";
+import { TeamMember } from "../../types/cms/TeamMember";
+import { AboutFusionInfo } from "../../types/cms/AboutFusionInfo";
+import { getAboutFusionInfo, getTeamMembers } from "../../lib/cms/queries";
+import { Layout } from "../../components/organisms/Layout";
+import { MeetTheTeam } from "../../components/molecules/MeetTheTeam";
+import { AboutFusion } from "../../components/homepage/AboutFusion";
 
 interface AboutPageProps {
   team: TeamMember[];
