@@ -68,6 +68,7 @@ export const mapSanityAboutFusion = (
   title: x.title || "",
   description: x.description || [],
   quote: x.quote || [],
+  sponsor: x.sponsor || [],
   buttonText: x.buttonText || "",
 });
 
