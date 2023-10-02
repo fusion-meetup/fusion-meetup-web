@@ -4,6 +4,7 @@ export interface SanityAboutFusionInfo extends SanityDocumentBase {
   title?: string;
   description?: any;
   quote?: any;
+  sponsor?: any;
   buttonText?: string;
 }
 
@@ -12,5 +13,6 @@ export interface AboutFusionInfo {
   title: string;
   description: any;
   quote: any;
+  sponsor: any;
   buttonText: string;
 }

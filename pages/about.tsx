@@ -6,6 +6,7 @@ import { getAboutFusionInfo, getTeamMembers } from "../lib/cms/queries";
 import { Layout } from "../components/organisms/Layout";
 import { MeetTheTeam } from "../components/molecules/MeetTheTeam";
 import { AboutFusion } from "../components/homepage/AboutFusion";
+import { SponsorFusion } from "../components/molecules/SponsorFusion";
 
 interface AboutPageProps {
   team: TeamMember[];
@@ -19,6 +20,8 @@ const AboutPage: NextPage<AboutPageProps> = ({ team, about }) => (
         <AboutFusion about={about} bigTitle />
 
         <MeetTheTeam team={team} />
+
+        <SponsorFusion about={about} />
       </div>
     </div>
   </Layout>
