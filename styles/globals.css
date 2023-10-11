@@ -94,3 +94,42 @@
   @apply absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center;
   z-index: -1;
 }
+
+.glassy-corners-thing::before {
+  position: absolute;
+  z-index: -1;
+  left: -18px;
+  bottom: -18px;
+  display: block;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid hsla(48, 100%, 50%, 0.2);
+  background: hsla(48, 100%, 50%, 0.1);
+  border-radius: 0 24px 24px 24px;
+  content: " ";
+  -webkit-mask-image: linear-gradient(
+    40deg,
+    #fff 16.35%,
+    hsla(0, 0%, 100%, 0) 39.66%
+  );
+  mask-image: linear-gradient(40deg, #fff 16.35%, hsla(0, 0%, 100%, 0) 39.66%);
+}
+.glassy-corners-thing::after {
+  position: absolute;
+  z-index: -1;
+  right: -18px;
+  top: -18px;
+  display: block;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid hsla(324, 100%, 63%, 0.2);
+  background: hsla(324, 100%, 63%, 0.1);
+  border-radius: 0 24px 24px 24px;
+  content: " ";
+  -webkit-mask-image: linear-gradient(
+    220deg,
+    #fff 16.35%,
+    hsla(0, 0%, 100%, 0) 39.66%
+  );
+  mask-image: linear-gradient(220deg, #fff 16.35%, hsla(0, 0%, 100%, 0) 39.66%);
+}
