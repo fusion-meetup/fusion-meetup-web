@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/legacy/image";
 
 import { FusionHackLogo } from "../components/atoms/FusionHackLogo";
-import fusionHeart from "../public/fusion-heart.png";
 import { AuroraHero } from "../components/molecules/AuroraHero";
+import { Footer } from "../components/organisms/Footer";
+import { HomeButton } from "../components/atoms/HomeButton";
 
 interface ContactPageProps {}
 
@@ -19,7 +19,11 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         />
       </Head>
 
-      <div className="bg-slate-900 text-white min-h-screen">
+      <div className="absolute top-0 left-0 z-10">
+        <HomeButton />
+      </div>
+
+      <div className="bg-slate-900 bg-grid-slate-800/50 text-white min-h-screen flex flex-col">
         <header>
           <AuroraHero>
             <div className="max-w-xl w-full px-8 mx-auto -mt-4">
@@ -29,9 +33,7 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         </header>
 
         <main className="relative w-full">
-          <div className="h-16 -mt-16 bg-gradient-to-b from-transparent to-slate-900" />
-
-          <div className="max-w-4xl mx-auto px-4 md:px-8 text-pretty flex flex-col gap-2">
+          <div className="w-full max-w-4xl mx-auto px-8 text-pretty flex flex-col gap-2">
             <h1 className="text-3xl md:text-5xl leading-tight text-center">
               FusionHack is a 24hr hackathon for the Birmingham tech community
             </h1>
@@ -42,15 +44,7 @@ const ContactPage: NextPage<ContactPageProps> = () => {
           </div>
         </main>
 
-        <footer className="w-full flex px-4 md:px-8 items-center h-16">
-          <Image
-            alt="Fusion heart"
-            src={fusionHeart}
-            layout="fixed"
-            width={20}
-            height={20}
-          />
-        </footer>
+        <Footer />
       </div>
     </>
   );

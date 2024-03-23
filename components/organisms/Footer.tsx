@@ -1,7 +1,6 @@
 import Image from "next/legacy/image";
 
 import { Socials } from "../molecules/Socials";
-import fusionHeart from "../../public/fusion-heart.png";
 
 export const Footer: React.FC = () => {
   return (
@@ -11,7 +10,7 @@ export const Footer: React.FC = () => {
           Made with
           <Image
             alt="Fusion heart"
-            src={fusionHeart}
+            src="/fusion-heart.png"
             layout="fixed"
             width={20}
             height={20}

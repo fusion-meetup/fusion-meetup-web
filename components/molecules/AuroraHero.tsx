@@ -36,7 +36,7 @@ export const AuroraHero = ({
             "after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference",
             "pointer-events-none",
             "absolute -inset-[10px] opacity-50",
-            "[mask-image:radial-gradient(ellipse_at_60%_-50%,var(--slate-900)_10%,var(--transparent)_75%)]"
+            "[mask-image:radial-gradient(ellipse_at_55%_-50%,var(--slate-900)_10%,var(--transparent)_65%)]"
           )}
         />
       </div>
