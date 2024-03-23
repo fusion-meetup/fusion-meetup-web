@@ -19,16 +19,30 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         />
       </Head>
 
-      <div>
-        <AuroraHero>
-          <div className="max-w-xl w-full px-8 mx-auto">
-            <FusionHackLogo className="w-full" />
+      <div className="bg-slate-900 text-white min-h-screen">
+        <header>
+          <AuroraHero>
+            <div className="max-w-xl w-full px-8 mx-auto -mt-4">
+              <FusionHackLogo className="w-full" />
+            </div>
+          </AuroraHero>
+        </header>
+
+        <main className="relative w-full">
+          <div className="h-16 -mt-16 bg-gradient-to-b from-transparent to-slate-900" />
+
+          <div className="max-w-4xl mx-auto px-4 md:px-8 text-pretty flex flex-col gap-2">
+            <h1 className="text-3xl md:text-5xl leading-tight text-center">
+              FusionHack is a 24hr hackathon for the Birmingham tech community
+            </h1>
+
+            <section className="py-16">
+              <HackFaqs />
+            </section>
           </div>
-        </AuroraHero>
+        </main>
 
-        <div className="absolute bottom-8 left-0 right-0 flex items-center gap-1 justify-center">
-          <p>coming soon 👀</p>
-
+        <footer className="w-full flex px-4 md:px-8 items-center h-16">
           <Image
             alt="Fusion heart"
             src={fusionHeart}
@@ -36,10 +50,44 @@ const ContactPage: NextPage<ContactPageProps> = () => {
             width={20}
             height={20}
           />
-        </div>
+        </footer>
       </div>
     </>
   );
 };
 
 export default ContactPage;
+
+interface HackFaqsProps {}
+
+export const HackFaqs: React.FC<HackFaqsProps> = ({}) => {
+  const faqs = [
+    {
+      question: "When?",
+      answer: "We don't know yet",
+    },
+    {
+      question: "Where?",
+      answer: "Not sure",
+    },
+    {
+      question: "What?",
+      answer: "Yes",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-4">
+      <h2 className="text-2xl font-semibold">FAQs</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {faqs.map(({ question, answer }) => (
+          <div key={question} className="flex flex-col gap-2">
+            <h2 className="text-2xl">{question}</h2>
+            <p className="opacity-50">{answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
