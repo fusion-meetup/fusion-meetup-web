@@ -1,5 +1,7 @@
 const colors = require("tailwindcss/colors");
 const theme = require("tailwindcss/defaultTheme");
+const flattenColorPalette =
+  require("tailwindcss/lib/util/flattenColorPalette").default;
 
 // https://github.com/tailwindlabs/tailwindcss/issues/4690#issuecomment-1046087220
 delete colors.lightBlue;
@@ -70,14 +72,31 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8vw)" },
         },
+        aurora: {
+          from: { backgroundPosition: "50% 50%, 50% 50%" },
+          to: { backgroundPosition: "350% 50%, 350% 50%" },
+        },
       },
       animation: {
         chillin: "chillin 10s cubic-bezier(.5,0,.5,1) infinite",
+        aurora: "aurora 60s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Add variables for colours
+    ({ addBase, theme }) => {
+      let allColors = flattenColorPalette(theme("colors"));
+      let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
+
+      addBase({
+        ":root": newVars,
+      });
+    },
+  ],
 };
