@@ -33,7 +33,15 @@ const ContactPage: NextPage<ContactPageProps> = () => {
         </header>
 
         <main className="relative w-full">
-          <div className="w-full max-w-4xl mx-auto px-8 text-pretty flex flex-col gap-2">
+          <div className="w-full max-w-4xl mx-auto px-8 text-pretty flex flex-col gap-8">
+            <div className="h-8 -mt-4 rounded-full mx-auto bg-slate-800/50 flex items-center px-2.5 gap-3 border border-slate-700 shadow text-sm">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-200 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+              </span>
+              Under construction! Stay tuned...
+            </div>
+
             <h1 className="text-3xl md:text-5xl leading-tight text-center">
               FusionHack is a 24hr hackathon for the Birmingham tech community
             </h1>
