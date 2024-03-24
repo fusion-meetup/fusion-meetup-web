@@ -182,7 +182,7 @@ const HackMailingSignUp: React.FC = () => {
         </p>
       ) : (
         <>
-          <div className="flex w-full gap-4">
+          <form className="flex w-full gap-4" onSubmit={handleSubmit(onSubmit)}>
             <Input
               {...register("email", { required: true })}
               type="email"
@@ -190,10 +190,8 @@ const HackMailingSignUp: React.FC = () => {
               className="flex-1"
             />
 
-            <Button className="shrink-0" onClick={handleSubmit(onSubmit)}>
-              Sign up
-            </Button>
-          </div>
+            <Button className="shrink-0" typeSubmit value="Sign up" />
+          </form>
 
           {status === "error" ? (
             <p className="text-red-500">Failed to sign up</p>
