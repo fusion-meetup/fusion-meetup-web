@@ -109,7 +109,7 @@ const HackDetails: React.FC = () => {
   const details = [
     {
       question: "When?",
-      answer: "Autumn 2024 – more specific date TBD",
+      answer: "2025 – more specific date TBD",
       icon: Calendar,
     },
     {
