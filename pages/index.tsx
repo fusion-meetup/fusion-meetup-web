@@ -19,6 +19,7 @@ import { AboutFusion } from "../components/homepage/AboutFusion";
 import { LatestEvent } from "../components/homepage/LatestEvent";
 import { PastEventsOverview } from "../components/events/PastEventsOverview";
 import { HomepageAlert } from "../components/homepage/HomepageAlert";
+import { GetInvolved } from "../components/homepage/GetInvolved";
 
 const LiveEvent = dynamic(() => import("../components/homepage/LiveEvent"), {
   ssr: false,
@@ -50,13 +51,15 @@ const HomePage: NextPage<HomePageProps> = ({
       <AboutFusion about={about} showLearnMoreButton />
 
       <div>
-        <Heading level={2}>Fusion Blog</Heading>
-        <BlogPostsOverview threeBlogPosts={threeBlogPosts} />
-      </div>
-
-      <div>
         <Heading level={2}>Past Events</Heading>
         <PastEventsOverview pastFourEvents={pastFourEvents} />
+      </div>
+
+      <GetInvolved />
+
+      <div>
+        <Heading level={2}>Fusion Blog</Heading>
+        <BlogPostsOverview threeBlogPosts={threeBlogPosts} />
       </div>
     </div>
   </Layout>
