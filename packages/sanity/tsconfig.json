@@ -1,0 +1,8 @@
+{
+  "extends": "@fusion/typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

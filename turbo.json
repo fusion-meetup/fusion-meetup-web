@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NEXT_PUBLIC_EMULATE_EVENT_IS_LIVE"],
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "VERCEL",
+    "VERCEL_URL",
+    "SKIP_ENV_VALIDATION",
+    "PORT",
+    "DISCORD_WEBHOOK_SECRET",
+    "SANITY_WEBHOOK_SECRET",
+    "MAILCHIMP_API_KEY",
+    "MAILCHIMP_AUDIENCE_ID"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env", ".env.*"],
+      "outputs": [".next/**", ".dist/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

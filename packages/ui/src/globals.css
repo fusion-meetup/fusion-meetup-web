@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* slate-900 */
+    --background: 222 47% 11%;
+    /* white */
+    --foreground: 0 0% 100%;
+
+    /* slate-700 */
+    --muted: 215 25% 27%;
+    /* slate-400 */
+    --muted-foreground: 215 20% 65%;
+    /* slate-700 */
+    --muted-border: 215 19% 35%;
+
+    /* slate-900 */
+    --popover: 222 47% 11%;
+    /* white */
+    --popover-foreground: 0 0% 100%;
+
+    /* slate-800 */
+    --card: 217 33% 17%;
+    /* white */
+    --card-foreground: 0 0% 100%;
+
+    /* brandColors.blue.DEFAULT (#54C8E8) */
+    --primary: 193 76% 62%;
+    /* slate-950 */
+    --primary-foreground: 229 84% 5%;
+
+    /* slate-800 */
+    --secondary: 217 33% 17%;
+    /* white */
+    --secondary-foreground: 0 0% 100%;
+
+    /* slate-800 */
+    --accent: 217 33% 17%;
+    /* white */
+    --accent-foreground: 0 0% 100%;
+
+    /* red-500 */
+    --destructive: 0 84% 60%;
+    /* white */
+    --destructive-foreground: 0 0% 100%;
+
+    /* slate-700 */
+    --border: 215 25% 27%;
+    /* slate-700 */
+    --input: 215 25% 27%;
+    /* slate-700 */
+    --ring: 215 25% 27%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+}
+
+.sanity-content a,
+a.link {
+  @apply text-blue-500 underline underline-offset-4 transition-colors hover:text-blue-300;
+}
+
+.fusion-gradient {
+  background: linear-gradient(
+    30deg,
+    hsl(193deg 76% 62%) 0%,
+    hsl(200deg 98% 61%) 20%,
+    hsl(212deg 100% 69%) 29%,
+    hsl(246deg 100% 79%) 36%,
+    hsl(292deg 71% 67%) 43%,
+    hsl(324deg 100% 63%) 50%,
+    hsl(336deg 100% 64%) 57%,
+    hsl(357deg 100% 69%) 64%,
+    hsl(21deg 100% 64%) 71%,
+    hsl(37deg 100% 57%) 80%,
+    hsl(48deg 100% 50%) 100%
+  );
+}
+
+.fusion-gradient::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  background: linear-gradient(
+    140deg,
+    hsl(193deg 76% 62%) 0%,
+    hsl(200deg 98% 61%) 20%,
+    hsl(212deg 100% 69%) 29%,
+    hsl(246deg 100% 79%) 36%,
+    hsl(292deg 71% 67%) 43%,
+    hsl(324deg 100% 63%) 50%,
+    hsl(336deg 100% 64%) 57%,
+    hsl(357deg 100% 69%) 64%,
+    hsl(21deg 100% 64%) 71%,
+    hsl(37deg 100% 57%) 80%,
+    hsl(48deg 100% 50%) 100%
+  );
+}
+.fusion-gradient:hover::before {
+  opacity: 1;
+}
+
+.blue-replace-italic em {
+  @apply not-italic text-blue-400;
+}
+
+.background-fusion-colours {
+  overflow: hidden;
+  position: relative;
+}
+.background-fusion-colours::before {
+  @apply absolute block bg-cover bg-no-repeat blur md:blur-xl;
+  @apply bg-[center_top] md:bg-[center_top] xl:bg-[center_top_-20vw];
+  @apply opacity-70 md:opacity-40;
+  background-image: url("/fusion-colours-background-small.webp");
+  background-size: 100% auto;
+  top: -5%;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  content: "";
+  z-index: -1;
+}
+
+.eventbrite-container {
+  @apply relative overflow-hidden rounded-xl bg-white bg-opacity-10 shadow-lg;
+  height: 425px;
+}
+
+.eventbrite-container::before {
+  content: "Loading Eventbrite...";
+  @apply absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center;
+  z-index: -1;
+}
