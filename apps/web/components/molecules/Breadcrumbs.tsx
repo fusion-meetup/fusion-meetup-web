@@ -20,14 +20,16 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   const pathname = usePathname();
   const routerParams = useParams();
 
-  const paths = pathname.split("/").filter((e) => e);
-  const paramsReversed = Object.entries(routerParams).reduce(
-    (acc, [key, value]) => {
-      if (Array.isArray(value)) return acc;
-      return { ...acc, [value]: key };
-    },
-    {} as Record<string, string>,
-  );
+  const paths = pathname?.split("/").filter((e) => e) ?? [];
+  const paramsReversed = routerParams
+    ? Object.entries(routerParams).reduce(
+        (acc, [key, value]) => {
+          if (Array.isArray(value)) return acc;
+          return { ...acc, [value]: key };
+        },
+        {} as Record<string, string>,
+      )
+    : {};
 
   const linksAndText = paths.map((path, index) => {
     const href = `/${paths.slice(0, index + 1).join("/")}`;

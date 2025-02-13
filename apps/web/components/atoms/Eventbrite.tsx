@@ -34,20 +34,27 @@ export const Eventbrite: React.FC<EventbriteProps> = ({ eventbriteLink }) => {
 
   return (
     <>
-      <div className="rounded-xl bg-slate-600/50">
+      <div className="relative rounded-xl bg-slate-600/50">
         <div className="p-2 text-center text-xl font-bold md:text-2xl">
           Get tickets
         </div>
 
         <div id={iframeContainerId} className="eventbrite-container" />
-      </div>
 
-      <Script
-        id="eventbrite-js"
-        src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"
-        onLoad={() => setEbScriptIsLoaded((window.ebScriptIsLoaded = true))}
-        strategy="lazyOnload"
-      />
+        {process.env.NODE_ENV === "development" ? (
+          <div className="absolute bottom-4 right-4 font-mono text-xs">
+            <span className="font-bold">Development mode:</span> skipping
+            Eventbrite widget script load
+          </div>
+        ) : (
+          <Script
+            id="eventbrite-js"
+            src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"
+            onLoad={() => setEbScriptIsLoaded((window.ebScriptIsLoaded = true))}
+            strategy="lazyOnload"
+          />
+        )}
+      </div>
     </>
   );
 };

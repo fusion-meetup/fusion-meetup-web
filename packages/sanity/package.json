@@ -14,11 +14,11 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@sanity/client": "^6.21.3",
-    "@sanity/vision": "^3.54.0",
-    "dayjs": "^1.11.12",
-    "groq": "^3.54.0",
-    "sanity": "^3.54.0"
+    "@sanity/client": "^6.28.0",
+    "@sanity/vision": "^3.75.0",
+    "dayjs": "^1.11.13",
+    "groq": "^3.75.0",
+    "sanity": "^3.75.0"
   },
   "devDependencies": {
     "@fusion/eslint-config": "*",
@@ -28,6 +28,6 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.7.3"
   }
 }

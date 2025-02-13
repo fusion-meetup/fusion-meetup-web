@@ -11,10 +11,12 @@ import { Breadcrumbs } from "@/components/molecules/Breadcrumbs";
 import { Layout } from "@/components/organisms/Layout";
 
 interface BlogPostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-const BlogPostPage = async ({ params: { slug } }: BlogPostPageProps) => {
+const BlogPostPage = async (props: BlogPostPageProps) => {
+  const { slug } = await props.params;
+
   const blogPost = await getBlogPostBySlug(slug);
 
   if (!blogPost) notFound();

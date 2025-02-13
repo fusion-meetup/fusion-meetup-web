@@ -12,7 +12,7 @@ import { FusionLogo, LogoComponent } from "../atoms/FusionLogo";
 // TODO: Fix mouse scope on either side
 // TODO: Make this use accelerometer instead of mouse position on mobile
 
-const FusionLogoParallax = () => {
+export const FusionLogoParallax = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const [rendered, setRendered] = useState(false);
@@ -38,9 +38,10 @@ const FusionLogoParallax = () => {
     <animated.div
       className="absolute top-0 h-full w-full"
       style={{
-        transform: prefersReducedMotion
-          ? undefined
-          : springProps.xy.to(translateFn),
+        transform:
+          prefersReducedMotion || !rendered
+            ? undefined
+            : springProps.xy.to(translateFn),
       }}
     >
       <div
@@ -116,5 +117,3 @@ const calcXy = (x: number, y: number) =>
 
 const translateZ = (z: number) => (x: number, y: number) =>
   `translate3d(${x / z}px, ${y / z}px, 0)`;
-
-export default FusionLogoParallax;

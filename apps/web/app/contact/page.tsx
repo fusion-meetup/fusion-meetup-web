@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 
 import { ContactForm } from "@/components/organisms/ContactForm";
 import { Layout } from "@/components/organisms/Layout";
@@ -15,7 +16,9 @@ const ContactPage = () => {
           height={128}
         />
 
-        <ContactForm />
+        <Suspense fallback="Loading...">
+          <ContactForm />
+        </Suspense>
       </div>
     </Layout>
   );

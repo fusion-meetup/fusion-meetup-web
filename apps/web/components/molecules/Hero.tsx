@@ -1,11 +1,5 @@
-import dynamic from "next/dynamic";
-
 import { FusionLogo } from "../atoms/FusionLogo";
-
-const FusionLogoParallax = dynamic(
-  () => import("../molecules/FusionLogoParallax"),
-  { ssr: false },
-);
+import { FusionLogoParallax } from "./FusionLogoParallax";
 
 const colourBars = [
   { color: "#FF40B4", angle: -56, position: { top: "55%", left: "-5%" } },

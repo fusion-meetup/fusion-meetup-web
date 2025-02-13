@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "globalEnv": ["NEXT_PUBLIC_EMULATE_EVENT_IS_LIVE"],
   "globalPassThroughEnv": [
     "NODE_ENV",

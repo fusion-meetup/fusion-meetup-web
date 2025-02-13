@@ -21,12 +21,14 @@ import { Layout } from "@/components/organisms/Layout";
 import { cn } from "@ui/lib/utils";
 
 interface EventPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-const EventPage = async ({ params }: EventPageProps) => {
+const EventPage = async (props: EventPageProps) => {
+  const { slug } = await props.params;
+
   const [event, codeOfConduct] = await Promise.all([
-    getFusionEventBySlug(params.slug),
+    getFusionEventBySlug(slug),
     getCodeOfConduct(),
   ]);
 
