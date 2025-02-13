@@ -1,7 +1,3 @@
 {
-  "projects": {
-    "web": {
-      "root": "apps/web"
-    }
-  }
+  "root": "apps/web"
 }
