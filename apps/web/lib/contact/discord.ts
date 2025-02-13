@@ -43,6 +43,7 @@ export const sendContactForm = async (
     await axios.post(url, body);
     return true;
   } catch (e) {
+    console.error(e);
     return false;
   }
 };

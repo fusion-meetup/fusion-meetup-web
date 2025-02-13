@@ -12,7 +12,7 @@ import type {
   GetHomePageContentQueryResult,
   GetLatestFusionEventQueryResult,
   GetTeamMembersQueryResult,
-} from "../sanity.types";
+} from "../build/sanity.types";
 import { client } from "./client";
 
 export const getTeamMembers = async () => {

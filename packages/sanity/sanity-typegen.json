@@ -1,5 +1,5 @@
 {
   "path": "'./client/queries.{ts,tsx,js,jsx}'",
-  "schema": "./schema.json",
-  "generates": "./sanity.types.ts"
+  "schema": "./build/schema.json",
+  "generates": "./build/sanity.types.ts"
 }

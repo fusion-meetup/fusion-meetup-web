@@ -60,6 +60,7 @@ export const ContactForm: React.FC = () => {
       );
       setSubmitSuccess(response.data.success);
     } catch (e) {
+      console.error(e);
       setSubmitSuccess(false);
     } finally {
       setSendingFormResult(false);
