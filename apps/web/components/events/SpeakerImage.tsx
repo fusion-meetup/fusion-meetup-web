@@ -9,32 +9,35 @@ import { SanityImage } from "../atoms/SanityImage";
 interface SpeakerImageProps {
   speaker?: Speaker;
   className?: string;
-  small?: boolean;
+  size: number;
 }
 
 export const SpeakerImage: React.FC<SpeakerImageProps> = ({
   speaker,
   className,
-  small,
+  size,
 }) => {
   if (!speaker) return null;
 
   return (
     <div
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-blue bg-opacity-50 text-4xl",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-blue-500/50 text-4xl",
         className,
       )}
+      style={{ width: size, height: size }}
     >
       {speaker.photo ? (
         <SanityImage
           image={speaker.photo}
-          layout="fill"
+          layout="fixed"
+          width={size}
+          height={size}
           objectFit="cover"
           alt={`Profile photo for ${speaker.name}`}
         />
       ) : (
-        <div className={cn("text-2xl opacity-70", { "text-4xl": !small })}>
+        <div className={cn("text-2xl opacity-70", { "text-4xl": size <= 32 })}>
           <RiUserSmileLine />
         </div>
       )}

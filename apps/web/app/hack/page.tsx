@@ -19,11 +19,16 @@ const ContactPage = () => {
         />
       </Head>
 
-      <div className="absolute left-0 top-0 z-10">
+      <div className="fixed top-0 left-0 z-10">
         <HomeButton />
       </div>
 
-      <div className="flex min-h-screen flex-col bg-slate-900 text-white bg-grid-slate-800/50">
+      <div
+        className="flex min-h-screen flex-col bg-slate-900 text-white"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(30 41 59 / 0.5)'><path d='M0 .5H31.5V32'/></svg>")`,
+        }}
+      >
         <header>
           <AuroraHero>
             <div className="mx-auto -mt-4 w-full max-w-xl px-8">
@@ -47,12 +52,12 @@ const ContactPage = () => {
                 Under construction! Stay tuned...
               </div>
 
-              <h2 className="text-pretty text-center text-3xl leading-tight md:text-5xl">
+              <h2 className="text-center text-3xl leading-tight text-pretty md:text-5xl">
                 FusionHack is a 24hr hackathon* for the Birmingham tech
                 community
               </h2>
 
-              <p className="text-balance text-center text-sm leading-tight opacity-50">
+              <p className="text-center text-sm leading-tight text-balance opacity-50">
                 *hackathons are collaborative events where participants learn,
                 build, and share fun code projects!
               </p>
@@ -65,12 +70,12 @@ const ContactPage = () => {
             <section>
               <div className="flex flex-col items-center gap-6 rounded-xl border-2 border-slate-800 bg-slate-950/30 p-8">
                 <div className="flex flex-col items-center gap-2">
-                  <p className="max-w-2xl text-balance text-center">
+                  <p className="max-w-2xl text-center text-balance">
                     We're currently working out all the details to make
                     FusionHack awesome!
                   </p>
 
-                  <p className="text-balance text-center text-2xl font-semibold text-blue-400">
+                  <p className="text-center text-2xl font-semibold text-balance text-blue-400">
                     Sign up for updates{" "}
                     <ArrowDown size="1.25em" className="inline-block" />
                   </p>

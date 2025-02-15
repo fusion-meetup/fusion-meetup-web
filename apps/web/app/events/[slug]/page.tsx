@@ -56,7 +56,7 @@ const EventPage = async (props: EventPageProps) => {
 
   return (
     <Layout title={title} className="px-4" fancyBackground="colours">
-      <div className={cn(narrowContainerClassName, "pb-4 pt-6")}>
+      <div className={cn(narrowContainerClassName, "pt-6 pb-4")}>
         <EventOverview
           event={event}
           ticketProvider={ticketProvider}

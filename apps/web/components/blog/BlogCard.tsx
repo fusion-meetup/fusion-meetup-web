@@ -36,7 +36,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
           />
 
           {post.featured ? (
-            <div className="absolute right-2 top-2 flex items-center gap-1 rounded bg-yellow px-1 text-sm font-bold text-slate-800">
+            <div className="bg-yellow absolute top-2 right-2 flex items-center gap-1 rounded px-1 text-sm font-bold text-slate-800">
               Featured{" "}
               <span className="text-xs">
                 <FaStar />
@@ -46,7 +46,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, className }) => {
         </div>
 
         <div className="flex flex-1 flex-col justify-between gap-6 p-6 pt-2">
-          <h2 className="break-words text-2xl font-bold group-hover:text-pink-400">
+          <h2 className="text-2xl font-bold break-words group-hover:text-pink-400">
             {post.title}
           </h2>
 

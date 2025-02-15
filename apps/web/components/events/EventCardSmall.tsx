@@ -49,11 +49,7 @@ export const EventCardSmall: React.FC<EventCardSmallProps> = ({
             {event.talks.map((talk) => (
               <div key={talk._key} className="flex flex-row gap-4">
                 <div className="flex flex-row items-center gap-3">
-                  <SpeakerImage
-                    speaker={talk.speaker}
-                    className="h-8 w-8"
-                    small
-                  />
+                  <SpeakerImage speaker={talk.speaker} size={32} />
 
                   <div>
                     <p className="font-bold">

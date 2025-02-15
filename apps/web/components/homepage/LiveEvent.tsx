@@ -34,7 +34,7 @@ export const LiveEvent: React.FC<LiveEventProps> = ({ liveEvent }) => {
       <div className="relative flex flex-col gap-8">
         <div className="height-64 relative overflow-hidden rounded-xl pb-[56.25%] shadow">
           <iframe
-            className="absolute left-0 top-0 h-full w-full"
+            className="absolute top-0 left-0 h-full w-full"
             src={`https://www.youtube.com/embed/${youTubeID}`}
             title="YouTube video player"
             frameBorder="0"
@@ -43,7 +43,7 @@ export const LiveEvent: React.FC<LiveEventProps> = ({ liveEvent }) => {
           />
 
           {streamIsLive ? (
-            <div className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-[#c00] px-4 font-bold shadow">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 rounded-full bg-[#c00] px-4 font-bold shadow">
               LIVE
             </div>
           ) : null}

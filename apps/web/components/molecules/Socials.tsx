@@ -46,10 +46,10 @@ export const Socials: FC = () => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group p-2 focus:outline-none"
+          className="group p-2 focus:outline-hidden"
           aria-label={name}
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-md outline-2 outline-slate-500 transition-opacity group-hover:bg-slate-700 group-focus:outline">
+          <div className="flex h-10 w-10 items-center justify-center rounded-md outline-slate-500 transition-opacity group-hover:bg-slate-700 group-focus:outline-2">
             {icon}
           </div>
         </a>

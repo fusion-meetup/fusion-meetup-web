@@ -42,7 +42,7 @@ export const Eventbrite: React.FC<EventbriteProps> = ({ eventbriteLink }) => {
         <div id={iframeContainerId} className="eventbrite-container" />
 
         {process.env.NODE_ENV === "development" ? (
-          <div className="absolute bottom-4 right-4 font-mono text-xs">
+          <div className="absolute right-4 bottom-4 font-mono text-xs">
             <span className="font-bold">Development mode:</span> skipping
             Eventbrite widget script load
           </div>

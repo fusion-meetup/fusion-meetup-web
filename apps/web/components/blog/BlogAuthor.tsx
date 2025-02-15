@@ -18,8 +18,10 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = ({
           <SanityImage
             image={teamMember.image}
             alt={`Profile photo for ${teamMember.name}`}
-            layout="fill"
+            layout="fixed"
             objectFit="cover"
+            width={40}
+            height={40}
           />
         </div>
       ) : null}

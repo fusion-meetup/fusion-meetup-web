@@ -11,7 +11,7 @@ export const YouTubeVideo: React.FC<YouTubeProps> = ({ youTubeLink }) => {
   return (
     <div className="height-64 relative overflow-hidden rounded-xl pb-[56.25%] shadow">
       <iframe
-        className="absolute left-0 top-0 h-full w-full"
+        className="absolute top-0 left-0 h-full w-full"
         src={`https://www.youtube.com/embed/${youTubeID}`}
         title="YouTube video player"
         frameBorder="0"

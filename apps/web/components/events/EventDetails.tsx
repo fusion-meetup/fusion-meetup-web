@@ -113,7 +113,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
           <Link
             href="/code-of-conduct"
-            className="flex h-10 w-max flex-row items-center gap-2 rounded-md border-2 border-slate-600 px-3 hover:bg-slate-700 hover:bg-opacity-70 hover:shadow"
+            className="flex h-10 w-max flex-row items-center gap-2 rounded-md border-2 border-slate-600 px-3 hover:bg-slate-700/70 hover:shadow"
           >
             <IoMdInformationCircleOutline />{" "}
             {codeOfConduct?.linkText || "Code of Conduct"}

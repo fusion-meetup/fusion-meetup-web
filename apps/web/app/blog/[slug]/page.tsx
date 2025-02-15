@@ -27,7 +27,7 @@ const BlogPostPage = async (props: BlogPostPageProps) => {
 
       <div className="relative z-0 mx-auto max-w-[640px] p-4 xl:max-w-[800px]">
         <div className="flex flex-col gap-10 py-6">
-          <div className="flex flex-row flex-wrap items-center justify-between gap-4 rounded-lg border-2 border-slate-500 bg-slate-800 p-4 pl-5 pr-6 shadow">
+          <div className="flex flex-row flex-wrap items-center justify-between gap-4 rounded-lg border-2 border-slate-500 bg-slate-800 p-4 pr-6 pl-5 shadow">
             {blogPost.author ? (
               <BlogAuthor teamMember={blogPost.author} enableTwitterLink />
             ) : null}

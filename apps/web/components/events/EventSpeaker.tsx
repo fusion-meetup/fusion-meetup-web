@@ -17,6 +17,7 @@ export const EventSpeaker: React.FC<EventSpeakerProps> = ({ speaker }) => {
           <div className="relative">
             <SpeakerImage
               speaker={speaker}
+              size={96}
               className="aspect-square w-20 md:w-24"
             />
           </div>

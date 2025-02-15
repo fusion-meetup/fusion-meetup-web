@@ -41,9 +41,9 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-[#cc0000] hover:bg-[#990000] outline-[#cc000088] text-white":
         color === "youtube" && !disabled,
       "text-2xl py-3 px-6": size === "large",
-      "cursor-not-allowed bg-slate-600 text-slate-100 focus:outline-none focus:scale-100 hover:shadow-none":
+      "cursor-not-allowed bg-slate-600 text-slate-100 focus:outline-hidden focus:scale-100 hover:shadow-none":
         disabled,
-      "transition-all ease-out duration-100 hover:shadow focus:outline active:outline outline-3 outline-offset-2 focus:scale-95":
+      "transition-all ease-out duration-100 hover:shadow focus:outline active:outline-3 outline-offset-2 focus:scale-95":
         !disabled,
     },
     classNameProp,

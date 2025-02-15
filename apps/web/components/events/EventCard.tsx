@@ -36,7 +36,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, highlight }) => {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-1 md:gap-8 lg:grid-cols-2">
           {event.talks.map((talk) => (
             <div key={talk._key} className="flex flex-row gap-4">
-              <SpeakerImage speaker={talk.speaker} className="h-16 w-16" />
+              <SpeakerImage speaker={talk.speaker} size={64} />
 
               <div className="flex flex-col gap-2">
                 <h3 className="font-md">{talk.title}</h3>
@@ -67,10 +67,10 @@ const EventCardContainer: React.FC<{
     href={`/events/${event.slug?.current ?? "#"}`}
     className={cn(
       "group relative overflow-hidden rounded-xl p-1 shadow-sm hover:shadow-xl",
-      highlight ? "fusion-gradient" : "bg-slate-500 hover:bg-blue",
+      highlight ? "fusion-gradient" : "hover:bg-blue bg-slate-500",
     )}
   >
-    <div className="z-1 relative rounded-lg bg-slate-800 p-6 shadow-md group-hover:bg-opacity-90">
+    <div className="relative z-1 rounded-lg bg-slate-800 p-6 shadow-md group-hover:bg-slate-800/90">
       <div className={className}>{children}</div>
     </div>
   </Link>

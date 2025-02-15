@@ -41,7 +41,7 @@ export const Layout: React.FC<LayoutProps> = ({
         <Header />
 
         <main
-          className={cn(className, "z-1 relative pb-8", {
+          className={cn(className, "relative z-1 pb-8", {
             "pt-12": !withHero,
             "-mt-8": withHero,
           })}

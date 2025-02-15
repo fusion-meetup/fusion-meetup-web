@@ -14,7 +14,7 @@ export const Hero = () => {
         <HeroColourBar key={bar.color} {...{ ...bar, animationOffset: i }} />
       ))}
 
-      <div className="z-15 absolute left-1/2 mx-auto w-96 translate-x-[-50%] p-16 pt-20 md:w-[46vw] xl:w-[36rem]">
+      <div className="absolute left-1/2 z-15 mx-auto w-96 translate-x-[-50%] p-16 pt-20 md:w-[46vw] xl:w-[36rem]">
         <FusionLogoParallax />
 
         <noscript>
@@ -44,7 +44,7 @@ export const HeroColourBar: React.FC<HeroColourBarProps> = ({
 }) => {
   return (
     <div
-      className="absolute h-0 w-0 motion-safe:animate-chillin"
+      className="motion-safe:animate-chillin absolute h-0 w-0"
       style={{ ...position, animationDelay: `${animationOffset * 1500}ms` }}
     >
       <div
