@@ -11,7 +11,7 @@
   "dependencies": {
     "@fusion/sanity": "*",
     "@fusion/ui": "*",
-    "@hookform/resolvers": "^4.0.0",
+    "@hookform/resolvers": "^4.1.0",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "axios": "^1.7.9",
     "lucide-react": "^0.475.0",
@@ -29,7 +29,7 @@
     "@fusion/eslint-config": "*",
     "@fusion/typescript-config": "*",
     "@types/mailchimp__mailchimp_marketing": "^3.0.21",
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "eslint": "^8.57.0",
