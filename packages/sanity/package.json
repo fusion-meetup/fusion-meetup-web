@@ -10,7 +10,7 @@
     "./types": "./build/sanity.types.ts"
   },
   "scripts": {
-    "build": "sanity schema extract --path './build/schema.json' && sanity typegen generate",
+    "build": "mkdir -p build && sanity schema extract --path './build/schema.json' && sanity typegen generate",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
