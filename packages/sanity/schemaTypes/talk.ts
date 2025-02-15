@@ -37,7 +37,7 @@ export const talkType = defineType({
     prepare({ title, subtitle, media, isLightningTalk }) {
       return {
         title,
-        subtitle: `${isLightningTalk ? "LIGHTNING ⚡️ " : ""}${subtitle}`,
+        subtitle: `${isLightningTalk ? "LIGHTNING ⚡️ " : ""}${subtitle || "No title"}`,
         media,
       };
     },
