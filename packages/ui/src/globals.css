@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  :root {
+    /* slate-900 */
+    --background: 222 47% 11%;
+    /* white */
+    --foreground: 0 0% 100%;
+
+    /* slate-700 */
+    --muted: 215 25% 27%;
+    /* slate-400 */
+    --muted-foreground: 215 20% 65%;
+    /* slate-700 */
+    --muted-border: 215 19% 35%;
+
+    /* slate-900 */
+    --popover: 222 47% 11%;
+    /* white */
+    --popover-foreground: 0 0% 100%;
+
+    /* slate-800 */
+    --card: 217 33% 17%;
+    /* white */
+    --card-foreground: 0 0% 100%;
+
+    /* brandColors.blue.DEFAULT (#54C8E8) */
+    --primary: 193 76% 62%;
+    /* slate-950 */
+    --primary-foreground: 229 84% 5%;
+
+    /* slate-800 */
+    --secondary: 217 33% 17%;
+    /* white */
+    --secondary-foreground: 0 0% 100%;
+
+    /* slate-800 */
+    --accent: 217 33% 17%;
+    /* white */
+    --accent-foreground: 0 0% 100%;
+
+    /* red-500 */
+    --destructive: 0 84% 60%;
+    /* white */
+    --destructive-foreground: 0 0% 100%;
+
+    /* slate-700 */
+    --border: 215 25% 27%;
+    /* slate-700 */
+    --input: 215 25% 27%;
+    /* slate-700 */
+    --ring: 215 25% 27%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-blue-50: #f6fcfe;
+  --color-blue-100: #e4f6fb;
+  --color-blue-200: #c0ebf7;
+  --color-blue-300: #9cdff2;
+  --color-blue-400: #78d4ed;
+  --color-blue-500: #54c8e8;
+  --color-blue-600: #23b8e1;
+  --color-blue-700: #1892b4;
+  --color-blue-800: #126a82;
+  --color-blue-900: #0b4251;
+  --color-blue: #54c8e8;
+
+  --color-pink-50: #fff8fc;
+  --color-pink-100: #ffe3f4;
+  --color-pink-200: #ffbae4;
+  --color-pink-300: #ff92d4;
+  --color-pink-400: #ff69c4;
+  --color-pink-500: #ff40b4;
+  --color-pink-600: #f00a95;
+  --color-pink-700: #cf007e;
+  --color-pink-800: #97005c;
+  --color-pink-900: #5f0039;
+  --color-pink: #ff40b4;
+
+  --color-yellow-50: #fff1ba;
+  --color-yellow-100: #ffeda5;
+  --color-yellow-200: #ffe57c;
+  --color-yellow-300: #ffdd54;
+  --color-yellow-400: #ffd52b;
+  --color-yellow-500: #ffcd02;
+  --color-yellow-600: #c9a100;
+  --color-yellow-700: #917400;
+  --color-yellow-800: #594700;
+  --color-yellow-900: #211a00;
+  --color-yellow: #ffcd02;
+
+  --color-primary-50: #f6fcfe;
+  --color-primary-100: #e4f6fb;
+  --color-primary-200: #c0ebf7;
+  --color-primary-300: #9cdff2;
+  --color-primary-400: #78d4ed;
+  --color-primary-500: #54c8e8;
+  --color-primary-600: #23b8e1;
+  --color-primary-700: #1892b4;
+  --color-primary-800: #126a82;
+  --color-primary-900: #0b4251;
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-chillin: chillin 10s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  --animate-aurora: aurora 60s linear infinite;
+
+  --font-sans: var(--font-sans);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes chillin {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8vw);
+    }
+  }
+
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+.sanity-content a,
+a.link {
+  @apply text-blue-500 underline underline-offset-4 transition-colors hover:text-blue-300;
+}
+
+.fusion-gradient {
+  background: linear-gradient(
+    30deg,
+    hsl(193deg 76% 62%) 0%,
+    hsl(200deg 98% 61%) 20%,
+    hsl(212deg 100% 69%) 29%,
+    hsl(246deg 100% 79%) 36%,
+    hsl(292deg 71% 67%) 43%,
+    hsl(324deg 100% 63%) 50%,
+    hsl(336deg 100% 64%) 57%,
+    hsl(357deg 100% 69%) 64%,
+    hsl(21deg 100% 64%) 71%,
+    hsl(37deg 100% 57%) 80%,
+    hsl(48deg 100% 50%) 100%
+  );
+}
+
+.fusion-gradient::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  background: linear-gradient(
+    140deg,
+    hsl(193deg 76% 62%) 0%,
+    hsl(200deg 98% 61%) 20%,
+    hsl(212deg 100% 69%) 29%,
+    hsl(246deg 100% 79%) 36%,
+    hsl(292deg 71% 67%) 43%,
+    hsl(324deg 100% 63%) 50%,
+    hsl(336deg 100% 64%) 57%,
+    hsl(357deg 100% 69%) 64%,
+    hsl(21deg 100% 64%) 71%,
+    hsl(37deg 100% 57%) 80%,
+    hsl(48deg 100% 50%) 100%
+  );
+}
+.fusion-gradient:hover::before {
+  opacity: 1;
+}
+
+.blue-replace-italic em {
+  @apply text-blue-400 not-italic;
+}
+
+.background-fusion-colours {
+  overflow: hidden;
+  position: relative;
+}
+.background-fusion-colours::before {
+  @apply absolute block bg-cover bg-no-repeat blur-sm md:blur-xl;
+  @apply bg-[center_top] md:bg-[center_top] xl:bg-[center_top_-20vw];
+  @apply opacity-70 md:opacity-40;
+  background-image: url("/fusion-colours-background-small.webp");
+  background-size: 100% auto;
+  top: -5%;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  content: "";
+  z-index: -1;
+}
+
+.eventbrite-container {
+  @apply relative overflow-hidden rounded-xl bg-white/10 shadow-lg;
+  height: 425px;
+}
+
+.eventbrite-container::before {
+  content: "Loading Eventbrite...";
+  @apply absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center;
+  z-index: -1;
+}
+
+.aurora {
+  inset: -10px;
+  opacity: 0.5;
+  --aurora: repeating-linear-gradient(
+    100deg,
+    var(--color-blue-500) 10%,
+    var(--color-pink-400) 15%,
+    var(--color-blue-300) 20%,
+    var(--color-yellow-200) 25%,
+    var(--color-blue-400) 30%
+  );
+  --dark-gradient: repeating-linear-gradient(
+    100deg,
+    black 0%,
+    black 7%,
+    transparent 10%,
+    transparent 12%,
+    black 16%
+  );
+  --white-gradient: repeating-linear-gradient(
+    100deg,
+    white 0%,
+    white 7%,
+    transparent 10%,
+    transparent 12%,
+    white 16%
+  );
+  background-image: var(--dark-gradient), var(--aurora);
+  background-position:
+    50% 50%,
+    50% 50%;
+  background-size: 300%, 200%;
+  filter: blur(16px);
+  position: absolute;
+  pointer-events: none;
+  mask-image: radial-gradient(
+    ellipse at 55% -50%,
+    var(--color-slate-900) 10%,
+    transparent 65%
+  );
+}
+
+.aurora::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: var(--dark-gradient), var(--aurora);
+  background-size: 200%, 100%;
+  background-attachment: fixed;
+  mix-blend-mode: difference;
+  animation: var(--animate-aurora);
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@fusion/cms",
+  "version": "0.0.0",
+  "private": true,
+  "main": "package.json",
+  "scripts": {
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy",
+    "dev": "sanity dev",
+    "lint": "eslint . --max-warnings 0",
+    "start": "sanity start"
+  },
+  "dependencies": {
+    "@fusion/sanity": "*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^3.75.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^4.0.0",
+    "@types/react": "^19.0.8",
+    "eslint": "^8.57.0",
+    "typescript": "^5.7.3"
+  }
+}

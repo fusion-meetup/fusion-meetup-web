@@ -16,7 +16,7 @@ The site is built with React on Next.js, Sanity CMS for content management, and 
 
 Requirements:
 
-- Node >= 16
+- Node >= 20
 - Yarn (`npm i -g yarn`)
 
 No environment variables are required for development, with the exception of the contact page.
@@ -30,4 +30,4 @@ yarn
 yarn dev
 ```
 
-This serves the site on [localhost:3000](http://localhost:3000).
+This serves the site on [localhost:30121](http://localhost:30121)

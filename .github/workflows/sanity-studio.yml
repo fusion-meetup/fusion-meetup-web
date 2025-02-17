@@ -4,7 +4,8 @@ on:
     branches:
       - main
     paths:
-      - sanity-studio/**
+      - apps/cms/**
+      - packages/sanity/**
 defaults:
   run:
     working-directory: sanity-studio
@@ -15,10 +16,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 22
       - name: Install dependencies
         run: |
           yarn
       - name: Deploy Sanity
         run: |
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" yarn deploy
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" yarn workspace @fusion/cms deploy
