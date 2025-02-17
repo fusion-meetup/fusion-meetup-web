@@ -19,7 +19,7 @@ export const SponsorFusion: React.FC<SponsorFusionProps> = ({ about }) => (
       <SanityContent value={about.sponsor} />
     </div>
 
-    <Button color="yellow" href="/Friends-of-Fusion-2024-v3.pdf">
+    <Button color="yellow" href="/Friends-of-Fusion-2024-v4.pdf">
       Read our Sponsorship Packages
     </Button>
   </div>
