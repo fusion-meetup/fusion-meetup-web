@@ -9,7 +9,7 @@ export const SponsorFusion: React.FC<SponsorFusionProps> = () => (
       Supporting Fusion
     </Heading>
 
-    <Button color="yellow" href="/Friends-of-Fusion-2024-v3.pdf">
+    <Button color="yellow" href="/Friends-of-Fusion-2024-v4.pdf">
       Read our Sponsorship Packages
     </Button>
   </div>
